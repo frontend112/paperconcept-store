@@ -1,9 +1,10 @@
-import Image from 'next/image'
-
+import data from "@/database/categories.json"
 export default function Home() {
+  console.log(data[2]);
+
   return (
     <main>
-      hello world
+      home page
     </main>
   )
 }
