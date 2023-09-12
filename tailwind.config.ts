@@ -10,9 +10,6 @@ const config: Config = {
     extend: {
       backgroundImage: {
         1: "url('img/background1.jpg')",
-        2: "url('img/background2.jpg')",
-        3: "url('img/background3.jpg')",
-        4: "url('img/background4.jpg')",
       },
     },
   },

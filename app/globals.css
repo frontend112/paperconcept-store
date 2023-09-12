@@ -5,3 +5,16 @@
 :root {
   min-height: 100vh;
 }
+
+.bg-1 {
+  background-image: url("img/background1.jpg");
+}
+.bg-2 {
+  background-image: url("img/background2.jpg");
+}
+.bg-3 {
+  background-image: url("img/background3.jpg");
+}
+.bg-4 {
+  background-image: url("img/background4.jpg");
+}
