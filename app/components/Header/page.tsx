@@ -1,24 +1,51 @@
 'use client'
 
 import Image from "next/image"
-import React from 'react'
+import React, { FC, useState } from 'react'
 import logoWhite from "../../img/pc-logo-mono-white.png";
 import categoriesJson from "@/databases/categories.json";
 import cn from "classnames";
 
 const backgroundLength = 4;
 
+enum directions {
+  left = 'left',
+  right = 'right',
+}
+
 const Header = () => {
   const categories = categoriesJson[2].data || [];
+
+  const [bgCount, setBgcount] = useState(1);
+
+  const changeBg = (direction: directions) => {
+    if (direction === directions.left && bgCount <= 1) {
+      setBgcount(backgroundLength);
+      return;
+    }
+    if (direction === directions.right && bgCount === backgroundLength) {
+      setBgcount(1);
+      return;
+    }
+
+    if (direction === directions.left) {
+      setBgcount(count => count - 1);
+    }
+    if (direction === directions.right) {
+      setBgcount(count => count + 1);
+    }
+  }
+
   return (
-    <header className={cn(
-      `bg-1`,
-      'bg-malarski',
-      'min-h-screen',
-      'bg-cover',
-      'bg-center',
-      'relative'
-    )}>
+    <header
+      className={cn(
+        `bg-${bgCount}`,
+        'min-h-screen',
+        'bg-cover',
+        'bg-center',
+        'relative',
+      )}
+    >
       <p className="p-2 f-size text-sm text-center text-white bg-black sticky">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
@@ -54,33 +81,40 @@ const Header = () => {
           ))}
         </ul>
       </section>
-      <Arrow direction="left" />
-      <Arrow direction="right" />
+      <Arrow direction={directions.left} changeBg={changeBg} />
+      <Arrow direction={directions.right} changeBg={changeBg} />
     </header>
   )
 }
 
 export default Header
 
-const Arrow = ({ direction }: { direction: "right" | "left" }) => (
+interface ArrowProps {
+  direction: directions;
+  changeBg: (direction: directions) => void;
+}
+
+const Arrow: FC<ArrowProps> = ({ direction, changeBg }) => (
   <div className={cn(
     'px-5',
     'rounded-full',
     'absolute',
     'top-[50%]',
     'hover: cursor-pointer',
-    direction === 'left' ? 'left-0' : 'right-0'
+    direction === directions.left ? 'left-0' : 'right-0'
   )}
   >
-    <i className={cn(
-      'border-solid',
-      'border-r-8',
-      'border-b-8',
-      'inline-block',
-      'p-3',
-      'border-black',
-      direction === 'left' ? 'rotate-[135deg]' : 'rotate-[-45deg]'
-    )}></i>
+    <button
+      className={cn(
+        'border-solid',
+        'border-r-8',
+        'border-b-8',
+        'inline-block',
+        'p-3',
+        'border-black',
+        direction === directions.left ? 'rotate-[135deg]' : 'rotate-[-45deg]'
+      )}
+      onClick={() => changeBg(direction)}
+    />
   </div>
 )
-
