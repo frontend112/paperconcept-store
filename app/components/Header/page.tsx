@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import React, { FC, useState } from 'react'
-import logoWhite from "../../img/pc-logo-mono-white.png";
+import logoWhite from "../../img/pc-logo-mono.svg";
 import categoriesJson from "@/databases/categories.json";
 import cn from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,22 +55,23 @@ const Header = () => {
       <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
-      <section className="max-w-[90vw] m-auto">
-        <nav className="flex text-white justify-between w-full p-5">
-          <div>
-            <Image
+      <section className="m-auto section">
+        <nav className="flex justify-between p-5 section__nav nav">
+          <div className="nav__logo-wrapper">
+            <span className="nav__logo"></span>
+            {/* <Image
               alt="logo"
               src={logoWhite}
               width="110"
               height="40"
-            />
+              style={{ color: "white" }}
+            /> */}
           </div>
           <form className="relative" onSubmit={handleSubmit}>
             <label htmlFor="search">
               <FontAwesomeIcon
                 icon={faSearch}
                 style={{
-                  color: "#fff",
                   position: "absolute",
                   left: "0",
                   top: "0.2rem",
@@ -84,12 +85,14 @@ const Header = () => {
               className="
                 white
                 bg-transparent
-                placeholder:text-white
+                placeholder:text-inherit
                 outline-none
                 border-b-2
                 search__input
                 pl-6
                 pb-1.5
+                border-white
+                hover:border-black
               "
               id="search"
               placeholder="Szukaj produktu"
@@ -113,7 +116,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <ul className="flex text-white justify-between">
+        <ul className="flex text-inherit justify-between">
           {categories.map(({ category, id }) => (
             <li key={id}>
               <Link href="/">
