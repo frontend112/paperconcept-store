@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   min-height: 100vh;
 }
@@ -9,12 +8,33 @@
 .bg-1 {
   background-image: url("img/background1.jpg");
 }
+
 .bg-2 {
   background-image: url("img/background2.jpg");
 }
+
 .bg-3 {
   background-image: url("img/background3.jpg");
 }
+
 .bg-4 {
   background-image: url("img/background4.jpg");
 }
+
+.bg-5 {
+  background-image: url("img/background5.jpg");
+}
+
+.section:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.search__input:placeholder-shown {
+  padding-left: 1.5rem;
+}
+.search__input::placeholder {
+  padding-left: 1.5rem;
+}
+
+/*# sourceMappingURL=globals.css.map */

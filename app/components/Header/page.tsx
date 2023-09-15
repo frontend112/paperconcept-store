@@ -5,12 +5,15 @@ import React, { FC, useState } from 'react'
 import logoWhite from "../../img/pc-logo-mono-white.png";
 import categoriesJson from "@/databases/categories.json";
 import cn from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
-const backgroundLength = 4;
+const backgroundLength = 5;
 
-enum directions {
-  left = 'left',
-  right = 'right',
+enum DIRECTIONS {
+  LEFT,
+  RIGHT
 }
 
 const Header = () => {
@@ -18,22 +21,25 @@ const Header = () => {
 
   const [bgCount, setBgcount] = useState(1);
 
-  const changeBg = (direction: directions) => {
-    if (direction === directions.left && bgCount <= 1) {
+  const changeBg = (direction: DIRECTIONS) => {
+    if (direction === DIRECTIONS.LEFT && bgCount <= 1) {
       setBgcount(backgroundLength);
       return;
     }
-    if (direction === directions.right && bgCount === backgroundLength) {
+    if (direction === DIRECTIONS.RIGHT && bgCount === backgroundLength) {
       setBgcount(1);
       return;
     }
-
-    if (direction === directions.left) {
+    if (direction === DIRECTIONS.LEFT) {
       setBgcount(count => count - 1);
     }
-    if (direction === directions.right) {
+    if (direction === DIRECTIONS.RIGHT) {
       setBgcount(count => count + 1);
     }
+  }
+
+  const handleSubmit = () => {
+    console.log('submitted')
   }
 
   return (
@@ -46,11 +52,11 @@ const Header = () => {
         'relative',
       )}
     >
-      <p className="p-2 f-size text-sm text-center text-white bg-black sticky">
+      <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
       <section className="max-w-[90vw] m-auto">
-        <nav className="flex text-white justify-between w-full">
+        <nav className="flex text-white justify-between w-full p-5">
           <div>
             <Image
               alt="logo"
@@ -59,30 +65,66 @@ const Header = () => {
               height="40"
             />
           </div>
-          <form >
-            <label />
+          <form className="relative" onSubmit={handleSubmit}>
+            <label htmlFor="search">
+              <FontAwesomeIcon
+                icon={faSearch}
+                style={{
+                  color: "#fff",
+                  position: "absolute",
+                  left: "0",
+                  top: "0.2rem",
+                  height: "1rem",
+                  cursor: "pointer",
+                }}
+              />
+            </label>
             <input
               type="text"
+              className="
+                white
+                bg-transparent
+                placeholder:text-white
+                outline-none
+                border-b-2
+                search__input
+                pl-6
+                pb-1.5
+              "
+              id="search"
               placeholder="Szukaj produktu"
-              className="white bg-transparent placeholder:text-white outline-none" />
+            />
           </form>
-          <ul className="flex uppercase">
-            <li>karta podarunkowa</li>
-            <li>nasze sklepy</li>
-            <li>blog</li>
-            <li>faq</li>
-            <li>o nas</li>
-            <li>kontakt</li>
+          <ul className="flex uppercase text-[0.6rem]">
+            <li>
+              <Link href='/' className="px-1.5 py-2 ">nasze sklepy</Link>
+            </li>
+            <li>
+              <Link href='/' className="px-1.5 py-2 ">blog</Link>
+            </li>
+            <li>
+              <Link href='/' className="px-1.5 py-2 ">faq</Link>
+            </li>
+            <li>
+              <Link href='/' className="px-1.5 py-2 ">o nas</Link>
+            </li>
+            <li>
+              <Link href='/' className="px-1.5 py-2 ">kontakt</Link>
+            </li>
           </ul>
         </nav>
         <ul className="flex text-white justify-between">
           {categories.map(({ category, id }) => (
-            <li key={id}>{category}</li>
+            <li key={id}>
+              <Link href="/">
+                {category}
+              </Link>
+            </li>
           ))}
         </ul>
       </section>
-      <Arrow direction={directions.left} changeBg={changeBg} />
-      <Arrow direction={directions.right} changeBg={changeBg} />
+      <Arrow direction={DIRECTIONS.LEFT} changeBg={changeBg} />
+      <Arrow direction={DIRECTIONS.RIGHT} changeBg={changeBg} />
     </header>
   )
 }
@@ -90,8 +132,8 @@ const Header = () => {
 export default Header
 
 interface ArrowProps {
-  direction: directions;
-  changeBg: (direction: directions) => void;
+  direction: DIRECTIONS;
+  changeBg: (direction: DIRECTIONS) => void;
 }
 
 const Arrow: FC<ArrowProps> = ({ direction, changeBg }) => (
@@ -101,18 +143,19 @@ const Arrow: FC<ArrowProps> = ({ direction, changeBg }) => (
     'absolute',
     'top-[50%]',
     'hover: cursor-pointer',
-    direction === directions.left ? 'left-0' : 'right-0'
+    'translate-y-[-50%]',
+    direction === DIRECTIONS.LEFT ? 'left-0' : 'right-0'
   )}
   >
     <button
       className={cn(
         'border-solid',
-        'border-r-8',
-        'border-b-8',
+        'border-r-4',
+        'border-b-4',
         'inline-block',
-        'p-3',
+        'p-4',
         'border-black',
-        direction === directions.left ? 'rotate-[135deg]' : 'rotate-[-45deg]'
+        direction === DIRECTIONS.LEFT ? 'rotate-[135deg]' : 'rotate-[-45deg]'
       )}
       onClick={() => changeBg(direction)}
     />
