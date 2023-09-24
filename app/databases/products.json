@@ -1,0 +1,180 @@
+[
+  {
+    "type": "header",
+    "version": "4.7.1",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "sql11645171"
+  },
+  {
+    "type": "table",
+    "name": "products",
+    "database": "sql11645171",
+    "data": [
+      {
+        "product": "koperty amber 100g - 14 x 14 cm, bia\u0142e, 500 szt.",
+        "id": "1",
+        "category": "papiery & koperty",
+        "price": "155"
+      },
+      {
+        "product": "koperty amber 100g - 17 x 17 cm, bia\u0142e, 500 szt.",
+        "id": "2",
+        "category": "papiery & koperty",
+        "price": "180"
+      },
+      {
+        "product": "Koperta Crush 120g - C5, Corn, z\u0142amana biel",
+        "id": "3",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
+        "product": "Koperta Curious Metallics 120g - C5, Nude, cielista",
+        "id": "4",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
+        "product": "Koperta Curious Metallics 120g - C5, Nude, cielista",
+        "id": "5",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
+        "product": "Koperta Materica 120g - C5, Terra Rossa, ceglasta",
+        "id": "6",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
+        "product": "Koperta Materica 120g - C5, Verdigris, zielona oliwkowa",
+        "id": "7",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, L",
+        "id": "8",
+        "category": "pi\u015bmiennicze & kaligrafia",
+        "price": "143"
+      },
+      {
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, XL",
+        "id": "9",
+        "category": "pi\u015bmiennicze & kaligrafia",
+        "price": "152"
+      },
+      {
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
+        "id": "10",
+        "category": "pi\u015bmiennicze & kaligrafia",
+        "price": "143"
+      },
+      {
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
+        "id": "11",
+        "category": "pi\u015bmiennicze & kaligrafia",
+        "price": "162"
+      },
+      {
+        "product": "Kalendarz tygodniowy 2024 - Moleskine - Sapphire Blue, twarda ok\u0142adka, P",
+        "id": "12",
+        "category": "pi\u015bmiennicze & kaligrafia",
+        "price": "110"
+      },
+      {
+        "product": "papiernicze & dla dzieci",
+        "id": "13",
+        "category": "papiernicze & dla dzieci",
+        "price": "65.9"
+      },
+      {
+        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
+        "id": "14",
+        "category": "papiernicze & dla dzieci",
+        "price": "28.5"
+      },
+      {
+        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
+        "id": "15",
+        "category": "papiernicze & dla dzieci",
+        "price": "7.2"
+      },
+      {
+        "product": "Zestaw do tworzenia bi\u017cuterii dla dzieci, Literki - Djeco - z\u0142ote, 1000 szt.",
+        "id": "16",
+        "category": "papiernicze & dla dzieci",
+        "price": "91.9"
+      },
+      {
+        "product": "Zestaw cienkopis\u00f3w Mono Drawing Pen, Fine - Tombow - czarne, 4 szt.",
+        "id": "17",
+        "category": "papiernicze & dla dzieci",
+        "price": "51.5"
+      },
+      {
+        "product": "Talerzyki papierowe Wiecz\u00f3r Panie\u0144ski - r\u00f3\u017cowe, 18 cm, 6 szt.",
+        "id": "18",
+        "category": "\u015blub & przyj\u0119cia",
+        "price": "16.7"
+      },
+      {
+        "product": "Pude\u0142ka na ciasto lub tort Chrzest \u015awi\u0119ty - bia\u0142e, 10 szt.",
+        "id": "19",
+        "category": "\u015blub & przyj\u0119cia",
+        "price": "36"
+      },
+      {
+        "product": "Balon foliowy na Chrzest \u015awi\u0119ty, Anio\u0142 Dziewczynka - 70 cm",
+        "id": "20",
+        "category": "\u015blub & przyj\u0119cia",
+        "price": "27"
+      },
+      {
+        "product": "Balony Kosmos na stojaku DIY - 90 cm",
+        "id": "21",
+        "category": "\u015blub & przyj\u0119cia",
+        "price": "17.5"
+      },
+      {
+        "product": "Balon lateksowy Jednoro\u017cec - przezroczysty, 45 cm",
+        "id": "22",
+        "category": "\u015blub & przyj\u0119cia",
+        "price": "12.5"
+      },
+      {
+        "product": "Papierowe lampiony - Rico Design - r\u00f3\u017cowe, 10 x 13 cm, 5 szt.",
+        "id": "23",
+        "category": "wyprzeda\u017c",
+        "price": "15.38"
+      },
+      {
+        "product": "Zestaw artystyczny ze stemplami dla dzieci - Djeco - Pojazdy",
+        "id": "24",
+        "category": "wyprzeda\u017c",
+        "price": "77.25"
+      },
+      {
+        "product": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
+        "id": "25",
+        "category": "wyprzeda\u017c",
+        "price": "14.25"
+      },
+      {
+        "product": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
+        "id": "26",
+        "category": "wyprzeda\u017c",
+        "price": "81"
+      },
+      {
+        "product": "Medium do farb Glossy - Lefranc & Bourgeois - brokatowe, 500 ml",
+        "id": "27",
+        "category": "wyprzeda\u017c",
+        "price": "34.13"
+      }
+    ]
+  }
+]
