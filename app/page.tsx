@@ -4,7 +4,7 @@
 import React, { FC, useState } from 'react'
 import cn from "classnames";
 
-import { Nav } from "./components/Nav/Nav";
+import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 
 const backgroundLength = 5;
@@ -53,7 +53,7 @@ const Main = () => {
           'overflow-hidden'
         )}
       >
-        <Nav />
+        <Menu extraClassName='transparent' />
         <Backgrounds bgCount={bgCount} />
         <Arrow direction={DIRECTIONS.LEFT} changeBg={changeBg} isLoading={isLoading} />
         <Arrow direction={DIRECTIONS.RIGHT} changeBg={changeBg} isLoading={isLoading} />

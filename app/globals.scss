@@ -13,7 +13,6 @@
 }
 
 .section {
-  color: #fff;
   &:hover {
     background-color: #fff;
     color: #000;
@@ -24,17 +23,11 @@
 }
 
 .nav {
-  &__logo-wrapper {
-    width: 110px;
-    height: 40px;
-  }
   &__logo {
     background-image: url("img/pc-logo-mono-white.png");
-    background-size: cover;
-    width: 110px;
-    height: 40px;
-    display: block;
-    background-repeat: no-repeat;
+    &--transparent {
+      background-image: url("img/pc-logo-mono-black.png");
+    }
   }
 }
 

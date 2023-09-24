@@ -1,10 +1,12 @@
+'use client'
 import React, { FormEvent } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import categoriesJson from "@/app/databases/categories.json"
+import cn from "classnames"
 
-export const Nav = () => {
+export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
       event.preventDefault();
@@ -15,15 +17,31 @@ export const Nav = () => {
   const categories = categoriesJson[2].data || [];
 
   return (
-    <nav className="z-10 absolute w-full">
-
+    <div className="z-10 absolute w-full">
       <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
-      <section className="m-auto section">
-        <div className="flex justify-between p-5 section__nav nav">
-          <div className="nav__logo-wrapper">
-            <Link href="/" className="nav__logo"></Link>
+      <section className={cn(
+        'section',
+        'm-auto',
+        'px-[5%]',
+        extraClassName === 'transparent'
+          ? 'text-white'
+          : 'text-black'
+      )}>
+        <nav className="nav section__nav flex justify-between p-5">
+          <div className="nav__logo-wrapper w-28 h-10">
+            <Link
+              className={cn(
+                'bg-cover',
+                'w-28',
+                'h-10',
+                'block',
+                'bg-no-repeat',
+                extraClassName === 'transparent' ? 'nav__logo' : 'nav__logo--transparent'
+              )}
+              href="/"
+            ></Link>
           </div>
           <form className="relative" onSubmit={handleSubmit}>
             <label htmlFor="search">
@@ -41,12 +59,12 @@ export const Nav = () => {
             <input
               type="text"
               className="
-                white
+                search__input
                 bg-transparent
+                white
                 placeholder:text-inherit
                 outline-none
                 border-b-2
-                search__input
                 pl-6
                 pb-1.5
                 border-white
@@ -58,23 +76,23 @@ export const Nav = () => {
           </form>
           <ul className="flex uppercase text-[0.6rem]">
             <li>
-              <Link href='/nasze-sklepy' className="px-1.5 py-2 ">nasze sklepy</Link>
+              <Link href='/nasze-sklepy' className="px-1.5 py-2">nasze sklepy</Link>
             </li>
             <li>
-              <Link href='/blog' className="px-1.5 py-2 ">blog</Link>
+              <Link href='/blog' className="px-1.5 py-2">blog</Link>
             </li>
             <li>
-              <Link href='/faq' className="px-1.5 py-2 ">faq</Link>
+              <Link href='/faq' className="px-1.5 py-2">faq</Link>
             </li>
             <li>
-              <Link href='/o-nas' className="px-1.5 py-2 ">o nas</Link>
+              <Link href='/o-nas' className="px-1.5 py-2">o nas</Link>
             </li>
             <li>
               <Link href='/kontakt' className="px-1.5 py-2 ">kontakt</Link>
             </li>
           </ul>
-        </div>
-        <ul className="flex text-inherit justify-between">
+        </nav>
+        <ul className="flex justify-between text-inherit">
           {categories.map(({ category, id }) => (
             <li key={id}>
               <Link href="/">
@@ -84,6 +102,6 @@ export const Nav = () => {
           ))}
         </ul>
       </section>
-    </nav>
+    </div>
   )
 }
