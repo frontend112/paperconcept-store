@@ -14,12 +14,16 @@ const backgroundLength = 5;
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
+  const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
+    setAnimationsDetails({ direction, isActive: true })
 
     setTimeout(() => {
       setIsLoading(false)
+      setAnimationsDetails({ direction, isActive: false })
+
       if (direction === DIRECTIONS.LEFT && bgCount <= 0) {
         setBgcount(backgroundLength - 1);
         return;
@@ -34,7 +38,7 @@ const Main = () => {
       if (direction === DIRECTIONS.RIGHT) {
         setBgcount(count => count + 1);
       }
-    }, 200)
+    }, 400)
   }
 
   return (
@@ -50,10 +54,31 @@ const Main = () => {
         )}
       >
         <Menu extraClassName='transparent' />
-        <Backgrounds bgCount={bgCount} />
-        <Arrow direction={DIRECTIONS.LEFT} changeBg={changeBg} isLoading={isLoading} />
-        <Arrow direction={DIRECTIONS.RIGHT} changeBg={changeBg} isLoading={isLoading} />
+        <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
+        <Arrow
+          direction={DIRECTIONS.LEFT}
+          changeBg={changeBg}
+          isLoading={isLoading}
+        />
+
+        <Arrow
+          direction={DIRECTIONS.RIGHT}
+          changeBg={changeBg}
+          isLoading={isLoading}
+        />
       </header>
+      <section className="flex flex-col">
+        <article>
+          <h1>PaperConcept to sklep plastyczny pełen produktów najlepszych marek</h1>
+        </article>
+        <article>
+          <h3>Polecane produkty:</h3>
+          ...list of products from database
+        </article>
+      </section>
+      <footer>
+
+      </footer>
     </main>
   )
 }

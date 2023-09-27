@@ -1,6 +1,7 @@
 export enum DIRECTIONS {
   LEFT,
-  RIGHT
+  RIGHT,
+  UNKNOWN,
 }
 
 export interface ArrowProps {

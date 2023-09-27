@@ -1,43 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   min-height: 100vh;
 }
 
-@for $i from 1 through 5 {
-  .bg-#{$i} {
-    background-image: url("img/background" + #{$i} + ".jpg");
-  }
+.section:hover {
+  background-color: #fff;
+  color: #000;
 }
 
-.section {
-  &:hover {
-    background-color: #fff;
-    color: #000;
-    .nav__logo {
-      background-image: url("img/pc-logo-mono-black.png");
-    }
-  }
+.nav__logo {
+  background-image: url("img/pc-logo-mono-white.png");
 }
 
-.nav {
-  &__logo {
-    background-image: url("img/pc-logo-mono-white.png");
-    &--transparent {
-      background-image: url("img/pc-logo-mono-black.png");
-    }
-  }
+.section:hover .nav__logo,
+.nav__logo--transparent {
+  background-image: url("img/pc-logo-mono-black.png");
 }
 
-.search {
-  &__input {
-    &:placeholder-shown {
-      padding-left: 1.5rem;
-    }
-    &::placeholder {
-      padding-left: 1.5rem;
-    }
-  }
+.search__input:placeholder-shown {
+  padding-left: 1.5rem;
 }
+
+.search__input::placeholder {
+  padding-left: 1.5rem;
+}
+
+/*# sourceMappingURL=globals.css.map */
