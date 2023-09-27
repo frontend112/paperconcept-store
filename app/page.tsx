@@ -1,18 +1,15 @@
 // import data from "@/databases/categories.json"
 'use client'
 
-import React, { FC, useState } from 'react'
+import { useState } from 'react'
 import cn from "classnames";
 
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
+import { DIRECTIONS } from "./types/types";
+import { Arrow } from "./components/Arrow/Arrow";
 
 const backgroundLength = 5;
-
-enum DIRECTIONS {
-  LEFT,
-  RIGHT
-}
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -45,11 +42,10 @@ const Main = () => {
       <header
         className={cn(
           'relative',
-          'min-h-screen',
+          'h-screen',
+          'w-full',
           'bg-cover',
           'bg-center',
-          'max-h-[100vh]',
-          'max-w-full',
           'overflow-hidden'
         )}
       >
@@ -63,36 +59,3 @@ const Main = () => {
 }
 
 export default Main;
-
-interface ArrowProps {
-  direction: DIRECTIONS;
-  changeBg: (direction: DIRECTIONS) => void;
-  isLoading: boolean;
-}
-
-const Arrow: FC<ArrowProps> = ({ direction, changeBg, isLoading }) => (
-  <div className={cn(
-    'px-5',
-    'rounded-full',
-    'absolute',
-    'top-[50%]',
-    'hover: cursor-pointer',
-    'translate-y-[-50%]',
-    direction === DIRECTIONS.LEFT ? 'left-0' : 'right-0'
-  )}
-  >
-    <button
-      className={cn(
-        'border-solid',
-        'border-r-4',
-        'border-b-4',
-        'inline-block',
-        'p-4',
-        'border-black',
-        direction === DIRECTIONS.LEFT ? 'rotate-[135deg]' : 'rotate-[-45deg]'
-      )}
-      disabled={isLoading}
-      onClick={() => changeBg(direction)}
-    />
-  </div>
-)

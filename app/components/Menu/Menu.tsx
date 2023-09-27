@@ -1,10 +1,12 @@
 'use client'
-import React, { FormEvent } from 'react'
+import { FormEvent } from 'react'
+import Link from "next/link";
+import cn from "classnames"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import categoriesJson from "@/app/databases/categories.json"
-import cn from "classnames"
+import subpagesJson from "@/app/databases/subpages.json"
 
 export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -15,9 +17,14 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
   }
 
   const categories = categoriesJson[2].data || [];
+  const subpages = subpagesJson[2].data || [];
 
   return (
-    <div className="z-10 absolute w-full">
+    <div className={cn(
+      'z-10',
+      'w-full',
+      extraClassName === 'transparent' && 'absolute',
+    )}>
       <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
@@ -33,10 +40,10 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
           <div className="nav__logo-wrapper w-28 h-10">
             <Link
               className={cn(
-                'bg-cover',
                 'w-28',
                 'h-10',
                 'block',
+                'bg-cover',
                 'bg-no-repeat',
                 extraClassName === 'transparent' ? 'nav__logo' : 'nav__logo--transparent'
               )}
@@ -75,27 +82,19 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
             />
           </form>
           <ul className="flex uppercase text-[0.6rem]">
-            <li>
-              <Link href='/nasze-sklepy' className="px-1.5 py-2">nasze sklepy</Link>
-            </li>
-            <li>
-              <Link href='/blog' className="px-1.5 py-2">blog</Link>
-            </li>
-            <li>
-              <Link href='/faq' className="px-1.5 py-2">faq</Link>
-            </li>
-            <li>
-              <Link href='/o-nas' className="px-1.5 py-2">o nas</Link>
-            </li>
-            <li>
-              <Link href='/kontakt' className="px-1.5 py-2 ">kontakt</Link>
-            </li>
+            {
+              subpages.map(({ id, name, slug }) => (
+                <li key={id}>
+                  <Link href={`/${slug}`} className="px-1.5 py-2">{name}</Link>
+                </li>
+              ))
+            }
           </ul>
         </nav>
         <ul className="flex justify-between text-inherit">
-          {categories.map(({ category, id }) => (
+          {categories.map(({ category, id, slug }) => (
             <li key={id}>
-              <Link href="/">
+              <Link href={`/category/${slug}`}>
                 {category}
               </Link>
             </li>

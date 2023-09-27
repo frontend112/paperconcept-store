@@ -25,24 +25,21 @@ export const Backgrounds = ({ bgCount }: { bgCount: number }) => {
         alt="background"
         src={backgrounds[prevImage].src}
         layout="fill"
-        objectFit="cover"
-        className="absolute translate-x-[-100vw] delay-1000"
+        className="absolute translate-x-[-100vw] delay-1000 object-cover"
       />
 
       <Image
         alt="background"
         src={backgrounds[bgCount].src}
         layout="fill"
-        objectFit="cover"
-        className="absolute w-full delay-1000"
+        className="absolute w-full delay-1000 object-cover"
       />
 
       <Image
         alt="background"
         src={backgrounds[nextImage].src}
         layout="fill"
-        objectFit="cover"
-        className="absolute translate-x-[100vw] delay-1000"
+        className="absolute translate-x-[100vw] delay-1000 object-cover"
       />
     </>
 

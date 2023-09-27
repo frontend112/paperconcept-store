@@ -14,28 +14,34 @@
     "database": "sql11645171",
     "data": [
       {
+        "id": "1",
         "category": "plastyczne",
-        "id": "1"
+        "slug": "plastyczne"
       },
       {
+        "id": "2",
         "category": "pi\u015bmiennicze i kaligrafia",
-        "id": "2"
+        "slug": "pismiennicze-i-kaligrafia"
       },
       {
+        "id": "3",
         "category": "papiernicze & dla dzieci",
-        "id": "3"
+        "slug": "papiernicze-i-dla-dzieci"
       },
       {
+        "id": "4",
         "category": "\u015blub & przyj\u0119cia",
-        "id": "4"
+        "slug": "slub-i-przyjecia"
       },
       {
+        "id": "5",
         "category": "papiery & koperty",
-        "id": "5"
+        "slug": "papiery-i-koperty"
       },
       {
+        "id": "6",
         "category": "wyprzeda\u017c",
-        "id": "6"
+        "slug": "wyprzedaz"
       }
     ]
   }

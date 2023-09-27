@@ -1,8 +1,14 @@
 import { ReactNode } from 'react'
+import { Menu } from "../components/Menu/Menu"
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>{children}</div>
+    <>
+      <Menu />
+      <div>
+        {children}
+      </div>
+    </>
   )
 }
 

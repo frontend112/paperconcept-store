@@ -1,11 +1,8 @@
-import { Menu } from "@/app/components/Menu/Menu"
 import React from 'react'
 
 const page = () => {
   return (
-    <div>
-      o nas
-    </div>
+    <h2 className="text-center">ten link nie działa</h2>
   )
 }
 

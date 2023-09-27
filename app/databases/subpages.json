@@ -1,0 +1,43 @@
+[
+  {
+    "type": "header",
+    "version": "4.7.1",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "sql11645171"
+  },
+  {
+    "type": "table",
+    "name": "subpages",
+    "database": "sql11645171",
+    "data": [
+      {
+        "id": "1",
+        "name": "nasze sklepy",
+        "slug": "nasze-sklepy"
+      },
+      {
+        "id": "2",
+        "name": "blog",
+        "slug": "blog"
+      },
+      {
+        "id": "3",
+        "name": "faq",
+        "slug": "faq"
+      },
+      {
+        "id": "4",
+        "name": "o nas",
+        "slug": "o-nas"
+      },
+      {
+        "id": "5",
+        "name": "kontakt",
+        "slug": "kontakt"
+      }
+    ]
+  }
+]
