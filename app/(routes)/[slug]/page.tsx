@@ -1,9 +1,5 @@
 import React from 'react'
 
-const page = () => {
-  return (
-    <h2 className="text-center">ten link nie działa</h2>
-  )
-}
+const page = () => <h2 className="text-center">ten link nie istnieje</h2>
 
 export default page

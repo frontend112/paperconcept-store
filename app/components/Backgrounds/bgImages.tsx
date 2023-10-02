@@ -16,24 +16,24 @@ export const bgImages: BackgroundType[] = ([
     id: 2,
     src: bg2,
     name: 'podobrazia malarskie',
-    slug: 'podobrazia',
+    slug: 'pismiennicze-i-kaligrafia',
   },
   {
     id: 3,
     src: bg3,
     name: 'koperty',
-    slug: 'koperty'
+    slug: 'papiery-i-koperty'
   },
   {
     id: 4,
     src: bg4,
     name: 'farby akwarelowe',
-    slug: 'farby',
+    slug: 'pismiennicze-i-kaligrafia',
   },
   {
     id: 5,
     src: bg5,
     name: 'artykuły piśmiennicze',
-    slug: 'rysunek',
+    slug: 'papiernicze-i-dla-dzieci',
   },
 ])

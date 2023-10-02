@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from "next/image"
-import React, { useEffect, useState } from 'react'
+import Image from "next/image"
+import React from 'react'
 import cn from 'classnames'
 
 import { BackgroundsProps, DIRECTIONS } from "@/app/types/types"
@@ -33,10 +33,6 @@ export const Backgrounds = (
             isActive && direction === DIRECTIONS.LEFT && 'animate-sliding-right-first-image',
           )}
         />
-        <section className="absolute bottom-5 left-[5%]">
-          <h2 className="uppercase text-white">{bgImages[prevImage].name}</h2>
-          <a href={`/category/${bgImages[prevImage].slug}`} className="text-white">Zobacz produkty</a>
-        </section>
       </div>
 
       <div>
@@ -51,9 +47,20 @@ export const Backgrounds = (
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-second-image',
           )}
         />
-        <section className="absolute bottom-5 left-[5%]">
-          <h2 className="uppercase text-white">{bgImages[bgCount].name}</h2>
-          <a href={`/category/${bgImages[bgCount].slug}`} className="text-white">Zobacz produkty</a>
+        <section className="absolute bottom-10 left-[5%]">
+          <h2 className="uppercase text-white py-4 text-4xl font-light">{bgImages[bgCount].name}</h2>
+          <a href={`/category/${bgImages[bgCount].slug}`} className="
+            w-72
+            bg-white
+            px-3
+            py-2
+            block
+            text-center
+            tracking-wider
+            font-medium
+            hover:font-bold
+            hover:tracking-[0.04em]
+          ">Zobacz produkty</a>
         </section>
       </div>
 
@@ -70,10 +77,6 @@ export const Backgrounds = (
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-third-image',
           )}
         />
-        <section className="absolute bottom-5 left-[5%]">
-          <h2 className="uppercase text-white">{bgImages[nextImage].name}</h2>
-          <a href={`/category/${bgImages[nextImage].slug}`} className="text-white">Zobacz produkty</a>
-        </section>
       </div>
     </>
   )

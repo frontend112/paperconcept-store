@@ -55,6 +55,7 @@ const Main = () => {
       >
         <Menu extraClassName='transparent' />
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
+
         <Arrow
           direction={DIRECTIONS.LEFT}
           changeBg={changeBg}

@@ -13,7 +13,6 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
     if (event) {
       event.preventDefault();
     }
-    console.log('submitted')
   }
 
   const categories = categoriesJson[2].data || [];
