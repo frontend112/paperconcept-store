@@ -5,8 +5,8 @@ import cn from "classnames"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import categoriesJson from "@/app/databases/categories.json"
-import subpagesJson from "@/app/databases/subpages.json"
+import { getCategories } from '@/app/getData/getCategories'
+import { getSubpages } from "@/app/getData/getSubpages";
 
 export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -15,8 +15,8 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
     }
   }
 
-  const categories = categoriesJson[2].data || [];
-  const subpages = subpagesJson[2].data || [];
+  const categories = getCategories;
+  const subpages = getSubpages;
 
   return (
     <div className={cn(

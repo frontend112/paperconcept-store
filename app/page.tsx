@@ -1,4 +1,3 @@
-// import data from "@/databases/categories.json"
 'use client'
 
 import { useState } from 'react'
@@ -8,6 +7,7 @@ import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { DIRECTIONS } from "./types/types";
 import { Arrow } from "./components/Arrow/Arrow";
+import { Recommended } from "./components/Recommended/Recommended";
 
 const backgroundLength = 5;
 
@@ -38,7 +38,7 @@ const Main = () => {
       if (direction === DIRECTIONS.RIGHT) {
         setBgcount(count => count + 1);
       }
-    }, 400)
+    }, 500)
   }
 
   return (
@@ -54,6 +54,7 @@ const Main = () => {
         )}
       >
         <Menu extraClassName='transparent' />
+
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 
         <Arrow
@@ -74,7 +75,9 @@ const Main = () => {
         </article>
         <article>
           <h3>Polecane produkty:</h3>
-          ...list of products from database
+          <div>
+            <Recommended />
+          </div>
         </article>
       </section>
       <footer>

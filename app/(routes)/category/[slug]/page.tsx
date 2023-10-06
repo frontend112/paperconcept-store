@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
 
-import productsJson from '@/app/databases/products.json';
-import categoriesJson from '@/app/databases/categories.json';
-import { redirect, usePathname, useRouter } from "next/navigation";
-const products = productsJson[2].data
+import { getProducts } from "@/app/getData/getProducts";
+import { getCategories } from "@/app/getData/getCategories";
+import { redirect, usePathname } from "next/navigation";
+import Image from "next/image";
+const products = getProducts
 
-const categories = categoriesJson[2].data
+const categories = getCategories
 
 const Category = () => {
   const pathName = usePathname();
@@ -25,18 +26,37 @@ const Category = () => {
   ))
 
   return (
-    <div className="grid grid-cols-3 gap-3 p-[5%]">{currentProducts?.map(({
-      product, price, id
-    }) => (
-      <div key={id}>
-        <div>
-          {product}
+    <>
+      <div className="grid grid-cols-4 gap-1 p-[5%]">{currentProducts?.map(({
+        product, price, id
+      }) => (
+        <div key={id} className="w-full">
+          <div className="w-[300px]">
+            {/* change this somehow to position static */}
+            <Image
+              src={`https://picsum.photos/id/${id}/300`}
+              alt="product"
+              // layout="fill"
+              // fill
+              // sizes="width: 100%, height: 100%"
+              width="300"
+              height="300"
+              // width='300'
+              // height='300'
+              objectFit="cover"
+            />
+          </div>
+          <div className="product__description">
+            <div className="h-1/5">
+              {product}
+            </div>
+            <div>
+              {price}
+            </div>
+          </div>
         </div>
-        <div>
-          {price}
-        </div>
-      </div>
-    ))}</div>
+      ))}</div>
+    </>
   )
 }
 
