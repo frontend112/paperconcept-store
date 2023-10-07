@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { getProducts } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
@@ -11,13 +11,17 @@ export const Recommended = () => {
   const prevCounter = counter <= 0 ? getProducts.length - productAmount : counter - productAmount;
   const nextCounter = counter >= getProducts.length - productAmount - 1 ? 0 : counter + productAmount;
 
-  setTimeout(() => {
-    if (counter >= getProducts.length - 2 * (productAmount + 1)) {
-      setCounter(0)
-      return;
-    }
-    setCounter(state => state + productAmount)
-  }, 3000)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (counter >= getProducts.length - 2 * (productAmount + 1)) {
+        setCounter(0)
+        return;
+      }
+      setCounter(state => state + productAmount)
+    }, 3000)
+
+    return clearTimeout(timer)
+  }, [counter])
   return (
     <div>
       <div className="hidden">

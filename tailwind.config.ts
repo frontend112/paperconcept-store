@@ -27,10 +27,10 @@ const config: Config = {
         },
       },
       animation: {
-        'sliding-right-first-image': 'moveBgRightFirstImage 500ms linear',
-        'sliding-left-second-image': 'moveBgLeftSecondImage 500ms linear',
-        'sliding-right-second-image': 'moveBgRightSecondImage 500ms linear',
-        'sliding-left-third-image': 'moveBgLeftThirdImage 500ms linear',
+        'sliding-right-first-image': 'moveBgRightFirstImage 500ms linear forwards',
+        'sliding-left-second-image': 'moveBgLeftSecondImage 500ms linear forwards',
+        'sliding-right-second-image': 'moveBgRightSecondImage 500ms linear forwards',
+        'sliding-left-third-image': 'moveBgLeftThirdImage 500ms linear forwards',
       }
     },
   },
