@@ -8,11 +8,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      keyframes: {
+        moveBgRightFirstImage: {
+          '0%': { transform: 'translateX(-100vw)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveBgLeftSecondImage: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100vw)' },
+        },
+        moveBgRightSecondImage: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100vw)' },
+        },
+        moveBgLeftThirdImage: {
+          '0%': { transform: 'translateX(100vw)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
+      animation: {
+        'sliding-right-first-image': 'moveBgRightFirstImage 500ms linear',
+        'sliding-left-second-image': 'moveBgLeftSecondImage 500ms linear',
+        'sliding-right-second-image': 'moveBgRightSecondImage 500ms linear',
+        'sliding-left-third-image': 'moveBgLeftThirdImage 500ms linear',
+      }
     },
   },
   plugins: [],

@@ -1,0 +1,48 @@
+[
+  {
+    "type": "header",
+    "version": "4.7.1",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  {
+    "type": "database",
+    "name": "sql11645171"
+  },
+  {
+    "type": "table",
+    "name": "categories",
+    "database": "sql11645171",
+    "data": [
+      {
+        "id": "1",
+        "category": "plastyczne",
+        "slug": "plastyczne"
+      },
+      {
+        "id": "2",
+        "category": "pi\u015bmiennicze i kaligrafia",
+        "slug": "pismiennicze-i-kaligrafia"
+      },
+      {
+        "id": "3",
+        "category": "papiernicze & dla dzieci",
+        "slug": "papiernicze-i-dla-dzieci"
+      },
+      {
+        "id": "4",
+        "category": "\u015blub & przyj\u0119cia",
+        "slug": "slub-i-przyjecia"
+      },
+      {
+        "id": "5",
+        "category": "papiery & koperty",
+        "slug": "papiery-i-koperty"
+      },
+      {
+        "id": "6",
+        "category": "wyprzeda\u017c",
+        "slug": "wyprzedaz"
+      }
+    ]
+  }
+]
