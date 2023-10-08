@@ -6,12 +6,13 @@ export const Product = ({
   product,
   price,
   src,
+  id,
 }: ProductProps) => {
   return (
     <div className="product">
       <div className="image__wrapper">
         <Image
-          src={src || 'https://placehold.co/300x300'}
+          src={src || `https://picsum.photos/id/${id}/300`}
           alt="product"
           width={300}
           height={300}

@@ -14,204 +14,204 @@
     "database": "sql11645171",
     "data": [
       {
-        "product": "koperty amber 100g - 14 x 14 cm, bia\u0142e, 500 szt.",
         "id": "1",
+        "product": "koperty amber 100g - 14 x 14 cm, bia\u0142e, 500 szt.",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "155"
       },
       {
-        "product": "koperty amber 100g - 17 x 17 cm, bia\u0142e, 500 szt.",
         "id": "2",
+        "product": "koperty amber 100g - 17 x 17 cm, bia\u0142e, 500 szt.",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "180"
       },
       {
-        "product": "Koperta Crush 120g - C5, Corn, z\u0142amana biel",
         "id": "3",
+        "product": "Koperta Crush 120g - C5, Corn, z\u0142amana biel",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "0.8"
       },
       {
-        "product": "Koperta Curious Metallics 120g - C5, Nude, cielista",
         "id": "4",
-        "slug": "papiery-i-koperty",
-        "category": "papiery & koperty",
-        "price": "0.8"
-      },
-      {
         "product": "Koperta Curious Metallics 120g - C5, Nude, cielista",
+        "slug": "papiery-i-koperty",
+        "category": "papiery & koperty",
+        "price": "0.8"
+      },
+      {
         "id": "5",
+        "product": "Koperta Curious Metallics 120g - C5, Nude, cielista",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "0.8"
       },
       {
-        "product": "Koperta Materica 120g - C5, Terra Rossa, ceglasta",
         "id": "6",
+        "product": "Koperta Materica 120g - C5, Terra Rossa, ceglasta",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "0.8"
       },
       {
-        "product": "Koperta Materica 120g - C5, Verdigris, zielona oliwkowa",
         "id": "7",
+        "product": "Koperta Materica 120g - C5, Verdigris, zielona oliwkowa",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
         "price": "0.8"
       },
       {
-        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, L",
         "id": "8",
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, L",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
         "price": "143"
       },
       {
-        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, XL",
         "id": "9",
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, XL",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
         "price": "152"
       },
       {
-        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
         "id": "10",
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
         "price": "143"
       },
       {
-        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
         "id": "11",
+        "product": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
         "price": "162"
       },
       {
-        "product": "Kalendarz tygodniowy 2024 - Moleskine - Sapphire Blue, twarda ok\u0142adka, P",
         "id": "12",
+        "product": "Kalendarz tygodniowy 2024 - Moleskine - Sapphire Blue, twarda ok\u0142adka, P",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
         "price": "110"
       },
       {
-        "product": "papiernicze & dla dzieci",
         "id": "13",
+        "product": "papiernicze & dla dzieci",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
         "price": "65.9"
       },
       {
-        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
         "id": "14",
+        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
         "price": "28.5"
       },
       {
-        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
         "id": "15",
+        "product": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
         "price": "7.2"
       },
       {
-        "product": "Zestaw do tworzenia bi\u017cuterii dla dzieci, Literki - Djeco - z\u0142ote, 1000 szt.",
         "id": "16",
+        "product": "Zestaw do tworzenia bi\u017cuterii dla dzieci, Literki - Djeco - z\u0142ote, 1000 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
         "price": "91.9"
       },
       {
-        "product": "Zestaw cienkopis\u00f3w Mono Drawing Pen, Fine - Tombow - czarne, 4 szt.",
         "id": "17",
+        "product": "Zestaw cienkopis\u00f3w Mono Drawing Pen, Fine - Tombow - czarne, 4 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
         "price": "51.5"
       },
       {
-        "product": "Talerzyki papierowe Wiecz\u00f3r Panie\u0144ski - r\u00f3\u017cowe, 18 cm, 6 szt.",
         "id": "18",
+        "product": "Talerzyki papierowe Wiecz\u00f3r Panie\u0144ski - r\u00f3\u017cowe, 18 cm, 6 szt.",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
         "price": "16.7"
       },
       {
-        "product": "Pude\u0142ka na ciasto lub tort Chrzest \u015awi\u0119ty - bia\u0142e, 10 szt.",
         "id": "19",
+        "product": "Pude\u0142ka na ciasto lub tort Chrzest \u015awi\u0119ty - bia\u0142e, 10 szt.",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
         "price": "36"
       },
       {
-        "product": "Balon foliowy na Chrzest \u015awi\u0119ty, Anio\u0142 Dziewczynka - 70 cm",
         "id": "20",
+        "product": "Balon foliowy na Chrzest \u015awi\u0119ty, Anio\u0142 Dziewczynka - 70 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
         "price": "27"
       },
       {
-        "product": "Balony Kosmos na stojaku DIY - 90 cm",
         "id": "21",
+        "product": "Balony Kosmos na stojaku DIY - 90 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
         "price": "17.5"
       },
       {
-        "product": "Balon lateksowy Jednoro\u017cec - przezroczysty, 45 cm",
         "id": "22",
+        "product": "Balon lateksowy Jednoro\u017cec - przezroczysty, 45 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
         "price": "12.5"
       },
       {
-        "product": "Papierowe lampiony - Rico Design - r\u00f3\u017cowe, 10 x 13 cm, 5 szt.",
         "id": "23",
+        "product": "Papierowe lampiony - Rico Design - r\u00f3\u017cowe, 10 x 13 cm, 5 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
         "price": "15.38"
       },
       {
-        "product": "Zestaw artystyczny ze stemplami dla dzieci - Djeco - Pojazdy",
         "id": "24",
+        "product": "Zestaw artystyczny ze stemplami dla dzieci - Djeco - Pojazdy",
         "slug": "plastyczne",
         "category": "plastyczne",
         "price": "77.25"
       },
       {
-        "product": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
         "id": "25",
+        "product": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
         "price": "14.25"
       },
       {
-        "product": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
         "id": "26",
+        "product": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
         "price": "81"
       },
       {
-        "product": "Medium do farb Glossy - Lefranc & Bourgeois - brokatowe, 500 ml",
         "id": "27",
+        "product": "Medium do farb Glossy - Lefranc & Bourgeois - brokatowe, 500 ml",
         "slug": "plastyczne",
         "category": "plastyczne",
         "price": "34.13"
       },
       {
-        "product": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
         "id": "25",
+        "product": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
         "slug": "wyprzedaz",
         "category": "wyprzedaż",
         "price": "14.25"
       },
       {
-        "product": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
         "id": "26",
+        "product": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
         "slug": "wyprzedaz",
         "category": "wyprzedaż",
         "price": "81"
