@@ -38,7 +38,7 @@ export const Recommended = () => {
       <div className="flex justify-center">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
-            id={(counter + el)}
+            id={(counter + el).toString()}
             key={el}
             product={getProducts[counter + el].product}
             price={getProducts[counter + el].price}
