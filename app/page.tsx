@@ -81,7 +81,7 @@ const Main = () => {
         </article>
       </section>
       <footer>
-
+        footer
       </footer>
     </main>
   )

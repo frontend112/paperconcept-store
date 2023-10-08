@@ -1,4 +1,5 @@
 import { ProductProps } from "@/app/types/types"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import React from 'react'
 
@@ -20,6 +21,7 @@ export const Product = ({
       </div>
       <p>{product}</p>
       <p>{price}</p>
+      <Button>Dodaj do koszyka</Button>
     </div>
   )
 }
