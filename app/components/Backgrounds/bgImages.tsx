@@ -16,7 +16,7 @@ export const bgImages: BackgroundType[] = ([
     id: 2,
     src: bg2,
     name: 'podobrazia malarskie',
-    slug: 'pismiennicze-i-kaligrafia',
+    slug: 'plastyczne',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ export const bgImages: BackgroundType[] = ([
     id: 4,
     src: bg4,
     name: 'farby akwarelowe',
-    slug: 'pismiennicze-i-kaligrafia',
+    slug: 'plastyczne',
   },
   {
     id: 5,

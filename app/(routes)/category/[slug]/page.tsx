@@ -28,7 +28,6 @@ const Category = () => {
 
   return (
     <div className="flex justify-center">
-      {/* change this to grid */}
       <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
         product, price, id
       }) => (
@@ -38,26 +37,6 @@ const Category = () => {
           id={id}
           key={id}
         />
-        // <div key={id} className="">
-        //   <div className="w-[300px]">
-        //     {/* change this somehow to position static */}
-        //     <Image
-        //       src={`https://picsum.photos/id/${id}/300`}
-        //       alt="product"
-        //       width="300"
-        //       height="300"
-        //       objectFit="cover"
-        //     />
-        //   </div>
-        //   <div className="w-[300px]">
-        //     <div>
-        //       {product}
-        //     </div>
-        //     <div>
-        //       {price}
-        //     </div>
-        //   </div>
-        // </div>
       ))}</div>
     </div>
   )
