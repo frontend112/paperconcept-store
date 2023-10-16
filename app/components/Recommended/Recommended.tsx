@@ -35,7 +35,7 @@ export const Recommended = () => {
         ))}
 
       </div>
-      <div className="flex justify-center">
+      <div className="grid grid-cols-[repeat(4,1fr)]">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
             id={(counter + el).toString()}

@@ -5,7 +5,7 @@ const layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Menu />
-      <div>
+      <div className="grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
         {children}
       </div>
     </>

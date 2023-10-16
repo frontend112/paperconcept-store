@@ -17,6 +17,7 @@ export const Product = ({
           alt="product"
           width={300}
           height={300}
+          className="w-full"
         />
       </div>
       <p>{product}</p>
