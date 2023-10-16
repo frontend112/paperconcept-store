@@ -2,11 +2,9 @@ import { ReactNode } from 'react'
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <>
-      <div>
-        {children}
-      </div>
-    </>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
+      {children}
+    </div>
   )
 }
 

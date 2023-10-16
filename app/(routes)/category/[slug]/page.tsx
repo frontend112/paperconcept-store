@@ -4,6 +4,7 @@ import React from 'react'
 import { getProducts } from "@/app/getData/getProducts";
 import { getCategories } from "@/app/getData/getCategories";
 import { redirect, usePathname } from "next/navigation";
+import { Product } from "@/app/components/Product/Product";
 import Image from "next/image";
 const products = getProducts
 
@@ -26,37 +27,18 @@ const Category = () => {
   ))
 
   return (
-    <>
-      <div className="grid grid-cols-4 gap-1 p-[5%]">{currentProducts?.map(({
+    <div className="flex justify-center">
+      <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
         product, price, id
       }) => (
-        <div key={id} className="w-full">
-          <div className="w-[300px]">
-            {/* change this somehow to position static */}
-            <Image
-              src={`https://picsum.photos/id/${id}/300`}
-              alt="product"
-              // layout="fill"
-              // fill
-              // sizes="width: 100%, height: 100%"
-              width="300"
-              height="300"
-              // width='300'
-              // height='300'
-              objectFit="cover"
-            />
-          </div>
-          <div className="product__description">
-            <div className="h-1/5">
-              {product}
-            </div>
-            <div>
-              {price}
-            </div>
-          </div>
-        </div>
+        <Product
+          product={product}
+          price={price}
+          id={id}
+          key={id}
+        />
       ))}</div>
-    </>
+    </div>
   )
 }
 

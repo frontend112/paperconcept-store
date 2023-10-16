@@ -31,4 +31,5 @@ export interface ProductProps {
   product: string,
   price: string,
   src?: string,
+  id: string,
 }

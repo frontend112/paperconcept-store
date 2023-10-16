@@ -20,9 +20,7 @@ export const Backgrounds = (
 
   return (
     <>
-      <div className={cn(
-        (!isActive || direction === DIRECTIONS.RIGHT) && 'hidden',
-      )}>
+      <div>
         <Image
           alt="background"
           src={bgImages[prevImage].src}
@@ -30,6 +28,7 @@ export const Backgrounds = (
           className={cn(
             'absolute',
             'object-cover',
+            "translate-x-[-100vw]",
             isActive && direction === DIRECTIONS.LEFT && 'animate-sliding-right-first-image',
           )}
         />
@@ -64,9 +63,7 @@ export const Backgrounds = (
         </section>
       </div>
 
-      <div className={cn(
-        (!isActive || direction !== DIRECTIONS.RIGHT) && 'hidden',
-      )}>
+      <div>
         <Image
           alt="background"
           src={bgImages[nextImage].src}
@@ -74,6 +71,7 @@ export const Backgrounds = (
           className={cn(
             'absolute',
             'object-cover',
+            "translate-x-[100vw]",
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-third-image',
           )}
         />

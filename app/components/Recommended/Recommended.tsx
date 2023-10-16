@@ -27,6 +27,7 @@ export const Recommended = () => {
       <div className="hidden">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
+            id={(prevCounter + el).toString()}
             key={el}
             product={getProducts[prevCounter + el].product}
             price={getProducts[prevCounter + el].price}
@@ -34,9 +35,10 @@ export const Recommended = () => {
         ))}
 
       </div>
-      <div>
+      <div className="grid grid-cols-[repeat(4,1fr)]">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
+            id={(counter + el).toString()}
             key={el}
             product={getProducts[counter + el].product}
             price={getProducts[counter + el].price}
@@ -46,6 +48,7 @@ export const Recommended = () => {
       <div className="hidden">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
+            id={(prevCounter + el).toString()}
             key={el}
             product={getProducts[nextCounter + el].product}
             price={getProducts[nextCounter + el].price}
