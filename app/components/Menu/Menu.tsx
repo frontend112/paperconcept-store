@@ -96,7 +96,14 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
             </ul>
             <ul className="flex justify-end">
               <li>
-                <Link href='/register' className="nav__user w-4 h-4 block">
+                <Link href='/sign-up' className=
+                  {cn(
+                    'nav__user',
+                    extraClassName === 'transparent' && 'nav__user--transparent',
+                    'w-4',
+                    'h-4',
+                    'block'
+                  )}>
                 </Link>
               </li>
               {/* <li><Link href='/cart'>asdf</Link></li> */}

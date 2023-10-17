@@ -83,13 +83,19 @@
 }
 
 .nav__user {
-  background-image: url("img/user-white.png");
+  background-image: url("img/user-black.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
+.nav__user--transparent {
+  background-image: url("img/user-white.png");
+}
 
 .section:hover .nav__user {
+  background-image: url("img/user-black.png");
+}
+.section:hover .nav__user--transparent {
   background-image: url("img/user-black.png");
 }
 
