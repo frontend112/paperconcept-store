@@ -101,4 +101,15 @@
   padding-left: 1.5rem;
 }
 
+.nav__user {
+  background-image: url("img/user-white.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.section:hover .nav__user {
+  background-image: url("img/user-black.png");
+}
+
 /*# sourceMappingURL=globals.css.map */

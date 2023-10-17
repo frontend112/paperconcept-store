@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <div>
-      o nas
+      nasze sklepy
     </div>
   )
 }
