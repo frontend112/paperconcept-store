@@ -118,4 +118,22 @@
   }
 }
 
+.nav__cart {
+  cursor: pointer;
+  background-image: url("img/shopping-cart-black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &--transparent {
+    background-image: url("img/shopping-cart-white.png");
+  }
+}
+
+.section:hover .nav__cart {
+  background-image: url("img/shopping-cart-black.png");
+  &--transparent {
+    background-image: url("img/shopping-cart-black.png");
+  }
+}
+
 /*# sourceMappingURL=globals.css.map */

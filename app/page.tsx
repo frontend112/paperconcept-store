@@ -9,7 +9,7 @@ import { increment, decrement, incrementByAmount } from '@/app/GlobalRedux/Featu
 
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
-import { DIRECTIONS } from "./types/types";
+import { DIRECTIONS, ExtraClassnames } from "./types/types";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
 
@@ -61,7 +61,7 @@ const Main = () => {
           'overflow-hidden'
         )}
       >
-        <Menu extraClassName='transparent' />
+        <Menu extraClassName={ExtraClassnames.transparent} />
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 

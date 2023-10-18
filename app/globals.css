@@ -99,6 +99,24 @@
   background-image: url("img/user-black.png");
 }
 
+.nav__cart {
+  cursor: pointer;
+  background-image: url("img/shopping-cart-black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav__cart--transparent {
+  background-image: url("img/shopping-cart-white.png");
+}
+
+.section:hover .nav__cart {
+  background-image: url("img/shopping-cart-black.png");
+}
+.section:hover .nav__cart--transparent {
+  background-image: url("img/shopping-cart-black.png");
+}
+
 /*# sourceMappingURL=globals.css.map */
 
 /*# sourceMappingURL=globals.css.map */

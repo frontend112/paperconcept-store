@@ -33,3 +33,7 @@ export interface ProductProps {
   src?: string,
   id: string,
 }
+
+export enum ExtraClassnames {
+  transparent,
+}
