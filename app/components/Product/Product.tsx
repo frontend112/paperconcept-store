@@ -1,7 +1,11 @@
+import { increment } from "@/app/GlobalRedux/Features/counter/counterSlice"
+import { AppDispatch, RootState } from "@/app/GlobalRedux/store"
 import { ProductProps } from "@/app/types/types"
 import { Button } from "@/components/ui/button"
+import { AnyAction } from "@reduxjs/toolkit"
 import Image from "next/image"
 import React from 'react'
+import { useDispatch, useSelector } from "react-redux"
 
 export const Product = ({
   product,
@@ -9,6 +13,8 @@ export const Product = ({
   src,
   id,
 }: ProductProps) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="product">
       <div className="image__wrapper">
@@ -22,7 +28,7 @@ export const Product = ({
       </div>
       <p>{product}</p>
       <p>{price}</p>
-      <Button>Dodaj do koszyka</Button>
+      <Button onClick={() => dispatch(increment())}>Dodaj do koszyka</Button>
     </div>
   )
 }

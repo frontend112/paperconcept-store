@@ -3,10 +3,6 @@
 import { useState } from 'react'
 import cn from "classnames";
 
-import type { RootState } from "./GlobalRedux/store";
-import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, incrementByAmount } from '@/app/GlobalRedux/Features/counter/counterSlice'
-
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { DIRECTIONS, ExtraClassnames } from "./types/types";
@@ -17,9 +13,6 @@ import { Recommended } from "./components/Recommended/Recommended";
 const backgroundLength = 5;
 
 const Main = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })

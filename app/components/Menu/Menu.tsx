@@ -9,8 +9,12 @@ import { getCategories } from '@/app/getData/getCategories'
 import { getSubpages } from "@/app/getData/getSubpages";
 import { ExtraClassnames } from "@/app/types/types";
 import { Button } from "@/components/ui/button";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/GlobalRedux/store";
 
 export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
+  const purchasedAmount = useSelector((state: RootState) => state.counter.value)
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
       event.preventDefault();
@@ -124,16 +128,19 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
                 </Link>
               </li>
               <li>
-                <span
+                <div
                   className={cn(
                     'nav__cart',
                     extraClassName === ExtraClassnames.transparent && 'nav__cart--transparent',
                     'w-5',
                     'h-5',
-                    'block'
+                    'block',
+                    'relative'
                   )}
                   onClick={handleCartClick}
-                ></span>
+                >
+                  <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{purchasedAmount}</span>
+                </div>
               </li>
             </ul>
           </div>
