@@ -8,9 +8,7 @@ import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { DIRECTIONS, ExtraClassnames } from "./types/types";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-
-
-const backgroundLength = 5;
+import { bgImages } from "./components/Backgrounds/bgImages";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -26,10 +24,10 @@ const Main = () => {
       setAnimationsDetails({ direction, isActive: false })
 
       if (direction === DIRECTIONS.LEFT && bgCount <= 0) {
-        setBgcount(backgroundLength - 1);
+        setBgcount(bgImages.length - 1);
         return;
       }
-      if (direction === DIRECTIONS.RIGHT && bgCount >= backgroundLength - 1) {
+      if (direction === DIRECTIONS.RIGHT && bgCount >= bgImages.length - 1) {
         setBgcount(0);
         return;
       }
