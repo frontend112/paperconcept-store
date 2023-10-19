@@ -5,8 +5,8 @@ import cn from "classnames"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { getCategories } from '@/app/getData/getCategories'
-import { getSubpages } from "@/app/getData/getSubpages";
+import { getCategories as categories } from '@/app/getData/getCategories'
+import { getSubpages as subpages } from "@/app/getData/getSubpages";
 import { ExtraClassnames } from "@/app/types/types";
 import { Button } from "@/components/ui/button";
 import { useSelector } from "react-redux";
@@ -19,6 +19,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
     if (event) {
       event.preventDefault();
     }
+    // add searching with bit delay on typing with shadcn ui
   }
 
   const [isCartHidden, setIscarthidden] = useState(true);
@@ -29,8 +30,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
     if (isCartHidden) {
       cartELement.current?.classList.add('animate-show-cart')
       cartELement.current?.classList.remove('animate-hide-cart')
-    }
-    if (!isCartHidden) {
+    } else {
       cartELement.current?.classList.add('animate-hide-cart')
       cartELement.current?.classList.remove('animate-show-cart')
     }
@@ -39,9 +39,6 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
       setIscarthidden(state => !state)
     }, 500)
   }
-
-  const categories = getCategories;
-  const subpages = getSubpages;
 
   return (
     <div className={cn(
@@ -117,7 +114,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
             </ul>
             <ul className="flex justify-end gap-4">
               <li>
-                <Link href='/sign-up' className=
+                <Link href='/userPanel' className=
                   {cn(
                     'nav__user',
                     extraClassName === ExtraClassnames.transparent && 'nav__user--transparent',
