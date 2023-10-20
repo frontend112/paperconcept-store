@@ -1,24 +1,17 @@
 'use client';
 
+import { ProductType } from "@/app/types/types";
 import { createSlice } from "@reduxjs/toolkit";
-export interface CounterState {
-  value: number;
-}
-const initialState: CounterState = {
-  value: 0,
-}
+
+const initialState: ProductType[] = []
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => { state.value += 1 },
-    decrement: (state) => { state.value -= 1 },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    }
+    addProduct: (state, action) => ([...state, action.payload]),
   }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addProduct } = counterSlice.actions;
 export default counterSlice.reducer;

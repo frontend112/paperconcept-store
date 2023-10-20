@@ -9,11 +9,11 @@ import { getCategories as categories } from '@/app/getData/getCategories'
 import { getSubpages as subpages } from "@/app/getData/getSubpages";
 import { ExtraClassnames } from "@/app/types/types";
 import { Button } from "@/components/ui/button";
-import { useSelector } from "react-redux";
 import { RootState } from "@/app/GlobalRedux/store";
+import { useSelector } from "react-redux";
 
 export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
-  const purchasedAmount = useSelector((state: RootState) => state.counter.value)
+  const cartProducts = useSelector((state: RootState) => state.products)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
@@ -114,7 +114,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
             </ul>
             <ul className="flex justify-end gap-4">
               <li>
-                <Link href='/userPanel' className=
+                <Link href='/user-panel' className=
                   {cn(
                     'nav__user',
                     extraClassName === ExtraClassnames.transparent && 'nav__user--transparent',
@@ -136,7 +136,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
                   )}
                   onClick={handleCartClick}
                 >
-                  <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{purchasedAmount}</span>
+                  {/* <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{purchasedAmount}</span> */}
                 </div>
               </li>
             </ul>
@@ -168,7 +168,15 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
             <button onClick={handleCartClick} className="absolute right-4 top-4">x</button>
           </section>
           <hr />
-          <h4 className="text-xs">Twój koszyk jest pusty.</h4>
+          {cartProducts.length > 0 ? (
+            <ul>
+              {cartProducts.map(({ name, id }) => (
+                <li key={id}>{name}</li>
+              ))}
+            </ul>
+          ) : (
+            <h4 className="text-xs">Twój koszyk jest pusty.</h4>
+          )}
         </article>
         <article>
           <hr />

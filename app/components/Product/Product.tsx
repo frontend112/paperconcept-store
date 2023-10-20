@@ -1,16 +1,16 @@
-import { increment } from "@/app/GlobalRedux/Features/counter/counterSlice"
-import { ProductProps } from "@/app/types/types"
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
+import { ProductType } from "@/app/types/types"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import React from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 export const Product = ({
-  product,
+  name,
   price,
   src,
   id,
-}: ProductProps) => {
+}: ProductType) => {
   const dispatch = useDispatch();
 
   return (
@@ -24,9 +24,17 @@ export const Product = ({
           className="w-full"
         />
       </div>
-      <p>{product}</p>
+      <p>{name}</p>
       <p>{price}</p>
-      <Button onClick={() => dispatch(increment())}>Dodaj do koszyka</Button>
+      <Button onClick={() => {
+        dispatch(addProduct({
+          name: name,
+          price: price,
+          src: src,
+          id: id,
+        }))
+      }
+      }>Dodaj do koszyka</Button>
     </div>
   )
 }

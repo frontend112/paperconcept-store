@@ -29,8 +29,9 @@ export const Recommended = () => {
           <Product
             id={(prevCounter + el).toString()}
             key={el}
-            product={getProducts[prevCounter + el].product}
+            name={getProducts[prevCounter + el].name}
             price={getProducts[prevCounter + el].price}
+            src=""
           />
         ))}
 
@@ -40,8 +41,9 @@ export const Recommended = () => {
           <Product
             id={(counter + el).toString()}
             key={el}
-            product={getProducts[counter + el].product}
+            name={getProducts[counter + el].name}
             price={getProducts[counter + el].price}
+            src=""
           />
         ))}
       </div>
@@ -50,8 +52,9 @@ export const Recommended = () => {
           <Product
             id={(prevCounter + el).toString()}
             key={el}
-            product={getProducts[nextCounter + el].product}
+            name={getProducts[nextCounter + el].name}
             price={getProducts[nextCounter + el].price}
+            src=""
           />
         ))}
       </div>

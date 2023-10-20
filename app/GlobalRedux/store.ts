@@ -1,11 +1,11 @@
 'use client';
 
 import { configureStore } from '@reduxjs/toolkit';
-import coutnerReducer from './Features/counter/counterSlice';
+import productsReducer from './Features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: coutnerReducer
+    products: productsReducer
   }
 })
 

@@ -1,14 +1,10 @@
 'use client'
 import React from 'react'
 
-import { getProducts } from "@/app/getData/getProducts";
-import { getCategories } from "@/app/getData/getCategories";
+import { getProducts as products } from "@/app/getData/getProducts";
+import { getCategories as categories } from "@/app/getData/getCategories";
 import { redirect, usePathname } from "next/navigation";
 import { Product } from "@/app/components/Product/Product";
-import Image from "next/image";
-const products = getProducts
-
-const categories = getCategories
 
 const Category = () => {
   const pathName = usePathname();
@@ -29,13 +25,14 @@ const Category = () => {
   return (
     <div className="flex justify-center">
       <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
-        product, price, id
+        name, price, id
       }) => (
         <Product
-          product={product}
+          name={name}
           price={price}
           id={id}
           key={id}
+          src=""
         />
       ))}</div>
     </div>

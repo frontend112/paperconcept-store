@@ -27,3 +27,5 @@ add content for links: nasze sklepy, blog, faq, o nas, kontakt
 move handleBackground from app/page.tsx to Componenents/Backgrounds.tsx
 
 create component for group of products in Recommended.tsx
+
+feture with different locations https://phrase.com/blog/posts/nextjs-i18n/
