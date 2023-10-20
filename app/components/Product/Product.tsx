@@ -25,7 +25,7 @@ export const Product = ({
         />
       </div>
       <p>{name}</p>
-      <p>{price}</p>
+      <p>{price} zł</p>
       <Button onClick={() => {
         dispatch(addProduct({
           name: name,

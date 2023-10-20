@@ -14,6 +14,9 @@ import { useSelector } from "react-redux";
 
 export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
   const cartProducts = useSelector((state: RootState) => state.products)
+  const totalPrice = cartProducts
+    .map(product => product.price)
+    .reduce((acc, current) => { return acc + current }, 0)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
@@ -165,7 +168,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
         <article>
           <section className="relative p-4">
             <h3 className="uppercase">podgląd koszyka</h3>
-            <button onClick={handleCartClick} className="absolute right-4 top-4">x</button>
+            <button onClick={handleCartClick} className="absolute right-4 top-[50%] translate-y-[-50%] text-xl">x</button>
           </section>
           <hr />
           {cartProducts.length > 0 ? (
@@ -186,7 +189,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
           </section>
           <section className="flex justify-between p-4">
             <strong>Razem:</strong>
-            <strong>0,00zł</strong>
+            <strong>{totalPrice} zł</strong>
           </section>
           <section className="p-4">
             <Button className="w-full rounded-none">Przejdź do koszyka</Button>

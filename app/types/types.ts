@@ -29,7 +29,7 @@ export interface BackgroundsProps {
 
 export interface ProductType {
   name: string,
-  price: string,
+  price: number,
   src: string,
   id: string,
 }
