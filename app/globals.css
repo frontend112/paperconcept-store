@@ -117,6 +117,25 @@
   background-image: url("img/shopping-cart-black.png");
 }
 
+.product:hover .product__add-to-cart {
+  visibility: visible;
+}
+
+.product:hover .product__description {
+  transform: translateY(-100%);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.product::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.product input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 /*# sourceMappingURL=globals.css.map */
 
 /*# sourceMappingURL=globals.css.map */

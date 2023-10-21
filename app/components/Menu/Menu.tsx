@@ -15,8 +15,9 @@ import { useSelector } from "react-redux";
 export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
   const cartProducts = useSelector((state: RootState) => state.products)
   const totalPrice = cartProducts
-    .map(product => product.price)
-    .reduce((acc, current) => { return acc + current }, 0)
+    .map(({ price, quantity }) => price * quantity)
+    .reduce((acc, current) => acc + current, 0)
+    .toFixed(2)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
@@ -24,6 +25,10 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
     }
     // add searching with bit delay on typing with shadcn ui
   }
+
+  const cartProductsquantity = cartProducts
+    .map(product => product.quantity)
+    .reduce((acc, current) => acc + current, 0)
 
   const [isCartHidden, setIscarthidden] = useState(true);
 
@@ -139,7 +144,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
                   )}
                   onClick={handleCartClick}
                 >
-                  {/* <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{purchasedAmount}</span> */}
+                  <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
                 </div>
               </li>
             </ul>
@@ -160,7 +165,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
         {cn(
           'flex', 'flex-col', 'justify-between',
           'fixed', 'right-0', 'top-0', 'w-1/4', 'h-[100vh]',
-          'bg-white text-center',
+          'bg-white text-center', 'overflow-scroll',
           isCartHidden && 'translate-x-full',
         )}
         ref={cartELement}

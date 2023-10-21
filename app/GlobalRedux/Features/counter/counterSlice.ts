@@ -3,7 +3,11 @@
 import { ProductType } from "@/app/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: ProductType[] = []
+interface AddedProduct extends ProductType {
+  quantity: number;
+}
+
+const initialState: AddedProduct[] = []
 
 export const counterSlice = createSlice({
   name: 'counter',

@@ -4,11 +4,7 @@ make grid layout with minmax acc to dimensions for categories
 
 make arrows on home page with rounded white background
 
-dodaj do koszyka should add item to cart (not just amount)
-
 add minus and plus button and amount
-
-after adding show it in top right
 
 footer: add form to contact with us and extra links
 
@@ -29,3 +25,7 @@ move handleBackground from app/page.tsx to Componenents/Backgrounds.tsx
 create component for group of products in Recommended.tsx
 
 feture with different locations https://phrase.com/blog/posts/nextjs-i18n/
+
+products should be added to cart after switching routes and refresh page
+
+for mobile add dropdown menu from shadcn ui

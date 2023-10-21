@@ -136,4 +136,27 @@
   }
 }
 
+.product:hover .product__add-to-cart {
+  visibility: visible;
+}
+
+.product:hover .product__description {
+  transform: translateY(-100%);
+  background: rgb(255, 255, 255, 0.5);
+}
+
+.product {
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  & input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+// .product__input {
+// }
+
 /*# sourceMappingURL=globals.css.map */
