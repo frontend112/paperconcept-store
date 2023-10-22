@@ -156,7 +156,18 @@
     appearance: textfield;
   }
 }
+
 // .product__input {
 // }
+.cart {
+  display: grid;
+  grid-template:
+    "image name bin"
+    "image name bin"
+    "image price input";
+  &__image-wrapper {
+    grid-area: image;
+  }
+}
 
 /*# sourceMappingURL=globals.css.map */

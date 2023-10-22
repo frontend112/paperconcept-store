@@ -26,6 +26,10 @@ create component for group of products in Recommended.tsx
 
 feture with different locations https://phrase.com/blog/posts/nextjs-i18n/
 
-products should be added to cart after switching routes and refresh page
+products should be added to cart after f5
 
 for mobile add dropdown menu from shadcn ui
+
+ask on slack 4 feedback on finish
+
+move cart to seperate component

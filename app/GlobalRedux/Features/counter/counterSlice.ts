@@ -13,7 +13,21 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    addProduct: (state, action) => ([...state, action.payload]),
+    addProduct: (state, action) => {
+      const duplicated = state.find(product => product.id === action.payload.id)
+
+      if (duplicated) {
+        const totalQuantity = action.payload.quantity + duplicated.quantity
+        const withoutDuplicated = state.filter(product => product.id !== duplicated.id)
+
+        return [
+          ...withoutDuplicated,
+          { ...action.payload, quantity: totalQuantity }
+        ]
+      }
+
+      return [...state, action.payload]
+    },
   }
 })
 

@@ -42,7 +42,7 @@ export const Product = ({
                 price,
                 src,
                 id,
-                quantity: +quantity,
+                quantity,
               }))
             }}
             className="rounded-none w-full"
