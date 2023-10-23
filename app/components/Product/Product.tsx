@@ -34,7 +34,7 @@ export const Product = ({
       <section className="product__description">
         <p>{name}</p>
         <p>{price} zł</p>
-        <div className="product__add-to-cart invisible">
+        <div className="product__add-to-cart">
           <Button
             onClick={() => {
               dispatch(addProduct({
