@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { CartProduct } from "./CartProduct";
 
 interface Props {
   isCartHidden: boolean;
@@ -19,8 +20,6 @@ export const Cart = ({
   handleCartClick,
 }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
-
-  const dispatch = useDispatch();
 
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
@@ -45,28 +44,12 @@ export const Cart = ({
         {cartProducts.length > 0 ? (
           <ul className="p-4">
             {cartProducts.map(({ id, name, price }) => (
-              <li key={id} className="cart__product-wrapper">
-                <section className="cart__product">
-                  <div className="cart__image-wrapper">
-                    <Image
-                      src={`https://picsum.photos/id/${id}/300`}
-                      alt="product"
-                      width={50}
-                      height={50}
-                      className="w-full"
-                    />
-                  </div>
-                  <h3>{name}</h3>
-                  <button
-                    className="cart__bin w-5 h-5"
-                    onClick={() => {
-                      dispatch(removeProduct({ id }))
-                    }}
-                  ></button>
-                  <h4>{price.toFixed(2)} zł</h4>
-                  <h4>input</h4>
-                </section>
-              </li>
+              <CartProduct
+                id={id}
+                name={name}
+                price={price}
+                key={id}
+              />
             ))}
           </ul>
         ) : (

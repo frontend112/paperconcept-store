@@ -33,9 +33,29 @@ export const counterSlice = createSlice({
         action.payload.id !== product.id
       ))
       return withoutRemoved
-    }
+    },
+    increaseQuantity: (state, action) => (
+      [...state].map(product => {
+        if (product.id === action.payload.id) {
+          return { ...product, quantity: product.quantity + 1 }
+        }
+        return product
+      })
+    ),
+    decreaseQuantity: (state, action) => (
+      [...state].map(product => {
+        if (product.id === action.payload.id) {
+          return { ...product, quantity: product.quantity - 1 }
+        }
+        return product
+      })
+    ),
   }
 })
 
-export const { addProduct, removeProduct } = counterSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  increaseQuantity,
+  decreaseQuantity } = counterSlice.actions;
 export default counterSlice.reducer;

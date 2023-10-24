@@ -188,6 +188,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.cart::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cart input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 
 /*# sourceMappingURL=globals.css.map */
 
