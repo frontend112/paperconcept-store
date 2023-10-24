@@ -3,23 +3,14 @@
 import { useState } from 'react'
 import cn from "classnames";
 
-import type { RootState } from "./GlobalRedux/store";
-import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, incrementByAmount } from '@/app/GlobalRedux/Features/counter/counterSlice'
-
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
-import { DIRECTIONS } from "./types/types";
+import { DIRECTIONS, ExtraClassnames } from "./types/types";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-
-
-const backgroundLength = 5;
+import { bgImages } from "./components/Backgrounds/bgImages";
 
 const Main = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
@@ -33,10 +24,10 @@ const Main = () => {
       setAnimationsDetails({ direction, isActive: false })
 
       if (direction === DIRECTIONS.LEFT && bgCount <= 0) {
-        setBgcount(backgroundLength - 1);
+        setBgcount(bgImages.length - 1);
         return;
       }
-      if (direction === DIRECTIONS.RIGHT && bgCount >= backgroundLength - 1) {
+      if (direction === DIRECTIONS.RIGHT && bgCount >= bgImages.length - 1) {
         setBgcount(0);
         return;
       }
@@ -61,7 +52,7 @@ const Main = () => {
           'overflow-hidden'
         )}
       >
-        <Menu extraClassName='transparent' />
+        <Menu extraClassName={ExtraClassnames.transparent} />
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 

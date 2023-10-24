@@ -27,9 +27,13 @@ export interface BackgroundsProps {
   }
 }
 
-export interface ProductProps {
-  product: string,
-  price: string,
-  src?: string,
+export interface ProductType {
+  name: string,
+  price: number,
+  src: string,
   id: string,
+}
+
+export enum ExtraClassnames {
+  transparent,
 }

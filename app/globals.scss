@@ -101,4 +101,138 @@
   padding-left: 1.5rem;
 }
 
+.nav__user {
+  background-image: url("img/user-black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &--transparent {
+    background-image: url("img/user-white.png");
+  }
+}
+
+.section:hover .nav__user {
+  background-image: url("img/user-black.png");
+  &--transparent {
+    background-image: url("img/user-black.png");
+  }
+}
+
+.nav__cart {
+  cursor: pointer;
+  background-image: url("img/shopping-cart-black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &--transparent {
+    background-image: url("img/shopping-cart-white.png");
+  }
+}
+
+.section:hover .nav__cart {
+  background-image: url("img/shopping-cart-black.png");
+  &--transparent {
+    background-image: url("img/shopping-cart-black.png");
+  }
+}
+
+.product {
+  &:hover {
+    .product__add-to-cart {
+      // visibility: visible;
+      opacity: 1;
+      animation: showCounter ease 0.5s;
+    }
+    .product__description {
+      animation: moveTop ease 0.5s;
+      background-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-100%);
+    }
+  }
+
+  &:not(:hover) .product__description {
+    animation: moveDown ease 0.5s;
+    transform: translateY(0);
+    .product__add-to-cart {
+      opacity: 0;
+      animation: hideCounter ease 0.5s;
+    }
+  }
+
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  & input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@keyframes moveTop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideCounter {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showCounter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cart {
+  &__product {
+    display: grid;
+    grid-template:
+      "image name bin"
+      "image name bin"
+      "image price input";
+  }
+  &__image-wrapper {
+    grid-area: image;
+  }
+  &__bin {
+    background-image: url("img/bin.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  & input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
 /*# sourceMappingURL=globals.css.map */

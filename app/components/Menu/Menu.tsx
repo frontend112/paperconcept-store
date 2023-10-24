@@ -1,28 +1,55 @@
 'use client'
-import { FormEvent } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import Link from "next/link";
 import cn from "classnames"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { getCategories } from '@/app/getData/getCategories'
-import { getSubpages } from "@/app/getData/getSubpages";
+import { getCategories as categories } from '@/app/getData/getCategories'
+import { getSubpages as subpages } from "@/app/getData/getSubpages";
+import { ExtraClassnames } from "@/app/types/types";
+import { Button } from "@/components/ui/button";
+import { RootState } from "@/app/GlobalRedux/store";
+import { useSelector } from "react-redux";
+import { Cart } from "../Cart/Cart";
 
-export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
+export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
+  const cartProducts = useSelector((state: RootState) => state.products)
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (event) {
       event.preventDefault();
     }
+    // add searching with bit delay on typing with shadcn ui
   }
 
-  const categories = getCategories;
-  const subpages = getSubpages;
+  const cartProductsquantity = cartProducts
+    .map(product => product.quantity)
+    .reduce((acc, current) => acc + current, 0)
+
+  const [isCartHidden, setIscarthidden] = useState(true);
+
+  const cartELement = useRef<HTMLDivElement>(null);
+
+  const handleCartClick = () => {
+    if (isCartHidden) {
+      cartELement.current?.classList.add('animate-show-cart')
+      cartELement.current?.classList.remove('animate-hide-cart')
+    } else {
+      cartELement.current?.classList.add('animate-hide-cart')
+      cartELement.current?.classList.remove('animate-show-cart')
+    }
+
+    setTimeout(() => {
+      setIscarthidden(state => !state)
+    }, 500)
+  }
 
   return (
     <div className={cn(
       'z-10',
       'w-full',
-      extraClassName === 'transparent' && 'absolute',
+      extraClassName === ExtraClassnames.transparent && 'absolute',
     )}>
       <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
@@ -31,7 +58,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
         'section',
         'm-auto',
         'px-[5%]',
-        extraClassName === 'transparent'
+        extraClassName === ExtraClassnames.transparent
           ? 'text-white'
           : 'text-black'
       )}>
@@ -44,7 +71,7 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
                 'block',
                 'bg-cover',
                 'bg-no-repeat',
-                extraClassName === 'transparent' ? 'nav__logo' : 'nav__logo--transparent'
+                extraClassName === ExtraClassnames.transparent ? 'nav__logo' : 'nav__logo--transparent'
               )}
               href="/"
             ></Link>
@@ -80,15 +107,45 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
               placeholder="Szukaj produktu"
             />
           </form>
-          <ul className="flex uppercase text-[0.6rem]">
-            {
-              subpages.map(({ id, name, slug }) => (
-                <li key={id}>
-                  <Link href={`/${slug}`} className="px-1.5 py-2">{name}</Link>
-                </li>
-              ))
-            }
-          </ul>
+          <div className="flex flex-col">
+            <ul className="flex uppercase text-[0.6rem] pb-4">
+              {
+                subpages.map(({ id, name, slug }) => (
+                  <li key={id}>
+                    <Link href={`/${slug}`} className="px-1.5 py-2">{name}</Link>
+                  </li>
+                ))
+              }
+            </ul>
+            <ul className="flex justify-end gap-4">
+              <li>
+                <Link href='/user-panel' className=
+                  {cn(
+                    'nav__user',
+                    extraClassName === ExtraClassnames.transparent && 'nav__user--transparent',
+                    'w-5',
+                    'h-5',
+                    'block'
+                  )}>
+                </Link>
+              </li>
+              <li>
+                <div
+                  className={cn(
+                    'nav__cart',
+                    extraClassName === ExtraClassnames.transparent && 'nav__cart--transparent',
+                    'w-5',
+                    'h-5',
+                    'block',
+                    'relative'
+                  )}
+                  onClick={handleCartClick}
+                >
+                  <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </nav>
         <ul className="flex justify-between text-inherit">
           {categories.map(({ category, id, slug }) => (
@@ -100,6 +157,12 @@ export const Menu = ({ extraClassName }: { extraClassName?: string, }) => {
           ))}
         </ul>
       </section>
+
+      <Cart
+        isCartHidden={isCartHidden}
+        cartELement={cartELement}
+        handleCartClick={handleCartClick}
+      />
     </div>
   )
 }
