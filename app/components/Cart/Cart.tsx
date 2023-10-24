@@ -1,10 +1,11 @@
 import React, { RefObject } from 'react'
 
 import cn from "classnames"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 
 interface Props {
   isCartHidden: boolean;
@@ -18,6 +19,9 @@ export const Cart = ({
   handleCartClick,
 }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
+
+  const dispatch = useDispatch();
+
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
     .reduce((acc, current) => acc + current, 0)
@@ -32,7 +36,7 @@ export const Cart = ({
       )}
       ref={cartELement}
     >
-      <article>
+      <article className="cart">
         <section className="relative p-4">
           <h3 className="uppercase">podgląd koszyka</h3>
           <button onClick={handleCartClick} className="absolute right-4 top-[50%] translate-y-[-50%] text-xl">x</button>
@@ -41,8 +45,8 @@ export const Cart = ({
         {cartProducts.length > 0 ? (
           <ul className="p-4">
             {cartProducts.map(({ id, name, price }) => (
-              <li key={id} className="cart-wrapper">
-                <section className="cart">
+              <li key={id} className="cart__product-wrapper">
+                <section className="cart__product">
                   <div className="cart__image-wrapper">
                     <Image
                       src={`https://picsum.photos/id/${id}/300`}
@@ -53,7 +57,12 @@ export const Cart = ({
                     />
                   </div>
                   <h3>{name}</h3>
-                  <button>bin</button>
+                  <button
+                    className="cart__bin w-5 h-5"
+                    onClick={() => {
+                      dispatch(removeProduct({ id }))
+                    }}
+                  ></button>
                   <h4>{price.toFixed(2)} zł</h4>
                   <h4>input</h4>
                 </section>

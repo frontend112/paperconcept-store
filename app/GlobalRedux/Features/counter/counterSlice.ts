@@ -28,8 +28,14 @@ export const counterSlice = createSlice({
 
       return [...state, action.payload]
     },
+    removeProduct: (state, action) => {
+      const withoutRemoved = state.filter(product => (
+        action.payload.id !== product.id
+      ))
+      return withoutRemoved
+    }
   }
 })
 
-export const { addProduct } = counterSlice.actions;
+export const { addProduct, removeProduct } = counterSlice.actions;
 export default counterSlice.reducer;

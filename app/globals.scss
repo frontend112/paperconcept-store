@@ -154,15 +154,10 @@
     animation: moveDown ease 0.5s;
     transform: translateY(0);
     .product__add-to-cart {
-      // visibility: hidden;
       opacity: 0;
       animation: hideCounter ease 0.5s;
     }
   }
-
-  // &:not(:hover) .product__add-to-cart {
-  //   visibility: hidden;
-  // }
 
   &::-webkit-inner-spin-button {
     display: none;
@@ -213,13 +208,20 @@
 }
 
 .cart {
-  display: grid;
-  grid-template:
-    "image name bin"
-    "image name bin"
-    "image price input";
+  &__product {
+    display: grid;
+    grid-template:
+      "image name bin"
+      "image name bin"
+      "image price input";
+  }
   &__image-wrapper {
     grid-area: image;
+  }
+  &__bin {
+    background-image: url("img/bin.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 

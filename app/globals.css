@@ -176,12 +176,17 @@
     opacity: 1;
   }
 }
-.cart {
+.cart__product {
   display: grid;
   grid-template: "image name bin" "image name bin" "image price input";
 }
 .cart__image-wrapper {
   grid-area: image;
+}
+.cart__bin {
+  background-image: url("img/bin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=globals.css.map */
