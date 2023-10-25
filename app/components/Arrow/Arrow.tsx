@@ -4,28 +4,29 @@ import cn from 'classnames'
 
 export const Arrow: FC<ArrowProps> = ({ direction, changeBg, isLoading }) => (
   <div className={cn(
-    'px-5',
-    'rounded-full',
     'absolute',
     'top-[50%]',
     'hover: cursor-pointer',
     'translate-y-[-50%]',
-    direction === DIRECTIONS.LEFT ? 'left-0' : 'right-0'
+    direction === DIRECTIONS.LEFT ? 'left-5' : 'right-5'
   )}
   >
-    <button
-      className={cn(
-        'border-solid',
-        'border-r-4',
-        'border-b-4',
-        'inline-block',
-        'p-4',
-        'border-black',
-        direction === DIRECTIONS.LEFT ? 'rotate-[135deg]' : 'rotate-[-45deg]'
-      )}
-      disabled={isLoading}
-      onClick={() => changeBg(direction)}
-    />
+    <div className="
+      flex justify-center items-center
+      rounded-full
+      bg-white
+      w-10
+      h-10
+      "
+    >
+      <button
+        disabled={isLoading}
+        onClick={() => changeBg(direction)}
+      >
+        {direction === DIRECTIONS.LEFT && "<"}
+        {direction === DIRECTIONS.RIGHT && '>'}
+      </button>
+    </div>
   </div>
 )
 

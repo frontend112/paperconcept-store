@@ -27,3 +27,5 @@ for mobile add dropdown menu from shadcn ui
 ask on slack 4 feedback on finish
 
 move cart to seperate component
+
+add to arrow component gt and lt as arrow right and left
