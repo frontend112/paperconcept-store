@@ -8,7 +8,7 @@ export enum DIRECTIONS {
 
 export interface ArrowProps {
   direction: DIRECTIONS;
-  changeBg: (direction: DIRECTIONS) => void;
+  handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
 }
 

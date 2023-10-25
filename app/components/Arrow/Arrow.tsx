@@ -2,7 +2,11 @@ import { ArrowProps, DIRECTIONS } from "@/app/types/types";
 import React, { FC } from 'react'
 import cn from 'classnames'
 
-export const Arrow: FC<ArrowProps> = ({ direction, changeBg, isLoading }) => (
+export const Arrow: FC<ArrowProps> = ({
+  direction,
+  handleArrowClick,
+  isLoading
+}) => (
   <div className={cn(
     'absolute',
     'top-[50%]',
@@ -15,13 +19,12 @@ export const Arrow: FC<ArrowProps> = ({ direction, changeBg, isLoading }) => (
       flex justify-center items-center
       rounded-full
       bg-white
-      w-10
-      h-10
       "
     >
       <button
+        className="w-10 h-10"
         disabled={isLoading}
-        onClick={() => changeBg(direction)}
+        onClick={() => handleArrowClick(direction)}
       >
         {direction === DIRECTIONS.LEFT && "<"}
         {direction === DIRECTIONS.RIGHT && '>'}

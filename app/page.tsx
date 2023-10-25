@@ -58,13 +58,13 @@ const Main = () => {
 
         <Arrow
           direction={DIRECTIONS.LEFT}
-          changeBg={changeBg}
+          handleArrowClick={changeBg}
           isLoading={isLoading}
         />
 
         <Arrow
           direction={DIRECTIONS.RIGHT}
-          changeBg={changeBg}
+          handleArrowClick={changeBg}
           isLoading={isLoading}
         />
       </header>
