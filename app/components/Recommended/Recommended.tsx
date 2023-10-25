@@ -31,7 +31,7 @@ export const Recommended = () => {
             key={el}
             name={getProducts[prevCounter + el].name}
             price={getProducts[prevCounter + el].price}
-            src=""
+            src={getProducts[prevCounter + el].src}
           />
         ))}
 
@@ -43,7 +43,7 @@ export const Recommended = () => {
             key={el}
             name={getProducts[counter + el].name}
             price={getProducts[counter + el].price}
-            src=""
+            src={getProducts[counter + el].src}
           />
         ))}
       </div>
@@ -54,7 +54,7 @@ export const Recommended = () => {
             key={el}
             name={getProducts[nextCounter + el].name}
             price={getProducts[nextCounter + el].price}
-            src=""
+            src={getProducts[nextCounter + el].src}
           />
         ))}
       </div>
