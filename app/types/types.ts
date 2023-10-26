@@ -36,6 +36,6 @@ export interface ProductType {
   id: string,
 }
 
-export enum ExtraClassnames {
-  transparent,
+export enum ExtraClassNames {
+  TRANSPARENT = "transparent",
 }

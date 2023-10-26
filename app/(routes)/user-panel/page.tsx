@@ -8,7 +8,7 @@ const page = () => {
       <aside className="flex justify-end">
         <UserButton afterSignOutUrl="/" />
       </aside>
-      <main className="text-center pt-4">
+      <div className="text-center pt-4">
         <h2 className="uppercase font-normal text-2xl">Moje konto</h2>
         <p>Możesz tu zarządzać swoimi danymi personalnymi jak również przeglądać swoje zamówienia.</p>
         <div className="container max-w-5xl">
@@ -25,7 +25,7 @@ const page = () => {
             <Button>Karta podarunkowa</Button>
           </section>
         </div>
-      </main>
+      </div>
     </div>
   )
 }

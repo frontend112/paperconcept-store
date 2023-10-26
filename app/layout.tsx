@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from "./GlobalRedux/provider"
 import { ClerkProvider } from "@clerk/nextjs"
+import { createRef } from "react"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html>
         <body className={inter.className}>
           <Providers>
             {children}

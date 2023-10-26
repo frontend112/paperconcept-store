@@ -1,19 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import cn from "classnames";
 
+import { DIRECTIONS, ExtraClassNames } from "./types/types";
+import { bgImages } from "./components/Backgrounds/bgImages";
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
-import { DIRECTIONS, ExtraClassnames } from "./types/types";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-import { bgImages } from "./components/Backgrounds/bgImages";
+import { StickyMenu } from "./components/StickyMenu/StickyMenu";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
+
+  const mainELement = useRef<HTMLElement>(null)
+  const [isScrolled, setIsscrolled] = useState(false)
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
@@ -40,8 +44,16 @@ const Main = () => {
     }, 500)
   }
 
+  const handleScroll = () => {
+    const scrollTop = mainELement.current?.scrollTop || 0;
+    setIsscrolled(() => scrollTop < 10 ? false : true)
+  }
+
   return (
-    <main>
+    <main
+      ref={mainELement}
+      onScroll={handleScroll}
+    >
       <header
         className={cn(
           'relative',
@@ -52,7 +64,9 @@ const Main = () => {
           'overflow-hidden'
         )}
       >
-        <Menu extraClassName={ExtraClassnames.transparent} />
+        {isScrolled ? <StickyMenu />
+          : <Menu className={ExtraClassNames.TRANSPARENT} />
+        }
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 

@@ -1,34 +1,20 @@
 'use client'
-import { FormEvent, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from "next/link";
 import cn from "classnames"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { getCategories as categories } from '@/app/getData/getCategories'
-import { getSubpages as subpages } from "@/app/getData/getSubpages";
-import { ExtraClassnames } from "@/app/types/types";
-import { Button } from "@/components/ui/button";
-import { RootState } from "@/app/GlobalRedux/store";
-import { useSelector } from "react-redux";
+
+import { ExtraClassNames } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
+import { Logo } from "../Logo/Logo";
+import { SearchForm } from "../SearchForm/SearchForm";
+import { SubPages } from "../SubPages/SubPages";
+import { UserIcon } from "./UserIcon";
+import CartIcon from "./CartIcon";
 
-export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) => {
-  const cartProducts = useSelector((state: RootState) => state.products)
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (event) {
-      event.preventDefault();
-    }
-    // add searching with bit delay on typing with shadcn ui
-  }
-
-  const cartProductsquantity = cartProducts
-    .map(product => product.quantity)
-    .reduce((acc, current) => acc + current, 0)
-
+export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
   const [isCartHidden, setIscarthidden] = useState(true);
-
   const cartELement = useRef<HTMLDivElement>(null);
 
   const handleCartClick = () => {
@@ -46,104 +32,34 @@ export const Menu = ({ extraClassName }: { extraClassName?: ExtraClassnames, }) 
   }
 
   return (
-    <div className={cn(
-      'z-10',
-      'w-full',
-      extraClassName === ExtraClassnames.transparent && 'absolute',
-    )}>
+    <div
+      className={cn(
+        'z-10',
+        'w-full',
+        className === ExtraClassNames.TRANSPARENT && 'absolute',
+      )}
+    >
       <p className="p-2 text-xs text-center text-white bg-neutral-800">
         ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
       </p>
       <section className={cn(
-        'section',
-        'm-auto',
-        'px-[5%]',
-        extraClassName === ExtraClassnames.transparent
+        'section', 'm-auto', 'px-[5%]',
+        className === ExtraClassNames.TRANSPARENT
           ? 'text-white'
           : 'text-black'
       )}>
         <nav className="nav section__nav flex justify-between p-5">
-          <div className="nav__logo-wrapper w-28 h-10">
-            <Link
-              className={cn(
-                'w-28',
-                'h-10',
-                'block',
-                'bg-cover',
-                'bg-no-repeat',
-                extraClassName === ExtraClassnames.transparent ? 'nav__logo' : 'nav__logo--transparent'
-              )}
-              href="/"
-            ></Link>
-          </div>
-          <form className="relative" onSubmit={handleSubmit}>
-            <label htmlFor="search">
-              <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: "absolute",
-                  left: "0",
-                  top: "0.2rem",
-                  height: "1rem",
-                  cursor: "pointer",
-                }}
-              />
-            </label>
-            <input
-              type="text"
-              className="
-                search__input
-                bg-transparent
-                white
-                placeholder:text-inherit
-                outline-none
-                border-b-2
-                pl-6
-                pb-1.5
-                border-white
-                hover:border-black
-              "
-              id="search"
-              placeholder="Szukaj produktu"
-            />
-          </form>
+          <Logo classNames={ExtraClassNames.TRANSPARENT} />
+          <SearchForm />
           <div className="flex flex-col">
-            <ul className="flex uppercase text-[0.6rem] pb-4">
-              {
-                subpages.map(({ id, name, slug }) => (
-                  <li key={id}>
-                    <Link href={`/${slug}`} className="px-1.5 py-2">{name}</Link>
-                  </li>
-                ))
-              }
-            </ul>
-            <ul className="flex justify-end gap-4">
-              <li>
-                <Link href='/user-panel' className=
-                  {cn(
-                    'nav__user',
-                    extraClassName === ExtraClassnames.transparent && 'nav__user--transparent',
-                    'w-5',
-                    'h-5',
-                    'block'
-                  )}>
-                </Link>
-              </li>
-              <li>
-                <div
-                  className={cn(
-                    'nav__cart',
-                    extraClassName === ExtraClassnames.transparent && 'nav__cart--transparent',
-                    'w-5',
-                    'h-5',
-                    'block',
-                    'relative'
-                  )}
-                  onClick={handleCartClick}
-                >
-                  <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
-                </div>
-              </li>
+            <SubPages />
+
+            <ul className="nav__middle-icons flex justify-end gap-4">
+              <UserIcon className={ExtraClassNames.TRANSPARENT} />
+              <CartIcon
+                className={ExtraClassNames.TRANSPARENT}
+                handleCartClick={handleCartClick}
+              />
             </ul>
           </div>
         </nav>
