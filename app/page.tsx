@@ -60,13 +60,13 @@ const Main = () => {
           direction={DIRECTIONS.LEFT}
           handleArrowClick={changeBg}
           isLoading={isLoading}
-        />
+        >&lt;</Arrow>
 
         <Arrow
           direction={DIRECTIONS.RIGHT}
           handleArrowClick={changeBg}
           isLoading={isLoading}
-        />
+        >&gt;</Arrow>
       </header>
       <section className="flex flex-col">
         <article>

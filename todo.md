@@ -2,8 +2,6 @@ things to do:
 
 make grid layout with minmax acc to dimensions for categories
 
-make arrows on home page with rounded white background
-
 footer: add form to contact with us and extra links
 
 searching should work (shadcn ui might be useful here)
@@ -25,7 +23,3 @@ products should be added to cart after f5
 for mobile add dropdown menu from shadcn ui
 
 ask on slack 4 feedback on finish
-
-move cart to seperate component
-
-add to arrow component gt and lt as arrow right and left

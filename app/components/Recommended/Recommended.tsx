@@ -30,7 +30,7 @@ export const Recommended = () => {
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
         isLoading={false}
-      />
+      >&lt;</Arrow>
       <div className="grid grid-cols-[repeat(4,1fr)] gap-4 px-12">
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <Product
@@ -46,7 +46,7 @@ export const Recommended = () => {
         direction={DIRECTIONS.RIGHT}
         handleArrowClick={changeCounter}
         isLoading={false}
-      />
+      >&gt;</Arrow>
     </div>
   )
 }

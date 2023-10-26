@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
 export enum DIRECTIONS {
   LEFT,
@@ -10,6 +11,7 @@ export interface ArrowProps {
   direction: DIRECTIONS;
   handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
+  children: ReactNode;
 }
 
 export interface BackgroundType {

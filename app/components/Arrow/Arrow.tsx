@@ -5,7 +5,8 @@ import cn from 'classnames'
 export const Arrow: FC<ArrowProps> = ({
   direction,
   handleArrowClick,
-  isLoading
+  isLoading,
+  children,
 }) => (
   <div className={cn(
     'absolute',
@@ -22,12 +23,11 @@ export const Arrow: FC<ArrowProps> = ({
       "
     >
       <button
-        className="w-10 h-10"
+        className="w-10 h-10 font-thin text-xl"
         disabled={isLoading}
         onClick={() => handleArrowClick(direction)}
       >
-        {direction === DIRECTIONS.LEFT && "<"}
-        {direction === DIRECTIONS.RIGHT && '>'}
+        {children}
       </button>
     </div>
   </div>
