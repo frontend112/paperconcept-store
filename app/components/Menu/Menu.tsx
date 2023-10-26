@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import cn from "classnames"
 
 import { ExtraClassNames } from "@/app/types/types";
@@ -11,24 +11,19 @@ import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
 import { Categories } from "./Categories";
 
-export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
-  const [isCartHidden, setIscarthidden] = useState(true);
-  const cartELement = useRef<HTMLDivElement>(null);
+type Props = {
+  className?: ExtraClassNames,
+  handleCartClick: () => void,
+  isCartHidden: boolean,
+  cartELement: RefObject<HTMLDivElement>,
+}
 
-  const handleCartClick = () => {
-    if (isCartHidden) {
-      cartELement.current?.classList.add('animate-show-cart')
-      cartELement.current?.classList.remove('animate-hide-cart')
-    } else {
-      cartELement.current?.classList.add('animate-hide-cart')
-      cartELement.current?.classList.remove('animate-show-cart')
-    }
-
-    setTimeout(() => {
-      setIscarthidden(state => !state)
-    }, 500)
-  }
-
+export const Menu = ({
+  className,
+  handleCartClick,
+  isCartHidden,
+  cartELement
+}: Props) => {
   return (
     <div
       className={cn(

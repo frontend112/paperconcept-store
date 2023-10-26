@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames } from "./types/types";
@@ -15,10 +15,24 @@ const Main = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
-
+  const [isCartHidden, setIscarthidden] = useState(true);
+  const cartELement = useRef<HTMLDivElement>(null);
   const mainELement = useRef<HTMLElement>(null)
   const [isScrolled, setIsscrolled] = useState(false)
 
+  const handleCartClick = () => {
+    if (isCartHidden) {
+      cartELement.current?.classList.add('animate-show-cart')
+      cartELement.current?.classList.remove('animate-hide-cart')
+    } else {
+      cartELement.current?.classList.add('animate-hide-cart')
+      cartELement.current?.classList.remove('animate-show-cart')
+    }
+
+    setTimeout(() => {
+      setIscarthidden(state => !state)
+    }, 500)
+  }
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
     setAnimationsDetails({ direction, isActive: true })
@@ -46,13 +60,15 @@ const Main = () => {
 
   const handleScroll = () => {
     const scrollTop = mainELement.current?.scrollTop || 0;
-    setIsscrolled(() => scrollTop < 10 ? false : true)
+    console.log(scrollTop)
+    scrollTop > 160 ? setIsscrolled(true) : setIsscrolled(false)
   }
 
   return (
     <main
       ref={mainELement}
       onScroll={handleScroll}
+      className="h-[100vh] overflow-scroll"
     >
       <header
         className={cn(
@@ -65,7 +81,12 @@ const Main = () => {
         )}
       >
         {isScrolled ? <StickyMenu />
-          : <Menu className={ExtraClassNames.TRANSPARENT} />
+          : <Menu
+            className={ExtraClassNames.TRANSPARENT}
+            handleCartClick={handleCartClick}
+            isCartHidden={isCartHidden}
+            cartELement={cartELement}
+          />
         }
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
