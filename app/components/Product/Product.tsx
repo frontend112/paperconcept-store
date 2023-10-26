@@ -25,7 +25,7 @@ export const Product = ({
       <div className="image__wrapper">
         <Image
           src={src || `https://picsum.photos/id/${id}/300`}
-          alt="product"
+          alt={name}
           width={300}
           height={300}
           className="w-full"

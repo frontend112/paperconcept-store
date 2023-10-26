@@ -32,3 +32,5 @@ export const CartIcon = ({ className, handleCartClick }: Props) => {
     </li>
   )
 }
+
+export default CartIcon
