@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
 export enum DIRECTIONS {
   LEFT,
@@ -8,8 +9,9 @@ export enum DIRECTIONS {
 
 export interface ArrowProps {
   direction: DIRECTIONS;
-  changeBg: (direction: DIRECTIONS) => void;
+  handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
+  children: ReactNode;
 }
 
 export interface BackgroundType {
@@ -34,6 +36,6 @@ export interface ProductType {
   id: string,
 }
 
-export enum ExtraClassnames {
-  transparent,
+export enum ExtraClassNames {
+  TRANSPARENT = "transparent",
 }

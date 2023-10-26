@@ -18,210 +18,224 @@
         "name": "koperty amber 100g - 14 x 14 cm, bia\u0142e, 500 szt.",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 155
+        "price": 155,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/0mxc19a4uuvtf8ug0gvat/koperty-amber-100g-14-x-14-cm-biale-500-szt.jpg?rlkey=iezqf9lr6pig0ppghqghmww2m&dl=0"
       },
       {
         "id": "2",
         "name": "koperty amber 100g - 17 x 17 cm, bia\u0142e, 500 szt.",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 180
+        "price": 180,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/9px1cvj0ow9llzndir4za/koperty-amber-100g-17-x-17-cm-biale-500-szt.avif?rlkey=gtb80ueuj1l3t8ozp4j595e5d&dl=0"
       },
       {
         "id": "3",
         "name": "Koperta Crush 120g - C5, Corn, z\u0142amana biel",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 0.8
+        "price": 0.8,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/k0ntyxaz8x35l91c2v9cg/koperta-crush-120g-c5-corn-zlamana-biel.jpg?rlkey=noufnudm5bzrsffjl927cgtjo&dl=0"
       },
       {
         "id": "4",
         "name": "Koperta Curious Metallics 120g - C5, Nude, cielista",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 0.8
+        "price": 0.8,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/63y3k33kx03ob5mvddote/koperta-curious-metallics-120g-c5-ice-silver-srebrny.jpg?rlkey=rb3n8rkxgyv81vv2h32p0jruz&dl=0"
       },
       {
         "id": "5",
-        "name": "Koperta Curious Metallics 120g - C5, Nude, cielista",
+        "name": "Koperta Curious Metallics 120g - C5, Gold, cielista",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 0.8
+        "price": 0.8,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/ki0e1xf0w1hgkwku184o8/koperta-curious-metallics-120g-c5-super-gold-zlota.jpg?rlkey=7w8p6zitpkbik59jfp3f0ud7o&dl=0"
       },
       {
         "id": "6",
         "name": "Koperta Materica 120g - C5, Terra Rossa, ceglasta",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 0.8
+        "price": 0.8,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/ej0r3arwisw8zap777aoi/koperta-materica-120g-c5-terra-rossa-ceglasta.jpg?rlkey=1oqsyvu3kj2cmtz0kbqf2tjfw&dl=0"
       },
       {
         "id": "7",
         "name": "Koperta Materica 120g - C5, Verdigris, zielona oliwkowa",
         "slug": "papiery-i-koperty",
         "category": "papiery & koperty",
-        "price": 0.8
+        "price": 0.8,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/dfs7qtv3l74mmtk3dvvhl/koperta-materica-120g-c5-verdigris-zielona-oliwkowa.jpg?rlkey=l747i94epxk3xcf2vln9zw6vf&dl=0"
       },
       {
         "id": "8",
         "name": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, L",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
-        "price": 143
+        "price": 143,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/7561xtdpwn645gptl2lqz/kalendarz-tygodniowy-20232024-moleskine-sapphire-blue-twarda-okladka-l.jpg?rlkey=zzngoxdwybikma75riqvwaxiy&dl=0"
       },
       {
         "id": "9",
         "name": "Kalendarz tygodniowy 2023/2024 - Moleskine - Black, twarda ok\u0142adka, XL",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
-        "price": 152
+        "price": 152,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/namg4pu67j9wl2mxl3hvi/kalendarz-tygodniowy-20232024-moleskine-black-twarda-okladka-l.jpg?rlkey=uhjyud414nkfrcea22n6m06tn&dl=0"
       },
       {
         "id": "10",
         "name": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
-        "price": 143
+        "price": 143,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/ktals30to5lnggwroah29/kalendarz-dzienny-2024-moleskine-scarlet-red-twarda-okladka-p.jpg?rlkey=fk135r84d3l2p2f4ktcsh7sgn&dl=0"
       },
       {
         "id": "11",
-        "name": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, L",
+        "name": "Kalendarz tygodniowy 2023/2024 - Moleskine - Scarlet Red, twarda ok\u0142adka, P",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
-        "price": 162
+        "price": 162,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/t1mdvnbbqbp3erusbfdzs/kalendarz-tygodniowy-20232024-moleskine-scarlet-red-twarda-okladka-l.jpg?rlkey=nfhqxm3wjrs6ninhdtw3xoxx1&dl=0"
       },
       {
         "id": "12",
-        "name": "Kalendarz tygodniowy 2024 - Moleskine - Sapphire Blue, twarda ok\u0142adka, P",
+        "name": "Kalendarz tygodniowy 2024 - Moleskine - Sapphire Blue, miekka ok\u0142adka, P",
         "slug": "pismiennicze-i-kaligrafia",
         "category": "pi\u015bmiennicze & kaligrafia",
-        "price": 110
+        "price": 110,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/sci1lsqa7nube4gz244za/kalendarz-tygodniowy-20232024-moleskine-black-miekka-okladka-xl.jpg?rlkey=u6inotgc4vjkt0vu42a9mq3vv&dl=0"
       },
       {
         "id": "13",
-        "name": "papiernicze & dla dzieci",
+        "name": "Zestaw farb do malowania palcami Ocean - Djeco - 4 kolory",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
-        "price": 65.9
+        "price": 96.5,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/usu08nh26bkle6th7sl4g/zestaw-farb-do-malowania-palcami-ocean-djeco-4-kolory.jpg?rlkey=m4wa4izdntk1pwi3aensgfnz1&dl=0"
       },
       {
         "id": "14",
         "name": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
-        "price": 28.5
+        "price": 28.5,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/a2d8ep74gj6nw3myu13wl/kredki-do-malowania-twarzy-snazaroo-jungle-row-3-szt.jpg?rlkey=6ev7el6esh4q34usghce0v2gv&dl=0"
       },
       {
         "id": "15",
-        "name": "Kredki do malowania twarzy - Snazaroo - Jungle Row, 3 szt.",
+        "name": "Kredki świecowe w kamieniu dla maluchow - Djeco - Kwiatki, 12 kolorow",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
-        "price": 7.2
+        "price": 39.9,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/unzpqann6te0ayrlen6xx/kredki-swiecowe-w-kamieniu-dla-maluchow-djeco-kwiatki-12-kolorow.jpg?rlkey=pjwda2283xi0x2vp1rg05nvt0&dl=0"
       },
       {
         "id": "16",
         "name": "Zestaw do tworzenia bi\u017cuterii dla dzieci, Literki - Djeco - z\u0142ote, 1000 szt.",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
-        "price": 91.9
+        "price": 57,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/zdfyabx41gyd0uodliq19/zestaw-do-tworzenia-bizuterii-dla-dzieci-djeco-tecza-400-szt.jpg?rlkey=lbhukfn0x55vhfkq2xf2ir7d7&dl=0"
       },
       {
         "id": "17",
-        "name": "Zestaw cienkopis\u00f3w Mono Drawing Pen, Fine - Tombow - czarne, 4 szt.",
+        "name": "Zestaw cienkopisow - Rotring - 0,4 mm, 10 kolorow",
         "slug": "papiernicze-i-dla-dzieci",
         "category": "papiernicze & dla dzieci",
-        "price": 51.5
+        "price": 36.9,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/wx57fioe3c20jl14ov2n4/zestaw-cienkopisow-grip-finepen-w-etui-faber-castell-10-kolorow.png?rlkey=rucj8jtlsegpuwiz8mekul941&dl=0"
       },
       {
         "id": "18",
-        "name": "Talerzyki papierowe Wiecz\u00f3r Panie\u0144ski - r\u00f3\u017cowe, 18 cm, 6 szt.",
+        "name": "Talerzyki papierowe - mietowo-zlote, 18 cm, 6 szt.",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
-        "price": 16.7
+        "price": 5.5,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/x8ki57q3a4ia5nggyasog/talerzyki-papierowe-mietowo-zlote-18-cm-6-szt.jpg?rlkey=t7ulq4pg6128s7o1bq49g4tno&dl=0"
       },
       {
         "id": "19",
         "name": "Pude\u0142ka na ciasto lub tort Chrzest \u015awi\u0119ty - bia\u0142e, 10 szt.",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
-        "price": 36
+        "price": 36,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/qoqcqj3frqq5e1tbj7lo2/pudelka-na-ciasto-biale-10-szt.jpg?rlkey=cb8ntm82f5d0ci3engcs3e22s&dl=0"
       },
       {
         "id": "20",
         "name": "Balon foliowy na Chrzest \u015awi\u0119ty, Anio\u0142 Dziewczynka - 70 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
-        "price": 27
+        "price": 27,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/50rmrwn76grsvor99790n/balon-foliowy-na-chrzest-swiety-aniol-dziewczynka-70-cm.jpg?rlkey=vhfey0g0d87e9eho40ptrqmjp&dl=0"
       },
       {
         "id": "21",
         "name": "Balony Kosmos na stojaku DIY - 90 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
-        "price": 17.5
+        "price": 17.5,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/4o7arlpi7prx4tz3he5mg/balony-kosmos-na-stojaku-diy-90-cm.jpg?rlkey=0zqeywo4kyt4k38tj7ydfhq4m&dl=0"
       },
       {
         "id": "22",
         "name": "Balon lateksowy Jednoro\u017cec - przezroczysty, 45 cm",
         "slug": "slub-i-przyjecia",
         "category": "\u015blub & przyj\u0119cia",
-        "price": 12.5
+        "price": 12.5,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/l0pqlcptf89khf7ejuxq4/balon-lateksowy-jednorozec-przezroczysty-45-cm.jpg?rlkey=9hbjv065tg1ljudaoevndmmut&dl=0"
       },
       {
         "id": "23",
-        "name": "Papierowe lampiony - Rico Design - r\u00f3\u017cowe, 10 x 13 cm, 5 szt.",
+        "name": "Papierowe lampiony - Rico Design - r\u00f3\u017cowe, 10 x 13 cm, 6 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
-        "price": 15.38
+        "price": 15.38,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/7cee1f3lrf32h54vuv8mf/lampiony-plywajace-kwiaty-29-cm-6-szt.jpg?rlkey=2w99p83hp2eptdor9dq7beolt&dl=0"
       },
       {
         "id": "24",
         "name": "Zestaw artystyczny ze stemplami dla dzieci - Djeco - Pojazdy",
         "slug": "plastyczne",
         "category": "plastyczne",
-        "price": 77.25
+        "price": 77.25,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/jjif3bijsz3ck3msnnqxn/zestaw-artystyczny-ze-stemplami-dla-dzieci-djeco-pojazdy.jpg?rlkey=ouw6x1u4jzap4dgubab0nnv7z&dl=0"
       },
       {
         "id": "25",
-        "name": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
+        "name": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 10 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
-        "price": 14.25
+        "price": 14.25,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/oy55r67gbah3q4crtuuun/zestaw-kopert-i-kart-paper-poetry-mirror-silver-a7-i-c7-10-szt.jpg?rlkey=pg3bafcb1o9fjkceccbnfwcg0&dl=0"
       },
       {
         "id": "26",
         "name": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
         "slug": "plastyczne",
         "category": "plastyczne",
-        "price": 81
+        "price": 81,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/r1bc9wd8wkgv6ovrz15vx/zestaw-kreatywny-spin-the-wheel-of-ideas-lefranc-bourgeois-29-szt.jpg?rlkey=feqv8h07kyuqbz8bv9bcu486o&dl=0"
       },
       {
         "id": "27",
         "name": "Medium do farb Glossy - Lefranc & Bourgeois - brokatowe, 500 ml",
         "slug": "plastyczne",
         "category": "plastyczne",
-        "price": 34.13
+        "price": 34.13,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/ry18ibfwwklh1xezrwipt/medium-do-farb-glossy-lefranc-bourgeois-brokatowe-500-ml.jpg?rlkey=ucgc1hnmze1y6cp30bo0f6w56&dl=0"
       },
       {
-        "id": "25",
-        "name": "Zestaw kopert i kart - Paper Poetry - Gold & Silver, A7 i C7, 20 szt.",
-        "slug": "wyprzedaz",
-        "category": "wyprzedaż",
-        "price": 14.25
-      },
-      {
-        "id": "26",
-        "name": "Zestaw kreatywny, Spin the wheel od ideas! - Lefranc & Bourgeois - 29 szt.",
-        "slug": "wyprzedaz",
-        "category": "wyprzedaż",
-        "price": 81
-      },
-      {
-        "name": "Medium do farb Glossy - Lefranc & Bourgeois - brokatowe, 500 ml",
-        "id": "27",
-        "slug": "wyprzedaz",
-        "category": "wyprzedaż",
-        "price": 34.13
+        "id": "28",
+        "name": "Podobrazia bawelniane Basic - PaperConcept - 70 x 100 cm, 3 szt.",
+        "slug": "plastyczne",
+        "category": "plastyczne",
+        "price": 175,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/x3vt3dnd1ui2e9oo2n8si/podobrazia-bawelniane-basic-paperconcept-70-x-100-cm-3-szt.jpg?rlkey=vq708c18naq4iii02vabwpmc8&dl=0"
       }
     ]
   }

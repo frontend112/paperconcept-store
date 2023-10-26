@@ -117,6 +117,12 @@
   background-image: url("img/shopping-cart-black.png");
 }
 
+.product__add-to-cart {
+  opacity: 0;
+}
+.product__description {
+  transform: translateY(0);
+}
 .product:hover .product__add-to-cart {
   opacity: 1;
   animation: showCounter ease 0.5s;
@@ -125,14 +131,6 @@
   animation: moveTop ease 0.5s;
   background-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-100%);
-}
-.product:not(:hover) .product__description {
-  animation: moveDown ease 0.5s;
-  transform: translateY(0);
-}
-.product:not(:hover) .product__description .product__add-to-cart {
-  opacity: 0;
-  animation: hideCounter ease 0.5s;
 }
 .product::-webkit-inner-spin-button {
   display: none;

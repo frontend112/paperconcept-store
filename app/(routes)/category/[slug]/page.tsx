@@ -25,14 +25,14 @@ const Category = () => {
   return (
     <div className="flex justify-center">
       <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
-        name, price, id
+        name, price, id, src
       }) => (
         <Product
           name={name}
           price={price}
           id={id}
           key={id}
-          src=""
+          src={src}
         />
       ))}</div>
     </div>

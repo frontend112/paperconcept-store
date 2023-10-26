@@ -9,9 +9,10 @@ interface Props {
   id: string,
   name: string,
   price: number,
+  src: string,
 }
 
-export const CartProduct = ({ id, name, price }: Props) => {
+export const CartProduct = ({ id, name, price, src }: Props) => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products)
 
@@ -19,13 +20,12 @@ export const CartProduct = ({ id, name, price }: Props) => {
     .find(product => product.id === id)
     ?.quantity || 0
 
-
   return (
     <li key={id} className="cart__product-wrapper">
       <section className="cart__product">
         <div className="cart__image-wrapper">
           <Image
-            src={`https://picsum.photos/id/${id}/300`}
+            src={src || `https://picsum.photos/id/${id}/50`}
             alt="product"
             width={50}
             height={50}

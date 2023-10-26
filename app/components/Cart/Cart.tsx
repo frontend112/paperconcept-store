@@ -1,11 +1,9 @@
 import React, { RefObject } from 'react'
 
 import cn from "classnames"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { CartProduct } from "./CartProduct";
 
 interface Props {
@@ -43,12 +41,13 @@ export const Cart = ({
         <hr />
         {cartProducts.length > 0 ? (
           <ul className="p-4">
-            {cartProducts.map(({ id, name, price }) => (
+            {cartProducts.map(({ id, name, price, src }) => (
               <CartProduct
                 id={id}
                 name={name}
                 price={price}
                 key={id}
+                src={src}
               />
             ))}
           </ul>
