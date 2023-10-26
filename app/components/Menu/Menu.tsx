@@ -1,9 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
-import Link from "next/link";
 import cn from "classnames"
-
-import { getCategories as categories } from '@/app/getData/getCategories'
 
 import { ExtraClassNames } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
@@ -11,7 +8,8 @@ import { Logo } from "../Logo/Logo";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { SubPages } from "../SubPages/SubPages";
 import { UserIcon } from "./UserIcon";
-import CartIcon from "./CartIcon";
+import { CartIcon } from "./CartIcon";
+import { Categories } from "./Categories";
 
 export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
   const [isCartHidden, setIscarthidden] = useState(true);
@@ -63,15 +61,7 @@ export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
             </ul>
           </div>
         </nav>
-        <ul className="flex justify-between text-inherit">
-          {categories.map(({ category, id, slug }) => (
-            <li key={id}>
-              <Link href={`/category/${slug}`}>
-                {category}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Categories />
       </section>
 
       <Cart

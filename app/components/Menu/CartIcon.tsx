@@ -8,7 +8,7 @@ type Props = {
   handleCartClick: () => void,
 }
 
-const CartIcon = ({ className, handleCartClick }: Props) => {
+export const CartIcon = ({ className, handleCartClick }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
   const cartProductsquantity = cartProducts
     .map(product => product.quantity)
@@ -32,5 +32,3 @@ const CartIcon = ({ className, handleCartClick }: Props) => {
     </li>
   )
 }
-
-export default CartIcon
