@@ -22,7 +22,7 @@ export const Menu = ({ className }: Props) => {
 
   const handleCartClick = () => {
     if (isCartHidden) {
-      cartELement.current?.classList.toggle('animate-show-cart')
+      cartELement.current?.classList.add('animate-show-cart')
       cartELement.current?.classList.remove('animate-hide-cart')
     } else {
       cartELement.current?.classList.add('animate-hide-cart')
