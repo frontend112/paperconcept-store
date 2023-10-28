@@ -1,5 +1,5 @@
 'use client'
-import { RefObject, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import cn from "classnames"
 
 import { ExtraClassNames } from "@/app/types/types";
@@ -10,20 +10,19 @@ import { SubPages } from "../SubPages/SubPages";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
 import { Categories } from "./Categories";
+import { MobileMenu } from "./MobileMenu";
 
 type Props = {
   className?: ExtraClassNames,
 }
 
-export const Menu = ({
-  className,
-}: Props) => {
+export const Menu = ({ className }: Props) => {
   const [isCartHidden, setIscarthidden] = useState(true);
   const cartELement = useRef<HTMLDivElement>(null);
 
   const handleCartClick = () => {
     if (isCartHidden) {
-      cartELement.current?.classList.add('animate-show-cart')
+      cartELement.current?.classList.toggle('animate-show-cart')
       cartELement.current?.classList.remove('animate-hide-cart')
     } else {
       cartELement.current?.classList.add('animate-hide-cart')
@@ -42,6 +41,7 @@ export const Menu = ({
         className === ExtraClassNames.TRANSPARENT && 'text-white'
       )}
     >
+      {/* desktop */}
       <section className={cn(
         'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
       )}>
@@ -59,23 +59,17 @@ export const Menu = ({
               />
             </ul>
           </div>
+          <Cart
+            isCartHidden={isCartHidden}
+            cartELement={cartELement}
+            handleCartClick={handleCartClick}
+          />
         </nav>
         <Categories />
       </section>
-      <section className="mobile-menu lg:hidden w-full sticky top-0 left-0">
-        <ul className="flex justify-between">
-          <li>
-            <button className="mobile-menu__stripes w-5 h-5"></button>
-          </li>
-          <Logo classNames={ExtraClassNames.TRANSPARENT} />
-          <li>aef</li>
-        </ul>
-      </section>
-      <Cart
-        isCartHidden={isCartHidden}
-        cartELement={cartELement}
-        handleCartClick={handleCartClick}
-      />
+
+      {/* mobile */}
+      <MobileMenu />
     </div >
   )
 }

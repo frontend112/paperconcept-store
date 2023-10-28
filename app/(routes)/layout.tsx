@@ -1,12 +1,14 @@
+'use client'
 import { ReactNode } from 'react'
 import { Menu } from "../components/Menu/Menu"
-import { ExtraClassNames } from "../types/types"
+import { BlackInfo } from "../components/BlackInfo/BlackInfo"
 
-const layout = ({ children }: { children: ReactNode }) => {
+const layout = ({ children, isScrolled }: { children: ReactNode, isScrolled: boolean }) => {
   return (
     <>
+      <BlackInfo />
       <Menu />
-      <div>
+      <div className="mt-28">
         {children}
       </div>
     </>

@@ -9,8 +9,7 @@ import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-import { StickyMenu } from "./components/StickyMenu/StickyMenu";
-import { Cart } from "./components/Cart/Cart";
+import { BlackInfo } from "./components/BlackInfo/BlackInfo";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -18,7 +17,6 @@ const Main = () => {
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
 
   const mainELement = useRef<HTMLElement>(null)
-  const [isScrolled, setIsscrolled] = useState(false)
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
@@ -45,21 +43,12 @@ const Main = () => {
     }, 500)
   }
 
-  const handleScroll = () => {
-    const scrollTop = mainELement.current?.scrollTop || 0;
-    console.log(scrollTop)
-    scrollTop > 160 ? setIsscrolled(true) : setIsscrolled(false)
-  }
-
   return (
     <main
       ref={mainELement}
-      onScroll={handleScroll}
       className="h-screen overflow-scroll"
     >
-      <p className="p-2 text-xs text-center text-white bg-neutral-800">
-        ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
-      </p>
+      <BlackInfo />
       <header className={cn(
         'header',
         'relative',
@@ -69,11 +58,7 @@ const Main = () => {
         'bg-center',
       )}
       >
-        {isScrolled ? <StickyMenu />
-          : <Menu
-            className={ExtraClassNames.TRANSPARENT}
-          />
-        }
+        <Menu className={ExtraClassNames.TRANSPARENT} />
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 
