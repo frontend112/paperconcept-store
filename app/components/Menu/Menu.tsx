@@ -13,40 +13,48 @@ import { Categories } from "./Categories";
 
 type Props = {
   className?: ExtraClassNames,
-  handleCartClick: () => void,
-  isCartHidden: boolean,
-  cartELement: RefObject<HTMLDivElement>,
 }
 
 export const Menu = ({
   className,
-  handleCartClick,
-  isCartHidden,
-  cartELement
 }: Props) => {
+  const [isCartHidden, setIscarthidden] = useState(true);
+  const cartELement = useRef<HTMLDivElement>(null);
+
+  const handleCartClick = () => {
+    if (isCartHidden) {
+      cartELement.current?.classList.add('animate-show-cart')
+      cartELement.current?.classList.remove('animate-hide-cart')
+    } else {
+      cartELement.current?.classList.add('animate-hide-cart')
+      cartELement.current?.classList.remove('animate-show-cart')
+    }
+
+    setTimeout(() => {
+      setIscarthidden(state => !state)
+    }, 500)
+  }
+
   return (
     <div
       className={cn(
-        'absolute', 'z-10', 'w-full',
-        className === ExtraClassNames.TRANSPARENT && 'lg:absolute',
+        'z-10', 'w-full', 'absolute',
+        className === ExtraClassNames.TRANSPARENT && 'text-white'
       )}
     >
       <section className={cn(
-        'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block',
-        className === ExtraClassNames.TRANSPARENT
-          ? 'text-white'
-          : 'text-black'
+        'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
       )}>
         <nav className="nav section__nav flex justify-between p-5">
-          <Logo classNames={ExtraClassNames.TRANSPARENT} />
+          <Logo classNames={className} />
           <SearchForm />
           <div className="flex flex-col">
             <SubPages />
 
             <ul className="nav__middle-icons flex justify-end gap-4">
-              <UserIcon className={ExtraClassNames.TRANSPARENT} />
+              <UserIcon className={className} />
               <CartIcon
-                className={ExtraClassNames.TRANSPARENT}
+                className={className}
                 handleCartClick={handleCartClick}
               />
             </ul>
@@ -68,6 +76,6 @@ export const Menu = ({
         cartELement={cartELement}
         handleCartClick={handleCartClick}
       />
-    </div>
+    </div >
   )
 }

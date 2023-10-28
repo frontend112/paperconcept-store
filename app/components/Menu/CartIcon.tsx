@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 
 type Props = {
-  className: ExtraClassNames,
+  className?: ExtraClassNames,
   handleCartClick: () => void,
 }
 
@@ -19,11 +19,10 @@ export const CartIcon = ({ className, handleCartClick }: Props) => {
       <div
         className={cn(
           'nav__cart',
-          className === ExtraClassNames.TRANSPARENT && 'nav__cart--transparent',
-          'w-5',
-          'h-5',
-          'block',
-          'relative'
+          'relative',
+          className === ExtraClassNames.TRANSPARENT
+          && 'nav__cart--transparent',
+          'w-5', 'h-5', 'block',
         )}
         onClick={handleCartClick}
       >

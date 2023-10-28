@@ -79,18 +79,19 @@
   min-height: 100vh;
 }
 
+.nav__logo {
+  background-image: url("img/pc-logo-mono-black.png");
+  &--transparent {
+    background-image: url("img/pc-logo-mono-white.png");
+  }
+}
+
 .section:hover {
   background-color: #fff;
   color: #000;
-}
-
-.nav__logo {
-  background-image: url("img/pc-logo-mono-white.png");
-}
-
-.section:hover .nav__logo,
-.nav__logo--transparent {
-  background-image: url("img/pc-logo-mono-black.png");
+  .nav__logo--transparent {
+    background-image: url("img/pc-logo-mono-black.png");
+  }
 }
 
 .search__input:placeholder-shown {

@@ -11,7 +11,7 @@ export const Logo = ({ classNames }: { classNames?: ExtraClassNames }) => {
         'block',
         'bg-cover',
         'bg-no-repeat',
-        classNames === ExtraClassNames.TRANSPARENT ? 'nav__logo' : 'nav__logo--transparent'
+        classNames === ExtraClassNames.TRANSPARENT ? 'nav__logo--transparent' : 'nav__logo'
       )}
       href="/"
     ></Link>

@@ -28,8 +28,8 @@ export const Cart = ({
       {cn(
         'flex', 'flex-col', 'justify-between',
         'fixed', 'right-0', 'top-0', 'w-1/4', 'h-screen',
-        'bg-white text-center', 'overflow-scroll',
-        isCartHidden && 'translate-x-full',
+        'bg-white text-center', 'overflow-scroll', 'z-20',
+        isCartHidden && 'translate-x-full', 'text-black',
       )}
       ref={cartELement}
     >
