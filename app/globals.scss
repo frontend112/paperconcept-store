@@ -232,4 +232,16 @@
   }
 }
 
+.mobile-menu {
+  &__stripes {
+    background-image: url("./img/mobile-menu-button.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.header {
+  height: calc(100vh - 2rem);
+}
+
 /*# sourceMappingURL=globals.css.map */

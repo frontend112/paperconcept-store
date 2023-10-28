@@ -68,17 +68,19 @@ const Main = () => {
     <main
       ref={mainELement}
       onScroll={handleScroll}
-      className="h-[100vh] overflow-scroll"
+      className="h-screen overflow-scroll"
     >
-      <header
-        className={cn(
-          'relative',
-          'h-screen',
-          'w-full',
-          'bg-cover',
-          'bg-center',
-          'overflow-hidden'
-        )}
+      <p className="p-2 text-xs text-center text-white bg-neutral-800">
+        ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
+      </p>
+      <header className={cn(
+        'header',
+        'relative',
+        'w-full',
+        'overflow-hidden',
+        'bg-cover',
+        'bg-center',
+      )}
       >
         {isScrolled ? <StickyMenu />
           : <Menu

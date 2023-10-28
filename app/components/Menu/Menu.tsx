@@ -27,16 +27,12 @@ export const Menu = ({
   return (
     <div
       className={cn(
-        'z-10',
-        'w-full',
-        className === ExtraClassNames.TRANSPARENT && 'absolute',
+        'absolute', 'z-10', 'w-full',
+        className === ExtraClassNames.TRANSPARENT && 'lg:absolute',
       )}
     >
-      <p className="p-2 text-xs text-center text-white bg-neutral-800">
-        ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
-      </p>
       <section className={cn(
-        'section', 'm-auto', 'px-[5%]',
+        'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block',
         className === ExtraClassNames.TRANSPARENT
           ? 'text-white'
           : 'text-black'
@@ -58,7 +54,15 @@ export const Menu = ({
         </nav>
         <Categories />
       </section>
-
+      <section className="mobile-menu lg:hidden w-full sticky top-0 left-0">
+        <ul className="flex justify-between">
+          <li>
+            <button className="mobile-menu__stripes w-5 h-5"></button>
+          </li>
+          <Logo classNames={ExtraClassNames.TRANSPARENT} />
+          <li>aef</li>
+        </ul>
+      </section>
       <Cart
         isCartHidden={isCartHidden}
         cartELement={cartELement}

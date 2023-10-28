@@ -27,7 +27,7 @@ export const Cart = ({
     <div className=
       {cn(
         'flex', 'flex-col', 'justify-between',
-        'fixed', 'right-0', 'top-0', 'w-1/4', 'h-[100vh]',
+        'fixed', 'right-0', 'top-0', 'w-1/4', 'h-screen',
         'bg-white text-center', 'overflow-scroll',
         isCartHidden && 'translate-x-full',
       )}
