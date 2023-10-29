@@ -9,7 +9,7 @@ import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-import { BlackInfo } from "./components/BlackInfo/BlackInfo";
+import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -48,7 +48,7 @@ const Main = () => {
       ref={mainELement}
       className="h-screen overflow-scroll"
     >
-      <BlackInfo />
+      <DeliveryInfo />
       <header className={cn(
         'header',
         'relative',

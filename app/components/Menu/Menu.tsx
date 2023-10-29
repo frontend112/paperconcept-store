@@ -69,7 +69,11 @@ export const Menu = ({ className }: Props) => {
       </section>
 
       {/* mobile */}
-      <MobileMenu />
+      <MobileMenu
+        isCartHidden={isCartHidden}
+        cartELement={cartELement}
+        handleCartClick={handleCartClick}
+      />
     </div >
   )
 }

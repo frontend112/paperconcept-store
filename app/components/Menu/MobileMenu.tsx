@@ -2,9 +2,20 @@ import cn from 'classnames'
 import { Logo } from "../Logo/Logo"
 
 import { getCategories as categories } from "@/app/getData/getCategories"
-import { useRef } from "react"
+import { RefObject, useRef } from "react"
+import Link from "next/link";
 
-export const MobileMenu = () => {
+interface Props {
+  isCartHidden: boolean;
+  cartELement: RefObject<HTMLDivElement>
+  handleCartClick: () => void;
+}
+
+export const MobileMenu = ({
+  isCartHidden,
+  cartELement,
+  handleCartClick,
+}: Props) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden')
@@ -20,12 +31,12 @@ export const MobileMenu = () => {
       </ul>
       <section className="hidden absolute left-0 top-0 w-full" ref={categoriesElement}>
         <div className="text-right bg-white">
-          <h3 className="uppercase ">menu</h3>
-          <button onClick={toggleMenu} className="text-xl">x</button>
-          <br />
+          <h3 className="uppercase text-center">menu</h3>
+          <button onClick={toggleMenu} className="text-xl absolute top-0 right-5">x</button>
+          <hr />
         </div>
-        <ul className=" text-black bg-white">{categories.map(({ category, id }) => (
-          <li key={id}>{category}</li>
+        <ul className=" text-black bg-white">{categories.map(({ category, id, slug }) => (
+          <li key={id}><Link href={`/category/${slug}`}>{category}</Link></li>
         ))}</ul>
       </section>
     </section>
