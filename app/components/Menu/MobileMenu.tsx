@@ -10,17 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
-import { Cart } from "../Cart/Cart";
 
 interface Props {
-  isCartHidden: boolean;
-  cartELement: RefObject<HTMLDivElement>
   handleCartClick: () => void;
 }
 
 export const MobileMenu = ({
-  isCartHidden,
-  cartELement,
   handleCartClick,
 }: Props) => {
   const categoriesElement = useRef<HTMLElement>(null);
