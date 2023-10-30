@@ -1,7 +1,8 @@
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { getProductsByInput } from "@/app/getData/getProductsByInput";
 
 export const SearchForm = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -11,6 +12,9 @@ export const SearchForm = () => {
     // add searching with bit delay on typing with shadcn ui
   }
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(getProductsByInput(e.target.value))
+  }
   return (
     <form className="relative" onSubmit={handleSubmit}>
       <label htmlFor="search">
@@ -26,21 +30,20 @@ export const SearchForm = () => {
         />
       </label>
       <input
-        type="text"
         className="
-                search__input
-                bg-transparent
-                white
-                placeholder:text-inherit
-                outline-none
-                border-b-2
-                pl-6
-                pb-1.5
-                border-white
-                hover:border-black
-              "
+          search__input
+          pl-6 pb-1.5
+          bg-transparent
+          border-b-2
+          outline-none
+          border-white
+          hover:border-black
+          placeholder:text-inherit
+        "
         id="search"
         placeholder="Szukaj produktu"
+        type="text"
+        onChange={handleChange}
       />
     </form>
   )

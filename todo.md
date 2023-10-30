@@ -24,4 +24,4 @@ for mobile add dropdown menu from shadcn ui
 
 ask on slack 4 feedback on finish
 
-add value isScrolled to redux to add sticky menu onScroll
+add value isScrolled to redux to add sticky menu onScroll (shadcn ui ?)
