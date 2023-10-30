@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { Menu } from "../components/Menu/Menu"
 import { DeliveryInfo } from "../components/DeliveryInfo/DeliveryInfo"
 
-const layout = ({ children, isScrolled }: { children: ReactNode, isScrolled: boolean }) => {
+const layout = ({ children }: { children: ReactNode, }) => {
   return (
     <>
       <DeliveryInfo />

@@ -207,6 +207,15 @@
   height: calc(100vh - 2rem);
 }
 
+.category__link::after {
+  content: ">";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+}
+
 /*# sourceMappingURL=globals.css.map */
 
 /*# sourceMappingURL=globals.css.map */
