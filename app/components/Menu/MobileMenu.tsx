@@ -2,7 +2,7 @@
 import { Logo } from "../Logo/Logo"
 
 import { getCategories as categories } from "@/app/getData/getCategories"
-import { RefObject, useRef } from "react"
+import { useRef } from "react"
 import Link from "next/link";
 import { SubPages } from "../SubPages/SubPages";
 
@@ -10,13 +10,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
+import { ExtraClassNames } from "@/app/types/types";
 
 interface Props {
   handleCartClick: () => void;
+  className?: ExtraClassNames;
 }
 
 export const MobileMenu = ({
   handleCartClick,
+  className,
 }: Props) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const toggleMenu = () => {
@@ -27,7 +30,7 @@ export const MobileMenu = ({
     <div className="mobile-menu lg:hidden w-full sticky top-0 left-0 text-black px-4 capitalize font-light opacity-90">
       <section className="flex justify-between">
         <div>
-          <button className="mobile-menu__stripes w-5 h-5" onClick={handleCartClick} />
+          <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />
         </div>
         <div><Logo /></div>
         <div className="flex">

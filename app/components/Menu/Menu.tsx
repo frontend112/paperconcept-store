@@ -36,9 +36,15 @@ export const Menu = ({ className }: Props) => {
         className === ExtraClassNames.TRANSPARENT && 'text-white'
       )}
     >
-      <DesktopMenu handleCartClick={handleCartClick} />
+      <DesktopMenu
+        handleCartClick={handleCartClick}
+        className={className}
+      />
 
-      <MobileMenu handleCartClick={handleCartClick} />
+      <MobileMenu
+        handleCartClick={handleCartClick}
+        className={className}
+      />
 
       <Cart
         isCartHidden={isCartHidden}
