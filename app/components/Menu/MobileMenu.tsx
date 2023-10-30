@@ -1,16 +1,15 @@
-import cn from 'classnames'
+'use client'
 import { Logo } from "../Logo/Logo"
 
 import { getCategories as categories } from "@/app/getData/getCategories"
 import { RefObject, useRef } from "react"
 import Link from "next/link";
 import { SubPages } from "../SubPages/SubPages";
-import Image from "next/image";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { UserIcon } from "./UserIcon";
-import CartIcon from "./CartIcon";
+import { CartIcon } from "./CartIcon";
 import { Cart } from "../Cart/Cart";
 
 interface Props {
@@ -28,18 +27,18 @@ export const MobileMenu = ({
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden')
   }
+
   return (
     <div className="mobile-menu lg:hidden w-full sticky top-0 left-0 text-black px-4 capitalize font-light opacity-90">
       <section className="flex justify-between">
         <div>
-          <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />
+          <button className="mobile-menu__stripes w-5 h-5" onClick={handleCartClick} />
         </div>
         <div><Logo /></div>
         <div className="flex">
           <FontAwesomeIcon icon={faSearch} />
           <UserIcon />
           <CartIcon handleCartClick={handleCartClick} />
-          {/* <Image src={}/> */}
         </div>
       </section>
       <section
@@ -56,11 +55,6 @@ export const MobileMenu = ({
         <hr />
         <SubPages isMobile={true} />
       </section>
-      <Cart
-        isCartHidden={isCartHidden}
-        cartELement={cartELement}
-        handleCartClick={handleCartClick}
-      />
     </div>
   )
 }
