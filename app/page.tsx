@@ -9,7 +9,7 @@ import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
-import { StickyMenu } from "./components/StickyMenu/StickyMenu";
+import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -17,7 +17,6 @@ const Main = () => {
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
 
   const mainELement = useRef<HTMLElement>(null)
-  const [isScrolled, setIsscrolled] = useState(false)
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
@@ -44,29 +43,22 @@ const Main = () => {
     }, 500)
   }
 
-  const handleScroll = () => {
-    const scrollTop = mainELement.current?.scrollTop || 0;
-    setIsscrolled(() => scrollTop < 10 ? false : true)
-  }
-
   return (
     <main
       ref={mainELement}
-      onScroll={handleScroll}
+      className="h-screen overflow-scroll"
     >
-      <header
-        className={cn(
-          'relative',
-          'h-screen',
-          'w-full',
-          'bg-cover',
-          'bg-center',
-          'overflow-hidden'
-        )}
+      <DeliveryInfo />
+      <header className={cn(
+        'header',
+        'relative',
+        'w-full',
+        'overflow-hidden',
+        'bg-cover',
+        'bg-center',
+      )}
       >
-        {isScrolled ? <StickyMenu />
-          : <Menu className={ExtraClassNames.TRANSPARENT} />
-        }
+        <Menu className={ExtraClassNames.TRANSPARENT} />
 
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 

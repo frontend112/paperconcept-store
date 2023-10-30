@@ -1,19 +1,17 @@
 'use client'
 import { useRef, useState } from 'react'
-import Link from "next/link";
 import cn from "classnames"
-
-import { getCategories as categories } from '@/app/getData/getCategories'
 
 import { ExtraClassNames } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
-import { Logo } from "../Logo/Logo";
-import { SearchForm } from "../SearchForm/SearchForm";
-import { SubPages } from "../SubPages/SubPages";
-import { UserIcon } from "./UserIcon";
-import CartIcon from "./CartIcon";
+import { MobileMenu } from "./MobileMenu";
+import { DesktopMenu } from "./DesktopMenu";
 
-export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
+type Props = {
+  className?: ExtraClassNames,
+}
+
+export const Menu = ({ className }: Props) => {
   const [isCartHidden, setIscarthidden] = useState(true);
   const cartELement = useRef<HTMLDivElement>(null);
 
@@ -34,51 +32,25 @@ export const Menu = ({ className }: { className?: ExtraClassNames, }) => {
   return (
     <div
       className={cn(
-        'z-10',
-        'w-full',
-        className === ExtraClassNames.TRANSPARENT && 'absolute',
+        'z-10', 'w-full', 'absolute',
+        className === ExtraClassNames.TRANSPARENT && 'text-white'
       )}
     >
-      <p className="p-2 text-xs text-center text-white bg-neutral-800">
-        ZAMÓWIENIA OPŁACONE DO 12:00 WYSYŁAMY TEGO SAMEGO DNIA | DARMOWA DOSTAWA DO PACZKOMATU OD 100 ZŁ
-      </p>
-      <section className={cn(
-        'section', 'm-auto', 'px-[5%]',
-        className === ExtraClassNames.TRANSPARENT
-          ? 'text-white'
-          : 'text-black'
-      )}>
-        <nav className="nav section__nav flex justify-between p-5">
-          <Logo classNames={ExtraClassNames.TRANSPARENT} />
-          <SearchForm />
-          <div className="flex flex-col">
-            <SubPages />
+      <DesktopMenu
+        handleCartClick={handleCartClick}
+        className={className}
+      />
 
-            <ul className="nav__middle-icons flex justify-end gap-4">
-              <UserIcon className={ExtraClassNames.TRANSPARENT} />
-              <CartIcon
-                className={ExtraClassNames.TRANSPARENT}
-                handleCartClick={handleCartClick}
-              />
-            </ul>
-          </div>
-        </nav>
-        <ul className="flex justify-between text-inherit">
-          {categories.map(({ category, id, slug }) => (
-            <li key={id}>
-              <Link href={`/category/${slug}`}>
-                {category}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <MobileMenu
+        handleCartClick={handleCartClick}
+        className={className}
+      />
 
       <Cart
         isCartHidden={isCartHidden}
         cartELement={cartELement}
         handleCartClick={handleCartClick}
       />
-    </div>
+    </div >
   )
 }

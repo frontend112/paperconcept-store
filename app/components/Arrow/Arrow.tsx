@@ -9,10 +9,11 @@ export const Arrow: FC<ArrowProps> = ({
   children,
 }) => (
   <div className={cn(
+    'arrow',
+    'top-1/2',
     'absolute',
-    'top-[50%]',
-    'hover: cursor-pointer',
     'translate-y-[-50%]',
+    'hover: cursor-pointer',
     direction === DIRECTIONS.LEFT ? 'left-5' : 'right-5'
   )}
   >

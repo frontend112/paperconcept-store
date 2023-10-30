@@ -23,3 +23,5 @@ products should be added to cart after f5
 for mobile add dropdown menu from shadcn ui
 
 ask on slack 4 feedback on finish
+
+add value isScrolled to redux to add sticky menu onScroll

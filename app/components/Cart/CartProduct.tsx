@@ -26,7 +26,7 @@ export const CartProduct = ({ id, name, price, src }: Props) => {
         <div className="cart__image-wrapper">
           <Image
             src={src || `https://picsum.photos/id/${id}/50`}
-            alt="product"
+            alt={name}
             width={50}
             height={50}
             className="w-full"

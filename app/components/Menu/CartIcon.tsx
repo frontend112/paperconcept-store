@@ -4,11 +4,11 @@ import { useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 
 type Props = {
-  className: ExtraClassNames,
+  className?: ExtraClassNames,
   handleCartClick: () => void,
 }
 
-const CartIcon = ({ className, handleCartClick }: Props) => {
+export const CartIcon = ({ className, handleCartClick }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
   const cartProductsquantity = cartProducts
     .map(product => product.quantity)
@@ -19,11 +19,10 @@ const CartIcon = ({ className, handleCartClick }: Props) => {
       <div
         className={cn(
           'nav__cart',
-          className === ExtraClassNames.TRANSPARENT && 'nav__cart--transparent',
-          'w-5',
-          'h-5',
-          'block',
-          'relative'
+          'relative',
+          className === ExtraClassNames.TRANSPARENT
+          && 'nav__cart--transparent',
+          'w-5', 'h-5', 'block',
         )}
         onClick={handleCartClick}
       >
@@ -32,5 +31,3 @@ const CartIcon = ({ className, handleCartClick }: Props) => {
     </li>
   )
 }
-
-export default CartIcon

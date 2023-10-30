@@ -27,9 +27,9 @@ export const Cart = ({
     <div className=
       {cn(
         'flex', 'flex-col', 'justify-between',
-        'fixed', 'right-0', 'top-0', 'w-1/4', 'h-[100vh]',
-        'bg-white text-center', 'overflow-scroll',
-        isCartHidden && 'translate-x-full',
+        'fixed', 'right-0', 'top-0', 'w-96', 'h-screen',
+        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black',
+        isCartHidden && 'translate-x-full'
       )}
       ref={cartELement}
     >
