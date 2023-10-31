@@ -29,21 +29,22 @@ export const SearchForm = () => {
     setSearchinput('')
   }
   return (
-    <form className="relative" onSubmit={handleSubmit}>
-      <label htmlFor="search">
-        <FontAwesomeIcon
-          icon={faSearch}
-          style={{
-            position: "absolute",
-            left: "0",
-            top: "0.2rem",
-            height: "1rem",
-            cursor: "pointer",
-          }}
-        />
-      </label>
-      <input
-        className="
+    <>
+      <form className="relative" onSubmit={handleSubmit}>
+        <label htmlFor="search">
+          <FontAwesomeIcon
+            icon={faSearch}
+            style={{
+              position: "absolute",
+              left: "0",
+              top: "0.2rem",
+              height: "1rem",
+              cursor: "pointer",
+            }}
+          />
+        </label>
+        <input
+          className="
           search__input
           pl-6 pb-1.5
           bg-transparent
@@ -53,16 +54,17 @@ export const SearchForm = () => {
           hover:border-black
           placeholder:text-inherit
         "
-        id="search"
-        placeholder="Szukaj produktu"
-        type="text"
-        onChange={handleChange}
-        value={searchInput}
-      />
+          id="search"
+          placeholder="Szukaj produktu"
+          type="text"
+          onChange={handleChange}
+          value={searchInput}
+        />
+      </form>
       {foundProducts.length > 0 && (
-        <div className="absolute top-32 bg-white text-black">
-          <div className="relative">
-            <ul className="">{foundProducts.map(({
+        <div className="absolute top-full left-0 bg-white text-black w-screen z-10">
+          <div className="relative border-solid border-2">
+            <ul className="grid grid-cols-4 gap-4">{foundProducts.map(({
               id,
               name,
               price,
@@ -80,6 +82,7 @@ export const SearchForm = () => {
           </div>
         </div>
       )}
-    </form>
+    </>
+
   )
 }

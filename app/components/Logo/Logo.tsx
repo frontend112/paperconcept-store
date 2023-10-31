@@ -12,6 +12,7 @@ export const Logo = ({ classNames }: { classNames?: ExtraClassNames }) => {
         classNames === ExtraClassNames.TRANSPARENT ? 'nav__logo--transparent' : 'nav__logo'
       )}
       href="/"
+      onClick={() => window.location.reload()}
     />
   </div>
   )
