@@ -4,12 +4,10 @@ export const getProductsByInput = (input: string) => products.filter(({ name }) 
   const engName = replacePolishLetter(name)
   const engInput = replacePolishLetter(input)
 
-  return engName.split(' ').find(word => {
-    if (word.slice(0, engInput.length).toLocaleLowerCase()
-      === engInput.slice(0, engInput.length).toLocaleLowerCase()) {
-      return true;
-    }
-  })
+  return engInput.every(wordI => engName.some(wordName => (
+    wordName.slice(0, wordI.length).toLocaleLowerCase()
+    === wordI.slice(0, wordI.length).toLocaleLowerCase()
+  )))
 })
 
 const replacePolishLetter = (polishWord: string) => (
@@ -35,5 +33,5 @@ const replacePolishLetter = (polishWord: string) => (
         default:
           return letter
       }
-    }).join('')
+    }).join('').split(' ')
 )
