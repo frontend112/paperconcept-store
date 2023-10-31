@@ -33,11 +33,11 @@ export const MobileMenu = ({
           <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />
         </div>
         <div><Logo /></div>
-        <div className="flex">
+        <ul className="flex">
           <FontAwesomeIcon icon={faSearch} />
           <UserIcon />
           <CartIcon handleCartClick={handleCartClick} />
-        </div>
+        </ul>
       </section>
       <section
         className="hidden absolute left-0 top-0 w-full"

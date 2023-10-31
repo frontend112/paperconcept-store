@@ -53,7 +53,6 @@ const Main = () => {
         'header',
         'relative',
         'w-full',
-        'overflow-hidden',
         'bg-cover',
         'bg-center',
       )}
