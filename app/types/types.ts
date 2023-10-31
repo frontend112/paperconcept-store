@@ -36,6 +36,11 @@ export interface ProductType {
   id: string,
 }
 
+export interface AddedProduct extends ProductType {
+  quantity: number;
+}
+
 export enum ExtraClassNames {
   TRANSPARENT = "transparent",
 }
+

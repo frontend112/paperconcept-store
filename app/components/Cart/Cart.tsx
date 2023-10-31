@@ -1,10 +1,12 @@
-import React, { RefObject } from 'react'
+import React, { RefObject, useEffect } from 'react'
 
 import cn from "classnames"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
 import { CartProduct } from "./CartProduct";
+import { AddedProduct, ProductType } from "@/app/types/types";
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 
 interface Props {
   isCartHidden: boolean;
@@ -18,11 +20,28 @@ export const Cart = ({
   handleCartClick,
 }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
+  const dispatch = useDispatch();
 
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
     .reduce((acc, current) => acc + current, 0)
     .toFixed(2)
+
+  useEffect(() => {
+    const storedCart: AddedProduct[] = JSON.parse(localStorage.getItem('cart') || '[]')
+    storedCart.forEach(({ id, name, price, src, quantity }) => dispatch(addProduct({
+      name,
+      price,
+      src,
+      id,
+      quantity,
+    })))
+  }, [dispatch])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartProducts))
+  }, [cartProducts])
+
   return (
     <div className=
       {cn(
