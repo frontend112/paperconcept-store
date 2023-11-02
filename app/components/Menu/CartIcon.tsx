@@ -15,7 +15,7 @@ export const CartIcon = ({ className, handleCartClick }: Props) => {
     .reduce((acc, current) => acc + current, 0)
 
   return (
-    <div
+    <li
       className={cn(
         'nav__cart',
         'relative',
@@ -26,6 +26,6 @@ export const CartIcon = ({ className, handleCartClick }: Props) => {
       onClick={handleCartClick}
     >
       <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
-    </div>
+    </li>
   )
 }

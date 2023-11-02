@@ -12,6 +12,7 @@ import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
 import { MenuDevicesProps } from "@/app/types/types";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
+import { SearchIcon } from "../SearchIcon/SearchIcon";
 
 export const MobileMenu = ({
   handleCartClick,
@@ -37,17 +38,9 @@ export const MobileMenu = ({
         </div>
         <div><Logo /></div>
         <ul className="flex gap-4 pr-4">
-          <li className="cursor-pointer" onClick={() => (
-            formElement.current?.classList.toggle('hidden')
-          )}>
-            <FontAwesomeIcon icon={faSearch} />
-          </li>
-          <li>
-            <UserIcon />
-          </li>
-          <li>
-            <CartIcon handleCartClick={handleCartClick} />
-          </li>
+          <SearchIcon formElement={formElement} />
+          <UserIcon />
+          <CartIcon handleCartClick={handleCartClick} />
         </ul>
       </section>
       <section
@@ -70,7 +63,7 @@ export const MobileMenu = ({
         onSubmit={handleSubmit}
       >
         <label
-          className="absolute z-10 right-4 top-[150%] translate-y-[-85%] cursor-pointer"
+          className="absolute z-10 right-4 top-[200%] translate-y-[-100%] cursor-pointer"
           htmlFor="mobile-search">
           <FontAwesomeIcon icon={faSearch} />
         </label>
