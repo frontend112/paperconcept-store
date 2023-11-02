@@ -43,4 +43,3 @@ export interface AddedProduct extends ProductType {
 export enum ExtraClassNames {
   TRANSPARENT = "transparent",
 }
-

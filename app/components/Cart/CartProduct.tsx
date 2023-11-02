@@ -4,15 +4,9 @@ import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
 import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { RootState } from "@/app/GlobalRedux/store";
+import { AddedProduct } from "@/app/types/types";
 
-interface Props {
-  id: string,
-  name: string,
-  price: number,
-  src: string,
-}
-
-export const CartProduct = ({ id, name, price, src }: Props) => {
+export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products)
 
@@ -42,14 +36,8 @@ export const CartProduct = ({ id, name, price, src }: Props) => {
         <h4>{price.toFixed(2)} zł</h4>
         <div className="text-center">
           <button
-            onClick={() => {
-              if (productQuantity <= 1) {
-                dispatch(removeProduct({ id }))
-              }
-              dispatch(decreaseQuantity({ id }))
-            }
-
-            }
+            disabled={quantity === 1}
+            onClick={() => dispatch(decreaseQuantity({ id }))}
           >-</button>
           <input
             value={productQuantity}

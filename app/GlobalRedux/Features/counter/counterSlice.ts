@@ -54,4 +54,5 @@ export const {
   removeProduct,
   increaseQuantity,
   decreaseQuantity } = counterSlice.actions;
+
 export default counterSlice.reducer;

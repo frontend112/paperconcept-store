@@ -60,13 +60,14 @@ export const Cart = ({
         <hr />
         {cartProducts.length > 0 ? (
           <ul className="p-4">
-            {cartProducts.map(({ id, name, price, src }) => (
+            {cartProducts.map(({ id, name, price, src, quantity }) => (
               <CartProduct
                 id={id}
                 name={name}
                 price={price}
-                key={id}
                 src={src}
+                quantity={quantity}
+                key={id}
               />
             ))}
           </ul>

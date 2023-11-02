@@ -49,12 +49,8 @@ export const Product = ({
           >Dodaj do koszyka</Button>
           <div className="text-center">
             <button
-              onClick={() => setQuantity(state => {
-                if (+state > 1) {
-                  return (+state - 1)
-                }
-                return 1;
-              })}
+              disabled={quantity === 1}
+              onClick={() => setQuantity(state => state - 1)}
             >-</button>
             <input
               type="number"
