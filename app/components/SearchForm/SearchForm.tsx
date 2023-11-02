@@ -13,10 +13,9 @@ export const SearchForm = () => {
     if (event) {
       event.preventDefault();
     }
-    // add searching with bit delay on typing with shadcn ui
+    // add searching with bit delay on typing with
   }
 
-  // move it to Menu component and pass as a props:
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -62,7 +61,9 @@ export const SearchForm = () => {
         />
       </form>
       {foundProducts.length > 0 && (
-        <div className="absolute top-full left-0 bg-white text-black w-screen z-10">
+        <div className="absolute top-full
+          lg:left-1/2 lg:translate-x-[-50%] lg:w-4/5
+        bg-white text-black w-screen z-10">
           <div className="relative border-solid border-2">
             <ul className="grid grid-cols-4 gap-4">{foundProducts.map(({
               id,
