@@ -14,7 +14,7 @@ export const DesktopMenu = ({
   handleSubmit,
   foundProducts,
   handleChange,
-  clearFoundProducts, }: MenuDevicesProps) => {
+  clearFoundProducts }: MenuDevicesProps) => {
   return (
     <section className={cn(
       'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',

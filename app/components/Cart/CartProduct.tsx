@@ -28,7 +28,7 @@ export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) =>
         </div>
         <h3>{name}</h3>
         <button
-          className="cart__bin w-5 h-5"
+          className="cart__bin w-5 h-5 justify-self-end"
           onClick={() => {
             dispatch(removeProduct({ id }))
           }}
