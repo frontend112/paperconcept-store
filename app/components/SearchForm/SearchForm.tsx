@@ -3,30 +3,17 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
-import { ProductType } from "@/app/types/types";
+import { MenuDevicesProps, ProductType } from "@/app/types/types";
 import Image from "next/image";
 
-export const SearchForm = () => {
-  const [searchInput, setSearchinput] = useState('')
+export const SearchForm = ({ handleCartClick,
+  className,
+  searchInput,
+  handleSubmit,
+  foundProducts,
+  handleChange,
+  clearFoundProducts, }: MenuDevicesProps) => {
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (event) {
-      event.preventDefault();
-    }
-    // add searching with bit delay on typing with
-  }
-
-  const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearchinput(value);
-    value ? setFoundproducts(getProductsByInput(e.target.value))
-      : setFoundproducts([])
-  }
-  const clearFoundProducts = () => {
-    setFoundproducts([])
-    setSearchinput('')
-  }
   return (
     <>
       <form className="relative" onSubmit={handleSubmit}>

@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { ExtraClassNames } from "@/app/types/types"
+import { ExtraClassNames, MenuDevicesProps } from "@/app/types/types"
 import { Logo } from "../Logo/Logo"
 import { SearchForm } from "../SearchForm/SearchForm"
 import { SubPages } from "../SubPages/SubPages"
@@ -7,14 +7,29 @@ import { UserIcon } from "./UserIcon"
 import { CartIcon } from "./CartIcon"
 import { Categories } from "./Categories"
 
-export const DesktopMenu = ({ handleCartClick, className }: { handleCartClick: () => void, className?: ExtraClassNames }) => {
+export const DesktopMenu = ({
+  handleCartClick,
+  className,
+  searchInput,
+  handleSubmit,
+  foundProducts,
+  handleChange,
+  clearFoundProducts, }: MenuDevicesProps) => {
   return (
     <section className={cn(
       'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
     )}>
       <nav className="nav section__nav flex justify-between p-5">
         <Logo classNames={className} />
-        <SearchForm />
+        <SearchForm
+          handleCartClick={handleCartClick}
+          className={className}
+          searchInput={searchInput}
+          handleSubmit={handleSubmit}
+          foundProducts={foundProducts}
+          handleChange={handleChange}
+          clearFoundProducts={clearFoundProducts}
+        />
         <div className="flex flex-col">
           <SubPages />
 

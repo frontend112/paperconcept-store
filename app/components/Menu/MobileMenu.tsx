@@ -10,17 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
-import { ExtraClassNames } from "@/app/types/types";
-
-interface Props {
-  handleCartClick: () => void;
-  className?: ExtraClassNames;
-}
+import { MenuDevicesProps } from "@/app/types/types";
 
 export const MobileMenu = ({
   handleCartClick,
   className,
-}: Props) => {
+}: MenuDevicesProps) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden')

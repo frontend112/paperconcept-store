@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { ReactNode } from "react";
+import { ChangeEvent, FormEvent, ReactNode } from "react";
 
 export enum DIRECTIONS {
   LEFT,
@@ -42,4 +42,14 @@ export interface AddedProduct extends ProductType {
 
 export enum ExtraClassNames {
   TRANSPARENT = "transparent",
+}
+
+export interface MenuDevicesProps {
+  className?: ExtraClassNames
+  handleCartClick: () => void,
+  searchInput: string,
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void,
+  foundProducts: ProductType[],
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  clearFoundProducts: () => void,
 }
