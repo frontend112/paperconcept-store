@@ -45,11 +45,6 @@ export enum ExtraClassNames {
 }
 
 export interface MenuDevicesProps {
-  className?: ExtraClassNames
+  className?: ExtraClassNames,
   handleCartClick: () => void,
-  searchInput: string,
-  handleSubmit: (event: FormEvent<HTMLFormElement>) => void,
-  foundProducts: ProductType[],
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  clearFoundProducts: () => void,
 }

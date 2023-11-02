@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from "react"
+import { ChangeEvent, FormEvent, useRef, useState } from "react"
 import { Logo } from "../Logo/Logo"
 import { getCategories as categories } from "@/app/getData/getCategories"
 
@@ -10,24 +10,41 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
-import { MenuDevicesProps } from "@/app/types/types";
+import { MenuDevicesProps, ProductType } from "@/app/types/types";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { SearchIcon } from "../SearchIcon/SearchIcon";
+import { getProductsByInput } from "@/app/getData/getProductsByInput";
 
 export const MobileMenu = ({
   handleCartClick,
   className,
-  searchInput,
-  handleSubmit,
-  foundProducts,
-  handleChange,
-  clearFoundProducts,
 }: MenuDevicesProps) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const formElement = useRef<HTMLFormElement>(null);
 
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden')
+  }
+
+  const [searchInput, setSearchinput] = useState('')
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    if (event) {
+      event.preventDefault();
+    }
+    // add searching with bit delay on typing with
+  }
+
+  const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchinput(value);
+    value ? setFoundproducts(getProductsByInput(e.target.value))
+      : setFoundproducts([])
+  }
+  const clearFoundProducts = () => {
+    setFoundproducts([])
+    setSearchinput('')
   }
 
   return (

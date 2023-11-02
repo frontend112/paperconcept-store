@@ -7,29 +7,20 @@ import { UserIcon } from "./UserIcon"
 import { CartIcon } from "./CartIcon"
 import { Categories } from "./Categories"
 
+type Props = {
+  handleCartClick: () => void,
+  className?: ExtraClassNames,
+}
 export const DesktopMenu = ({
   handleCartClick,
-  className,
-  searchInput,
-  handleSubmit,
-  foundProducts,
-  handleChange,
-  clearFoundProducts }: MenuDevicesProps) => {
+  className, }: Props) => {
   return (
     <section className={cn(
       'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
     )}>
       <nav className="nav section__nav flex justify-between p-5">
-        <Logo classNames={className} />
-        <SearchForm
-          handleCartClick={handleCartClick}
-          className={className}
-          searchInput={searchInput}
-          handleSubmit={handleSubmit}
-          foundProducts={foundProducts}
-          handleChange={handleChange}
-          clearFoundProducts={clearFoundProducts}
-        />
+        <Logo className={className} />
+        <SearchForm className={className} handleCartClick={handleCartClick} />
         <div className="flex flex-col">
           <SubPages />
 
