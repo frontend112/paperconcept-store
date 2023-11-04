@@ -26,9 +26,6 @@ const Page = () => {
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(1);
-  const productQuantity = cartProducts
-    .find(product => product.id === id)
-    ?.quantity || 1
 
   const handlequantityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -48,8 +45,8 @@ const Page = () => {
           {name}
         </li>
       </ul>
-      <div className="flex justify-between">
-        <section>
+      <div className="md:flex justify-between md:pt-8">
+        <section className="md:w-1/2">
           <Image
             src={src || `https://picsum.photos/id/${id}/50`}
             alt="product"
@@ -57,10 +54,10 @@ const Page = () => {
             height={500}
           />
         </section>
-        <section>
-          <h2>{name}</h2>
-          <h3>{price} zł</h3>
-          <div className="text-center">
+        <section className="md:w-1/2">
+          <h2 className="text-3xl">{name}</h2>
+          <h3 className="text-2xl md:pt-4">{price} zł</h3>
+          <div className="text-center md:pt-4">
             <button
               disabled={quantity === 1}
               onClick={() => setQuantity(state => state - 1)}
@@ -87,7 +84,7 @@ const Page = () => {
                   quantity,
                 }))
               }}
-              className="rounded-none w-full"
+              className="rounded-none w-full mt-8"
             >Dodaj do koszyka</Button>
           </div>
         </section>
