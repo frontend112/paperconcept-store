@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect } from 'react'
+import { RefObject, useEffect } from 'react'
 
 import cn from "classnames"
 import { useDispatch, useSelector } from "react-redux"

@@ -1,10 +1,10 @@
 'use client'
-import React, { useState } from 'react'
 
 import { getProducts } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
 import { DIRECTIONS } from "@/app/types/types";
+import { useState } from "react";
 const productAmount = 4;
 
 export const Recommended = () => {

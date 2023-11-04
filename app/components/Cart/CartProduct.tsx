@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
 import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";

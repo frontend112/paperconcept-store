@@ -1,5 +1,4 @@
 import Image from "next/image"
-import React from 'react'
 import cn from 'classnames'
 
 import { BackgroundsProps, DIRECTIONS } from "@/app/types/types"

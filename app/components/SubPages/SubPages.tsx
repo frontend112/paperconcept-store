@@ -1,4 +1,3 @@
-import React from 'react'
 import { getSubpages as subpages } from "@/app/getData/getSubpages";
 import Link from "next/link";
 import cn from "classnames"

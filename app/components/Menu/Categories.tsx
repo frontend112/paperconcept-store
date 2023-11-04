@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { getCategories as categories } from "@/app/getData/getCategories"
 import Link from "next/link"
 export const Categories = () => {

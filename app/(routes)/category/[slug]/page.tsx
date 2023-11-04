@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 
 import { getProducts as products } from "@/app/getData/getProducts";
 import { getCategories as categories } from "@/app/getData/getCategories";

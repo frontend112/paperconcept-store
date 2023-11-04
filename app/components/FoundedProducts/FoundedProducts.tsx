@@ -1,5 +1,4 @@
 import { ProductType } from "@/app/types/types"
-import React from 'react'
 type Props = {
   foundProducts: ProductType[],
   clearFoundProducts: () => void

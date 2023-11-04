@@ -9,6 +9,7 @@ export default authMiddleware({
     '/blog',
     '/faq',
     '/kontakt',
+    '/product/:id'
   ]
 });
 
