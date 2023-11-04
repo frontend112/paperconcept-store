@@ -4,16 +4,14 @@ import Image from "next/image";
 import { redirect, usePathname } from "next/navigation"
 import { ChangeEvent, useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getProducts as products } from "@/app/getData/getProducts";
-import { addProduct, decreaseQuantity, increaseQuantity } from "@/app/GlobalRedux/Features/counter/counterSlice";
-import { RootState } from "@/app/GlobalRedux/store";
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
 
 const Page = () => {
   const pathname = usePathname();
   const directPath = pathname.replace('/product-page/', '');
-  const cartProducts = useSelector((state: RootState) => state.products)
 
   const recentProduct = products.find(({ slug, id }) => `${id}-${slug}` === directPath)
 
@@ -77,11 +75,7 @@ const Page = () => {
             <Button
               onClick={() => {
                 dispatch(addProduct({
-                  name,
-                  price,
-                  src,
-                  id,
-                  quantity,
+                  ...recentProduct,
                 }))
               }}
               className="rounded-none w-full mt-8"

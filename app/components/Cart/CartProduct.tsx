@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { RootState } from "@/app/GlobalRedux/store";
 import { AddedProduct } from "@/app/types/types";
+import Link from "next/link";
 
-export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) => {
+export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProduct) => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state: RootState) => state.products)
 
@@ -12,10 +13,11 @@ export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) =>
     .find(product => product.id === id)
     ?.quantity || 0
 
+  console.log(cartProducts)
   return (
     <li key={id} className="cart__product-wrapper">
       <section className="cart__product">
-        <div className="cart__image-wrapper">
+        <Link className="cart__image-wrapper block" href={`/product-page/${id}-${slug}`}>
           <Image
             src={src || `https://picsum.photos/id/${id}/50`}
             alt={name}
@@ -23,8 +25,8 @@ export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) =>
             height={50}
             className="w-full"
           />
-        </div>
-        <h3>{name}</h3>
+        </Link>
+        <h3><Link className="cart__image-wrapper block" href={`/product-page/${id}-${slug}`}>{name}</Link></h3>
         <button
           className="cart__bin w-5 h-5 justify-self-end"
           onClick={() => {
@@ -38,6 +40,7 @@ export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) =>
             onClick={() => dispatch(decreaseQuantity({ id }))}
           >-</button>
           <input
+            onChange={() => { }}
             value={productQuantity}
             type="number"
             className="
@@ -47,9 +50,7 @@ export const CartProduct = ({ id, name, price, src, quantity }: AddedProduct) =>
             "
           />
           <button onClick={() => {
-            dispatch(increaseQuantity({
-              id,
-            }))
+            dispatch(increaseQuantity({ id }))
           }
           }>+</button>
         </div>

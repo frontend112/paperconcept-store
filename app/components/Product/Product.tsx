@@ -27,7 +27,7 @@ export const Product = ({
     <div className="product">
       <Link
         className="image__wrapper"
-        href={`/product-page/${+id + 1}-${slug}`}
+        href={`/product-page/${id}-${slug}`}
       >
         <Image
           src={src || `https://picsum.photos/id/${id}/300`}
@@ -38,7 +38,7 @@ export const Product = ({
         />
       </Link>
       <section className="product__description">
-        <p><Link href={`/product-page/${+id + 1}-${slug}`}>{name}</Link></p>
+        <p><Link href={`/product-page/${id}-${slug}`}>{name}</Link></p>
         <p>{price} zł</p>
         <div className="product__add-to-cart">
           <Button
@@ -48,6 +48,7 @@ export const Product = ({
                 price,
                 src,
                 id,
+                slug,
                 quantity,
               }))
             }}
