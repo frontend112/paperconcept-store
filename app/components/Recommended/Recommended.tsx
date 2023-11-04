@@ -40,6 +40,7 @@ export const Recommended = () => {
             name={getProducts[counter + el].name}
             price={getProducts[counter + el].price}
             src={getProducts[counter + el].src}
+            slug={getProducts[counter + el].slug}
           />
         ))}
       </div>

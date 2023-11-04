@@ -34,6 +34,7 @@ export interface ProductType {
   price: number,
   src: string,
   id: string,
+  slug: string,
 }
 
 export interface AddedProduct extends ProductType {

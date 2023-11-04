@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { useDispatch } from "react-redux"
 
@@ -11,6 +12,7 @@ export const Product = ({
   price,
   src,
   id,
+  slug,
 }: ProductType) => {
   const dispatch = useDispatch();
 
@@ -33,7 +35,7 @@ export const Product = ({
         />
       </div>
       <section className="product__description">
-        <p>{name}</p>
+        <p><Link href={`/product-page/${+id + 1}-${slug}`}>{name}</Link></p>
         <p>{price} zł</p>
         <div className="product__add-to-cart">
           <Button

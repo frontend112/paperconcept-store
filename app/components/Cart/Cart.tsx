@@ -29,14 +29,17 @@ export const Cart = ({
 
   useEffect(() => {
     const storedCart: AddedProduct[] = JSON.parse(localStorage.getItem('cart') || '[]')
-    storedCart.forEach(({ id, name, price, src, quantity }) => dispatch(addProduct({
-      name,
-      price,
-      src,
-      id,
-      quantity,
-    })))
-  }, [dispatch])
+
+    if (cartProducts.length === 0) {
+      storedCart.forEach(({ id, name, price, src, quantity }) => dispatch(addProduct({
+        name,
+        price,
+        src,
+        id,
+        quantity,
+      })))
+    }
+  }, [cartProducts, dispatch])
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartProducts))
@@ -60,7 +63,7 @@ export const Cart = ({
         <hr />
         {cartProducts.length > 0 ? (
           <ul className="p-4">
-            {cartProducts.map(({ id, name, price, src, quantity }) => (
+            {cartProducts.map(({ id, name, price, src, quantity, slug }) => (
               <CartProduct
                 id={id}
                 name={name}
@@ -68,6 +71,7 @@ export const Cart = ({
                 src={src}
                 quantity={quantity}
                 key={id}
+                slug={slug}
               />
             ))}
           </ul>
