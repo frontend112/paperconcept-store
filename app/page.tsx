@@ -53,9 +53,9 @@ const Main = () => {
         'header',
         'relative',
         'w-full',
-        'overflow-hidden',
         'bg-cover',
         'bg-center',
+        'overflow-x-hidden'
       )}
       >
         <Menu className={ExtraClassNames.TRANSPARENT} />

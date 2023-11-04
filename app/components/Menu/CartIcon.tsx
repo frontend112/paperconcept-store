@@ -15,19 +15,17 @@ export const CartIcon = ({ className, handleCartClick }: Props) => {
     .reduce((acc, current) => acc + current, 0)
 
   return (
-    <li>
-      <div
-        className={cn(
-          'nav__cart',
-          'relative',
-          className === ExtraClassNames.TRANSPARENT
-          && 'nav__cart--transparent',
-          'w-5', 'h-5', 'block',
-        )}
-        onClick={handleCartClick}
-      >
-        <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
-      </div>
+    <li
+      className={cn(
+        'nav__cart',
+        'relative',
+        className === ExtraClassNames.TRANSPARENT
+        && 'nav__cart--transparent',
+        'w-5', 'h-5', 'block',
+      )}
+      onClick={handleCartClick}
+    >
+      <span className="absolute right-[-0.7rem] top-[-0.2rem] text-xs">{cartProductsquantity}</span>
     </li>
   )
 }

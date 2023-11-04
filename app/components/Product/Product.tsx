@@ -2,7 +2,7 @@ import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
 import { ProductType } from "@/app/types/types"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { useDispatch } from "react-redux"
 
 export const Product = ({
@@ -49,12 +49,8 @@ export const Product = ({
           >Dodaj do koszyka</Button>
           <div className="text-center">
             <button
-              onClick={() => setQuantity(state => {
-                if (+state > 1) {
-                  return (+state - 1)
-                }
-                return 1;
-              })}
+              disabled={quantity === 1}
+              onClick={() => setQuantity(state => state - 1)}
             >-</button>
             <input
               type="number"

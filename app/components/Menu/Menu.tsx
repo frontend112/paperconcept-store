@@ -1,11 +1,12 @@
 'use client'
-import { useRef, useState } from 'react'
+import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import cn from "classnames"
 
-import { ExtraClassNames } from "@/app/types/types";
+import { ExtraClassNames, ProductType } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
 import { MobileMenu } from "./MobileMenu";
 import { DesktopMenu } from "./DesktopMenu";
+import { getProductsByInput } from "@/app/getData/getProductsByInput";
 
 type Props = {
   className?: ExtraClassNames,
@@ -42,8 +43,8 @@ export const Menu = ({ className }: Props) => {
       />
 
       <MobileMenu
-        handleCartClick={handleCartClick}
         className={className}
+        handleCartClick={handleCartClick}
       />
 
       <Cart

@@ -124,14 +124,16 @@
 .product__description {
   transform: translateY(0);
 }
-.product:hover .product__add-to-cart {
-  opacity: 1;
-  animation: showCounter ease 0.5s;
-}
-.product:hover .product__description {
-  animation: moveTop ease 0.5s;
-  background-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-100%);
+@media only screen and (min-width: 48rem) {
+  .product:hover .product__add-to-cart {
+    opacity: 1;
+    animation: showCounter ease 0.5s;
+  }
+  .product:hover .product__description {
+    animation: moveTop ease 0.5s;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-100%);
+  }
 }
 .product::-webkit-inner-spin-button {
   display: none;
