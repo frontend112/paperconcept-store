@@ -21,3 +21,7 @@ add to redux persist to store products from cart in browser
 add content for each product(description)
 
 add to cart on mobile should be displayed without animation
+
+if user added sth to cart after refresh page, then these products should be there (can be stored inside localstorage), solution might be there:
+https://www.youtube.com/watch?v=lATafp15HWA&t=7s
+or uselocalstorage custom hook

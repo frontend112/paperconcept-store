@@ -1,15 +1,18 @@
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
-import { ProductType } from "@/app/types/types"
-import { Button } from "@/components/ui/button"
+import { ChangeEvent, useState } from "react"
+import Link from "next/link"
 import Image from "next/image"
-import React, { ChangeEvent, useState } from 'react'
 import { useDispatch } from "react-redux"
+
+import { ProductType } from "@/app/types/types"
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
+import { Button } from "@/components/ui/button"
 
 export const Product = ({
   name,
   price,
   src,
   id,
+  slug,
 }: ProductType) => {
   const dispatch = useDispatch();
 
@@ -22,7 +25,10 @@ export const Product = ({
 
   return (
     <div className="product">
-      <div className="image__wrapper">
+      <Link
+        className="image__wrapper"
+        href={`/product-page/${id}-${slug}`}
+      >
         <Image
           src={src || `https://picsum.photos/id/${id}/300`}
           alt={name}
@@ -30,9 +36,9 @@ export const Product = ({
           height={300}
           className="w-full"
         />
-      </div>
+      </Link>
       <section className="product__description">
-        <p>{name}</p>
+        <p><Link href={`/product-page/${id}-${slug}`}>{name}</Link></p>
         <p>{price} zł</p>
         <div className="product__add-to-cart">
           <Button
@@ -42,6 +48,7 @@ export const Product = ({
                 price,
                 src,
                 id,
+                slug,
                 quantity,
               }))
             }}
@@ -55,10 +62,10 @@ export const Product = ({
             <input
               type="number"
               className="
-                product__input w-11 h-11 mx-4
-                border-black border-solid rounded-full border-2
-                outline-none text-center
-              "
+              product__input w-11 h-11 mx-4
+              border-black border-solid rounded-full border-2
+              outline-none text-center
+            "
               onChange={handlequantityChange}
               value={quantity}
             />

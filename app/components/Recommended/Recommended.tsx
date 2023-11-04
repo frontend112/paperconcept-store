@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from "react";
 
+import { DIRECTIONS } from "@/app/types/types";
 import { getProducts } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
-import { DIRECTIONS } from "@/app/types/types";
+
 const productAmount = 4;
 
 export const Recommended = () => {
@@ -39,6 +40,7 @@ export const Recommended = () => {
             name={getProducts[counter + el].name}
             price={getProducts[counter + el].price}
             src={getProducts[counter + el].src}
+            slug={getProducts[counter + el].slug}
           />
         ))}
       </div>

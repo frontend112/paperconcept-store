@@ -24,12 +24,11 @@ export const counterSlice = createSlice({
 
       return [...state, action.payload]
     },
-    removeProduct: (state, action) => {
-      const withoutRemoved = state.filter(product => (
+    removeProduct: (state, action) => (
+      state.filter(product => (
         action.payload.id !== product.id
       ))
-      return withoutRemoved
-    },
+    ),
     increaseQuantity: (state, action) => (
       [...state].map(product => {
         if (product.id === action.payload.id) {

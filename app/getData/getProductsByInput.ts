@@ -8,7 +8,7 @@ export const getProductsByInput = (input: string) => products.filter(({ name }) 
   const engInput = replacePolishLetter(input)
 
   return engInput.every(wordI => engName.some(wordName => {
-    return wordI.length === 1 ?
+    return wordI.length === 4 ?
       wordName.slice(0, wordI.length).toLocaleLowerCase()
       === wordI.slice(0, wordI.length).toLocaleLowerCase()
       :

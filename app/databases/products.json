@@ -14,6 +14,14 @@
     "database": "sql11645171",
     "data": [
       {
+        "id": "0",
+        "name": "Podobrazie malarskie Artist's - Phoenix - czarne, 40 x 50 cm",
+        "slug": "plastyczne",
+        "category": "plastyczne",
+        "price": 29.9,
+        "src": "https://dl.dropboxusercontent.com/scl/fi/dxsqpsqyx6rtm7ebdvqhq/podobrazie-malarskie-artist-s-phoenix-czarne-40-x-50-cm.jpg?rlkey=wk72dhb9c7osf9v3mlsnmyob9&dl=0"
+      },
+      {
         "id": "1",
         "name": "koperty amber 100g - 14 x 14 cm, bia\u0142e, 500 szt.",
         "slug": "papiery-i-koperty",

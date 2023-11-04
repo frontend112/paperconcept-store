@@ -1,16 +1,15 @@
 'use client'
 import { ChangeEvent, FormEvent, useRef, useState } from "react"
-import { Logo } from "../Logo/Logo"
-import { getCategories as categories } from "@/app/getData/getCategories"
-
 import Link from "next/link";
-import { SubPages } from "../SubPages/SubPages";
 
+import { MenuDevicesProps, ProductType } from "@/app/types/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { getCategories as categories } from "@/app/getData/getCategories"
+import { Logo } from "../Logo/Logo"
+import { SubPages } from "../SubPages/SubPages";
 import { UserIcon } from "./UserIcon";
 import { CartIcon } from "./CartIcon";
-import { MenuDevicesProps, ProductType } from "@/app/types/types";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";

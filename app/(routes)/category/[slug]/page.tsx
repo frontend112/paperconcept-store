@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 
 import { getProducts as products } from "@/app/getData/getProducts";
 import { getCategories as categories } from "@/app/getData/getCategories";
@@ -25,7 +24,7 @@ const Category = () => {
   return (
     <div className="flex justify-center">
       <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
-        name, price, id, src
+        name, price, id, src, slug
       }) => (
         <Product
           name={name}
@@ -33,6 +32,7 @@ const Category = () => {
           id={id}
           key={id}
           src={src}
+          slug={slug}
         />
       ))}</div>
     </div>

@@ -1,5 +1,8 @@
 useful lines:
+compile sass to scss:
 sass --watch ./app/globals.scss:./app/globals.css
+run project:
+npm run dev
 
 app description:
 Page inspired by: paperconcept.pl

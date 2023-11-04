@@ -1,5 +1,5 @@
+import { ReactNode } from "react";
 import { StaticImageData } from "next/image";
-import { ChangeEvent, FormEvent, ReactNode } from "react";
 
 export enum DIRECTIONS {
   LEFT,
@@ -34,6 +34,7 @@ export interface ProductType {
   price: number,
   src: string,
   id: string,
+  slug: string,
 }
 
 export interface AddedProduct extends ProductType {

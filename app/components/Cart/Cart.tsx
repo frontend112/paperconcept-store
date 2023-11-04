@@ -1,12 +1,10 @@
-import React, { RefObject, useEffect } from 'react'
-
+import { RefObject } from "react"
 import cn from "classnames"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
 import { CartProduct } from "./CartProduct";
-import { AddedProduct, ProductType } from "@/app/types/types";
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 
 interface Props {
   isCartHidden: boolean;
@@ -20,27 +18,11 @@ export const Cart = ({
   handleCartClick,
 }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products)
-  const dispatch = useDispatch();
 
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
     .reduce((acc, current) => acc + current, 0)
     .toFixed(2)
-
-  useEffect(() => {
-    const storedCart: AddedProduct[] = JSON.parse(localStorage.getItem('cart') || '[]')
-    storedCart.forEach(({ id, name, price, src, quantity }) => dispatch(addProduct({
-      name,
-      price,
-      src,
-      id,
-      quantity,
-    })))
-  }, [dispatch])
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartProducts))
-  }, [cartProducts])
 
   return (
     <div className=
@@ -60,7 +42,7 @@ export const Cart = ({
         <hr />
         {cartProducts.length > 0 ? (
           <ul className="p-4">
-            {cartProducts.map(({ id, name, price, src, quantity }) => (
+            {cartProducts.map(({ id, name, price, src, quantity, slug }) => (
               <CartProduct
                 id={id}
                 name={name}
@@ -68,6 +50,7 @@ export const Cart = ({
                 src={src}
                 quantity={quantity}
                 key={id}
+                slug={slug}
               />
             ))}
           </ul>
