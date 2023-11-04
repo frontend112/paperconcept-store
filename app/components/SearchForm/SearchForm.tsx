@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { MenuDevicesProps, ProductType } from "@/app/types/types";
-import Image from "next/image";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 
 export const SearchForm = ({
@@ -23,7 +22,7 @@ export const SearchForm = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchinput(value);
-    value ? setFoundproducts(getProductsByInput(e.target.value))
+    value.trim().length > 0 ? setFoundproducts(getProductsByInput(e.target.value))
       : setFoundproducts([])
   }
   const clearFoundProducts = () => {
