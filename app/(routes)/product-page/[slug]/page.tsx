@@ -76,6 +76,7 @@ const Page = () => {
               onClick={() => {
                 dispatch(addProduct({
                   ...recentProduct,
+                  quantity
                 }))
               }}
               className="rounded-none w-full mt-8"
