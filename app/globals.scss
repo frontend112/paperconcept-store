@@ -158,17 +158,6 @@
       }
     }
   }
-
-  &::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  & input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
 }
 
 @keyframes moveTop {
@@ -223,16 +212,6 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-
-  &::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  & input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
 }
 
 .mobile-menu {
@@ -254,6 +233,16 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 2rem;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=globals.css.map */

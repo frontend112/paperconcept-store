@@ -25,7 +25,10 @@ export const Product = ({
 
   return (
     <div className="product">
-      <div className="image__wrapper">
+      <Link
+        className="image__wrapper"
+        href={`/product-page/${+id + 1}-${slug}`}
+      >
         <Image
           src={src || `https://picsum.photos/id/${id}/300`}
           alt={name}
@@ -33,7 +36,7 @@ export const Product = ({
           height={300}
           className="w-full"
         />
-      </div>
+      </Link>
       <section className="product__description">
         <p><Link href={`/product-page/${+id + 1}-${slug}`}>{name}</Link></p>
         <p>{price} zł</p>

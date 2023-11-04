@@ -135,15 +135,6 @@
     transform: translateY(-100%);
   }
 }
-.product::-webkit-inner-spin-button {
-  display: none;
-  -webkit-appearance: none;
-  margin: 0;
-}
-.product input[type=number] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
 
 @keyframes moveTop {
   from {
@@ -189,15 +180,6 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.cart::-webkit-inner-spin-button {
-  display: none;
-  -webkit-appearance: none;
-  margin: 0;
-}
-.cart input[type=number] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
 
 .mobile-menu__stripes {
   background-image: url("./img/mobile-menu-button-black.png");
@@ -216,6 +198,16 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 2rem;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /*# sourceMappingURL=globals.css.map */

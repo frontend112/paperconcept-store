@@ -20,5 +20,3 @@ app/components
 <Logo> - force refresh on click
 (routes)/... -> different subpages not ready yet
 (auth)/sign-in or sign-up -> register o login (so far only available in english)
-
-after refresh page product should be on the page (can be stored inside localstorage)
