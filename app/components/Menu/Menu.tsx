@@ -1,12 +1,11 @@
 'use client'
-import { ChangeEvent, FormEvent, useRef, useState } from 'react'
+import { useRef, useState } from "react"
 import cn from "classnames"
 
-import { ExtraClassNames, ProductType } from "@/app/types/types";
+import { ExtraClassNames } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
 import { MobileMenu } from "./MobileMenu";
 import { DesktopMenu } from "./DesktopMenu";
-import { getProductsByInput } from "@/app/getData/getProductsByInput";
 
 type Props = {
   className?: ExtraClassNames,

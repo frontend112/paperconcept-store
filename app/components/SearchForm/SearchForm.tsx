@@ -2,8 +2,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { MenuDevicesProps, ProductType } from "@/app/types/types";
+import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 
 export const SearchForm = ({
@@ -68,6 +68,5 @@ export const SearchForm = ({
         clearFoundProducts={clearFoundProducts}
       />
     </>
-
   )
 }

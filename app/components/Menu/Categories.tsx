@@ -1,16 +1,14 @@
-import { getCategories as categories } from "@/app/getData/getCategories"
 import Link from "next/link"
-export const Categories = () => {
+import { getCategories as categories } from "@/app/getData/getCategories"
 
-  return (
-    <ul className="flex justify-between text-inherit">
-      {categories.map(({ category, id, slug }) => (
-        <li key={id}>
-          <Link href={`/category/${slug}`}>
-            {category}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  )
-}
+export const Categories = () =>
+  <ul className="flex justify-between text-inherit">
+    {categories.map(({ category, id, slug }) => (
+      <li key={id}>
+        <Link href={`/category/${slug}`}>
+          {category}
+        </Link>
+      </li>
+    ))}
+  </ul>
+

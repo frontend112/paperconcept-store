@@ -1,5 +1,5 @@
 import Image from "next/image"
-import cn from 'classnames'
+import cn from "classnames"
 
 import { BackgroundsProps, DIRECTIONS } from "@/app/types/types"
 import { bgImages } from "./bgImages"

@@ -1,11 +1,11 @@
-import { RefObject, useEffect } from 'react'
-
+import { RefObject, useEffect } from "react"
 import cn from "classnames"
 import { useDispatch, useSelector } from "react-redux"
+
 import { RootState } from "@/app/GlobalRedux/store"
 import { Button } from "@/components/ui/button";
 import { CartProduct } from "./CartProduct";
-import { AddedProduct, ProductType } from "@/app/types/types";
+import { AddedProduct } from "@/app/types/types";
 import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 
 interface Props {

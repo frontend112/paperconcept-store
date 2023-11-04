@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react"
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames } from "./types/types";

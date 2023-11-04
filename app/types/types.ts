@@ -1,5 +1,5 @@
+import { ReactNode } from "react";
 import { StaticImageData } from "next/image";
-import { ChangeEvent, FormEvent, ReactNode } from "react";
 
 export enum DIRECTIONS {
   LEFT,

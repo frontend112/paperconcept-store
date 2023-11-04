@@ -1,9 +1,10 @@
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
-import { ProductType } from "@/app/types/types"
-import { Button } from "@/components/ui/button"
+import { ChangeEvent, useState } from "react"
 import Image from "next/image"
-import { ChangeEvent, useState } from 'react'
 import { useDispatch } from "react-redux"
+
+import { ProductType } from "@/app/types/types"
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
+import { Button } from "@/components/ui/button"
 
 export const Product = ({
   name,
