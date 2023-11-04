@@ -56,10 +56,10 @@ export const Product = ({
             <input
               type="number"
               className="
-                product__input w-11 h-11 mx-4
-                border-black border-solid rounded-full border-2
-                outline-none text-center
-              "
+              product__input w-11 h-11 mx-4
+              border-black border-solid rounded-full border-2
+              outline-none text-center
+            "
               onChange={handlequantityChange}
               value={quantity}
             />
