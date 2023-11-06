@@ -1,4 +1,4 @@
-import { Logo } from "../Logo/Logo"
+import { Logo } from "../Logo/Logo";
 
 export const StickyMenu = () =>
   <div className="

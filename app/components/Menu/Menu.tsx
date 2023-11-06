@@ -1,6 +1,6 @@
 'use client'
-import { useRef, useState } from "react"
-import cn from "classnames"
+import { useRef, useState } from "react";
+import cn from "classnames";
 
 import { ExtraClassNames } from "@/app/types/types";
 import { Cart } from "../Cart/Cart";
@@ -22,12 +22,12 @@ export const Menu = ({ className }: Props) => {
     } else {
       cartELement.current?.classList.add('animate-hide-cart')
       cartELement.current?.classList.remove('animate-show-cart')
-    }
+    };
 
     setTimeout(() => {
       setIscarthidden(state => !state)
-    }, 500)
-  }
+    }, 500);
+  };
 
   return (
     <div

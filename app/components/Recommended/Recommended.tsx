@@ -9,7 +9,7 @@ import { Arrow } from "../Arrow/Arrow";
 const productAmount = 4;
 
 export const Recommended = () => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
 
   const changeCounter = (direction: DIRECTIONS) => {
     if (direction === DIRECTIONS.LEFT && counter < productAmount) (
@@ -24,7 +24,7 @@ export const Recommended = () => {
     if (direction === DIRECTIONS.RIGHT) (
       setCounter(state => state + productAmount)
     )
-  }
+  };
   return (
     <div className="relative overflow-hidden">
       <Arrow

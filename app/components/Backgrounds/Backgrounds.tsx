@@ -1,8 +1,8 @@
-import Image from "next/image"
-import cn from "classnames"
+import Image from "next/image";
+import cn from "classnames";
 
-import { BackgroundsProps, DIRECTIONS } from "@/app/types/types"
-import { bgImages } from "./bgImages"
+import { BackgroundsProps, DIRECTIONS } from "@/app/types/types";
+import { bgImages } from "./bgImages";
 
 export const Backgrounds = (
   {

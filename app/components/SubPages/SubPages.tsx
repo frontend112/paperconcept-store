@@ -1,5 +1,5 @@
 import Link from "next/link";
-import cn from "classnames"
+import cn from "classnames";
 
 import { getSubpages as subpages } from "@/app/getData/getSubpages";
 

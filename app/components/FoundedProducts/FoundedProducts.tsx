@@ -1,10 +1,10 @@
-import { ProductType } from "@/app/types/types"
+import { ProductType } from "@/app/types/types";
 type Props = {
   foundProducts: ProductType[],
   clearFoundProducts: () => void
-}
+};
 
-import Image from "next/image"
+import Image from "next/image";
 export const FoundedProducts = ({ foundProducts, clearFoundProducts }: Props) => {
   return (
     <>

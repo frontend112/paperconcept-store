@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -16,11 +16,13 @@ import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
 
-  const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
+  const [animationsDetails, setAnimationsDetails] = useState(
+    { direction: DIRECTIONS.UNKNOWN, isActive: false }
+  );
 
   const mainELement = useRef<HTMLElement>(null)
 
@@ -50,10 +52,10 @@ const Main = () => {
   }
 
   useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}')
+    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
     if (savedCart.length > 0 && productCart.length === 0) {
       for (const key of savedCart) {
-        dispatch(addProduct(key))
+        dispatch(addProduct(key));
       }
     }
   }, [dispatch, productCart])

@@ -1,12 +1,12 @@
-import cn from "classnames"
+import cn from "classnames";
 
-import { ExtraClassNames } from "@/app/types/types"
-import { Logo } from "../Logo/Logo"
-import { SearchForm } from "../SearchForm/SearchForm"
-import { SubPages } from "../SubPages/SubPages"
-import { UserIcon } from "./UserIcon"
-import { CartIcon } from "./CartIcon"
-import { Categories } from "./Categories"
+import { ExtraClassNames } from "@/app/types/types";
+import { Logo } from "../Logo/Logo";
+import { SearchForm } from "../SearchForm/SearchForm";
+import { SubPages } from "../SubPages/SubPages";
+import { UserIcon } from "./UserIcon";
+import { CartIcon } from "./CartIcon";
+import { Categories } from "./Categories";
 
 type Props = {
   handleCartClick: () => void,

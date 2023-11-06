@@ -3,7 +3,7 @@
 import { AddedProduct } from "@/app/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: AddedProduct[] = []
+const initialState: AddedProduct[] = [];
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -27,8 +27,8 @@ export const counterSlice = createSlice({
     removeProduct: (state, action) => (
       state.filter(product => (
         action.payload.id !== product.id
-      ))
-    ),
+      )))
+    ,
     increaseQuantity: (state, action) => (
       [...state].map(product => {
         if (product.id === action.payload.id) {

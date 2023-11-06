@@ -1,9 +1,9 @@
-import bg1 from '@/app/img/background1.jpg'
-import bg2 from '@/app/img/background2.jpg'
-import bg3 from '@/app/img/background3.jpg'
-import bg4 from '@/app/img/background4.jpg'
-import bg5 from '@/app/img/background5.jpg'
-import { BackgroundType } from "@/app/types/types"
+import bg1 from '@/app/img/background1.jpg';
+import bg2 from '@/app/img/background2.jpg';
+import bg3 from '@/app/img/background3.jpg';
+import bg4 from '@/app/img/background4.jpg';
+import bg5 from '@/app/img/background5.jpg';
+import { BackgroundType } from "@/app/types/types";
 
 export const bgImages: BackgroundType[] = ([
   {

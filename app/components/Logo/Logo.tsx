@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import cn from "classnames"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import cn from "classnames";
 
-import { ExtraClassNames } from "@/app/types/types"
+import { ExtraClassNames } from "@/app/types/types";
 
 export const Logo = ({ className }: { className?: ExtraClassNames }) => {
   const pathName = usePathname();

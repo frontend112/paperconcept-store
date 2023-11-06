@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { getCategories as categories } from "@/app/getData/getCategories"
+import Link from "next/link";
+import { getCategories as categories } from "@/app/getData/getCategories";
 
 export const Categories = () =>
   <ul className="flex justify-between text-inherit">

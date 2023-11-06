@@ -1,5 +1,5 @@
-import { FC } from "react"
-import cn from "classnames"
+import { FC } from "react";
+import cn from "classnames";
 import { ArrowProps, DIRECTIONS } from "@/app/types/types";
 
 export const Arrow: FC<ArrowProps> = ({
