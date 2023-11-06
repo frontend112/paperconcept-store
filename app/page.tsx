@@ -50,7 +50,7 @@ const Main = () => {
   }
 
   useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '')
+    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}')
     if (savedCart.length > 0 && productCart.length === 0) {
       for (const key of savedCart) {
         dispatch(addProduct(key))
