@@ -1,19 +1,25 @@
 'use client'
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import cn from "classnames";
 
-import { DIRECTIONS, ExtraClassNames } from "./types/types";
+import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
 import { bgImages } from "./components/Backgrounds/bgImages";
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
 import { Arrow } from "./components/Arrow/Arrow";
 import { Recommended } from "./components/Recommended/Recommended";
 import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./GlobalRedux/store";
+import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
+  const productCart = useSelector((state: RootState) => state.products);
+  const dispatch = useDispatch();
+
   const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
 
   const mainELement = useRef<HTMLElement>(null)
@@ -42,6 +48,19 @@ const Main = () => {
       }
     }, 500)
   }
+
+  useEffect(() => {
+    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}')
+    if (savedCart.length > 0 && productCart.length === 0) {
+      for (const key of savedCart) {
+        dispatch(addProduct(key))
+      }
+    }
+  }, [dispatch, productCart])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(productCart))
+  }, [productCart])
 
   return (
     <main
