@@ -1,12 +1,8 @@
-import { UserButton } from "@clerk/nextjs"
 import { Button } from "./Button"
 
 const page = () => {
   return (
     <div className="px-[5%] pt-4">
-      <aside className="flex justify-end">
-        <UserButton afterSignOutUrl="/" />
-      </aside>
       <div className="text-center pt-4">
         <h2 className="uppercase font-normal text-2xl">Moje konto</h2>
         <p>Możesz tu zarządzać swoimi danymi personalnymi jak również przeglądać swoje zamówienia.</p>
