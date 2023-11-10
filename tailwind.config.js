@@ -91,6 +91,15 @@ module.exports = {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(0)" },
         },
+        //product
+        moveProductLeft: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        moveProductRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -105,6 +114,8 @@ module.exports = {
           "moveBgLeftThirdImage 500ms linear forwards",
         "hide-cart": "hideCart 500ms linear forwards",
         "show-cart": "showCart 500ms linear forwards",
+        "move-product-left": "moveProductLeft 100ms linear forwards",
+        "move-product-right": "moveProductRight 100ms linear forwards",
       },
     },
   },
