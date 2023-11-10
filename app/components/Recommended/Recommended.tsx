@@ -1,8 +1,8 @@
 'use client'
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { DIRECTIONS } from "@/app/types/types";
-import { getProducts } from "@/app/getData/getProducts"
+import { getProducts as products } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
 
@@ -11,20 +11,33 @@ const productAmount = 4;
 export const Recommended = () => {
   const [counter, setCounter] = useState(0);
 
-  const changeCounter = (direction: DIRECTIONS) => {
-    if (direction === DIRECTIONS.LEFT && counter < productAmount) (
-      setCounter(getProducts.length - productAmount)
-    )
-    if (direction === DIRECTIONS.RIGHT && counter > getProducts.length - productAmount - 1) (
+  const maxProductPosition = products.length - 2 * productAmount
+
+  const interval = setInterval(() => { changeCounter(DIRECTIONS.RIGHT) }, 3000)
+
+  const changeCounter = useCallback((direction: DIRECTIONS) => {
+    clearInterval(interval)
+    if (direction === DIRECTIONS.LEFT && counter < productAmount) {
+      setCounter(maxProductPosition)
+      return
+    }
+    if (direction === DIRECTIONS.RIGHT && counter >= maxProductPosition) {
       setCounter(0)
-    )
+      return
+    }
     if (direction === DIRECTIONS.LEFT) (
       setCounter(state => state - productAmount)
     )
     if (direction === DIRECTIONS.RIGHT) (
       setCounter(state => state + productAmount)
     )
-  };
+  }, [counter, maxProductPosition, interval])
+
+
+  useEffect(() => {
+    return () => clearInterval(interval);
+  }, [interval])
+
   return (
     <div className="relative overflow-hidden">
       <Arrow
@@ -37,10 +50,10 @@ export const Recommended = () => {
           <Product
             id={(counter + el).toString()}
             key={counter + el}
-            name={getProducts[counter + el].name}
-            price={getProducts[counter + el].price}
-            src={getProducts[counter + el].src}
-            slug={getProducts[counter + el].slug}
+            name={products[counter + el].name}
+            price={products[counter + el].price}
+            src={products[counter + el].src}
+            slug={products[counter + el].slug}
           />
         ))}
       </div>

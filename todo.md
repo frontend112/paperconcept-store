@@ -22,3 +22,5 @@ add to cart on mobile should be displayed without animation
 
 Recommended component should look better both on mobile and desktop
 add automated animation for recommended
+
+add login and register with next auth
