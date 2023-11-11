@@ -8,7 +8,6 @@ import { Arrow } from "../Arrow/Arrow";
 
 export const Recommended = () => {
   const [productAmount, setProductAmount] = useState(4)
-  // const screenWidth = useRef(window?.innerWidth)
   const [counter, setCounter] = useState(0);
   const maxProductPosition = products.length - 2 * productAmount
   const productsEl = useRef<HTMLDivElement>(null);
@@ -47,34 +46,33 @@ export const Recommended = () => {
       }, 200)
     }
   }, [counter, maxProductPosition, interval, productAmount])
-
-  const onResize = () => window.addEventListener('resize', () => {
-    if (window.innerWidth < 768) {
-      setProductAmount(2)
-    } else {
-      setProductAmount(4)
-    }
-  })
+  const setProductLength = useCallback(() => {
+    setProductAmount(() => window.innerWidth < 768 ? 2 : 4)
+  }, [])
+  const onResize = useCallback(() => window.addEventListener('resize', () =>
+    setProductLength()
+  ), [setProductLength])
 
   useEffect(() => {
     return () => clearInterval(interval);
   }, [interval])
-
   useEffect(() => {
     if (window) {
       onResize()
+      // for initial render
+      setProductLength()
     }
     return () => window.removeEventListener('resize', onResize)
-  }, [])
+  }, [setProductLength, onResize])
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden mx-4 lg:mx-[5%]">
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
         isLoading={false}
       >&lt;</Arrow>
-      <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:px-12`} ref={productsEl}>
+      <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:px-10`} ref={productsEl}>
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <div key={counter + el}>
             <Product

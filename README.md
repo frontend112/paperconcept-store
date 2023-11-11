@@ -5,7 +5,7 @@ run project:
 npm run dev
 
 app description:
-Page inspired by: paperconcept.pl
+Page inspired by: https://paperconcept.pl/pl/
 
 app/page.tsx contains homepage
 
