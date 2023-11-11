@@ -22,20 +22,18 @@ const Category = () => {
   ))
 
   return (
-    <div className="flex justify-center">
-      <div className="flex gap-1 p-[5%] flex-wrap">{currentProducts?.map(({
-        name, price, id, src, slug
-      }) => (
-        <Product
-          name={name}
-          price={price}
-          id={id}
-          key={id}
-          src={src}
-          slug={slug}
-        />
-      ))}</div>
-    </div>
+    <>{currentProducts?.map(({
+      name, price, id, src, slug
+    }) => (
+      <Product
+        name={name}
+        price={price}
+        id={id}
+        key={id}
+        src={src}
+        slug={slug}
+      />
+    ))}</>
   )
 }
 

@@ -47,7 +47,7 @@ export const Recommended = () => {
     }
   }, [counter, maxProductPosition, interval, productAmount])
   const setProductLength = useCallback(() => {
-    setProductAmount(() => window.innerWidth < 768 ? 2 : 4)
+    setProductAmount(() => window.innerWidth < 1024 ? 2 : 4)
   }, [])
   const onResize = useCallback(() => window.addEventListener('resize', () =>
     setProductLength()
@@ -58,9 +58,8 @@ export const Recommended = () => {
   }, [interval])
   useEffect(() => {
     if (window) {
-      onResize()
-      // for initial render
       setProductLength()
+      onResize()
     }
     return () => window.removeEventListener('resize', onResize)
   }, [setProductLength, onResize])
