@@ -16,18 +16,26 @@ const page = () => {
           fill
           alt="background shop"
           src="https://paperconcept.pl/themes/paper_theme/assets/img/pc_custom_pages/varso/paperconcept_varso_02.jpg"
+          objectFit="cover"
         />
         <h2 className="uppercase font-light text-white text-5xl absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">odwiedź nas</h2>
       </div>
       <section className="p-5 lg:p-[10%]">
         <h3 className="uppercase font-mono">PaperConcept to także sklepy stacjonarne!</h3>
-        <ul className="grid grid-cols-2">
-          {shops.map(({ name, address }) => (<li style={{ width: "30%", height: "auto", position: "relative" }} key={name}>
-            <Image
-              src={`https://paperconcept.pl/modules/pc_custom_pages/views/img/stores/paperconcept_${name}_front.jpg`}
-              fill
-              alt="shop"
-            />
+        <ul className="flex items-center flex-col lg:grid lg:grid-cols-2">
+          {shops.map(({ name, address }) => (<li className="w-[80vw] h-[calc(80vw/2)] lg:w-[30vw] lg:h-[calc(40vw/2)]" key={name}>
+            <div style={{ width: "100%", height: "70%", position: "relative" }}>
+              <Image
+                src={`https://paperconcept.pl/modules/pc_custom_pages/views/img/stores/paperconcept_${name}_front.jpg`}
+                fill
+                alt="shop"
+                objectFit="cover"
+              />
+            </div>
+            <address>
+              <h4>{name}</h4>
+              <h5>{address}</h5>
+            </address>
           </li>))}
         </ul>
       </section>
