@@ -19,6 +19,7 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
+  const [isMobilemenuclicked, setIsmobilemenuclicked] = useState(false);
 
   const [animationsDetails, setAnimationsDetails] = useState(
     { direction: DIRECTIONS.UNKNOWN, isActive: false }
@@ -67,7 +68,7 @@ const Main = () => {
   return (
     <main
       ref={mainELement}
-      className="h-screen overflow-scroll"
+      className="min-h-screen overflow-scroll"
     >
       <DeliveryInfo />
       <header className={cn(
@@ -79,24 +80,30 @@ const Main = () => {
         'overflow-x-hidden',
       )}
       >
-        <Menu className={ExtraClassNames.TRANSPARENT} />
-        <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
+        <Menu className={ExtraClassNames.TRANSPARENT} setIsmobilemenuclicked={setIsmobilemenuclicked} />
+        <Backgrounds
+          bgCount={bgCount}
+          animationsDetails={animationsDetails}
+          isMobilemenuclicked={isMobilemenuclicked}
+        />
 
         <div className="mx-5 relative h-full">
           <Arrow
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
             isLoading={isLoading}
+            isMobilemenuclicked={isMobilemenuclicked}
           >&lt;</Arrow>
 
           <Arrow
             direction={DIRECTIONS.RIGHT}
             handleArrowClick={changeBg}
             isLoading={isLoading}
+            isMobilemenuclicked={isMobilemenuclicked}
           >&gt;</Arrow>
         </div>
       </header>
-      <section className="flex flex-col overflow-hidden mx-4 lg:mx-[5%] lg:px-10">
+      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
         <article>
           <h1 className="text-4xl font-semibold py-20">PaperConcept to sklep plastyczny pełen produktów<br />najlepszych marek.</h1>
         </article>

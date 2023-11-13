@@ -22,16 +22,10 @@ const Category = () => {
   ))
 
   return (
-    <>{currentProducts?.map(({
-      name, price, id, src, slug
-    }) => (
+    <>{currentProducts?.map((product) => (
       <Product
-        name={name}
-        price={price}
-        id={id}
-        key={id}
-        src={src}
-        slug={slug}
+        key={product.id}
+        {...product}
       />
     ))}</>
   )

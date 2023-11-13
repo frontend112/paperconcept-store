@@ -11,7 +11,8 @@ export const Backgrounds = (
     {
       direction,
       isActive,
-    }
+    },
+    isMobilemenuclicked,
   }: BackgroundsProps
 ) => {
   const prevImage = bgCount <= 0 ? bgImages.length - 1 : bgCount - 1;
@@ -47,7 +48,12 @@ export const Backgrounds = (
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-second-image',
           )}
         />
-        <section className="absolute bottom-10 left-[5%] z-10">
+        <section className={cn(
+          'absolute',
+          'bottom-10',
+          'left-[5%]',
+          !isMobilemenuclicked && 'z-10'
+        )}>
           <h2 className="uppercase text-white py-4 text-4xl font-light">{bgImages[bgCount].name}</h2>
           <a href={`/category/${bgImages[bgCount].slug}`} className="
             w-72

@@ -6,6 +6,7 @@ export const Arrow: FC<ArrowProps> = ({
   direction,
   handleArrowClick,
   isLoading,
+  isMobilemenuclicked,
   children,
 }) => (
   <div className={cn(
@@ -14,7 +15,7 @@ export const Arrow: FC<ArrowProps> = ({
     'absolute',
     'translate-y-[-50%]',
     'hover: cursor-pointer',
-    'z-10',
+    !isMobilemenuclicked && 'z-10',
     direction === DIRECTIONS.LEFT ? 'left-0' : 'right-0',
   )}
   >

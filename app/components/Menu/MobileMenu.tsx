@@ -15,18 +15,17 @@ import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { useRouter } from "next/navigation";
 
-export const MobileMenu = ({
-  handleCartClick,
-  className,
-}: MenuDevicesProps) => {
+export const MobileMenu = ({ handleCartClick, setIsmobilemenuclicked }: MenuDevicesProps) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const formElement = useRef<HTMLFormElement>(null);
   const [searchInput, setSearchinput] = useState('');
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const router = useRouter();
 
-  const toggleMenu = () => categoriesElement
-    .current?.classList.toggle('hidden');
+  const toggleMenu = () => {
+    categoriesElement.current?.classList.toggle('hidden');
+    setIsmobilemenuclicked(state => !state);
+  }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     router.push(`/submit-search/${searchInput}`)
@@ -44,7 +43,7 @@ export const MobileMenu = ({
   };
 
   return (
-    <div className="mobile-menu lg:hidden w-full sticky top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4">
+    <div className="mobile-menu lg:hidden w-full min-h-screen top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4">
       <section className="flex justify-between items-center">
         <div>
           <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />
@@ -65,7 +64,7 @@ export const MobileMenu = ({
         </div>
         <hr />
         <ul className="text-black bg-white py-4">{categories.map(({ category, id, slug }) => (
-          <li className="category p-4 relative" key={id}><Link className="category__link p-4 text-slate-700 hover:text-slate-900" href={`/category/${slug}`}>{category}</Link></li>
+          <li className="category p-4 relative w-full" key={id}><Link className="category__link p-4 text-slate-700 hover:text-slate-900 block" href={`/category/${slug}`}>{category}</Link></li>
         ))}</ul>
         <hr />
         <SubPages isMobile={true} />
@@ -76,7 +75,7 @@ export const MobileMenu = ({
         onSubmit={handleSubmit}
       >
         <label
-          className="absolute z-10 right-4 top-[200%] translate-y-[-100%] cursor-pointer"
+          className="absolute right-4 top-[200%] translate-y-[-100%] cursor-pointer"
           htmlFor="mobile-search">
           <FontAwesomeIcon icon={faSearch} />
         </label>

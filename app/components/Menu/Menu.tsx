@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import cn from "classnames";
 
 import { ExtraClassNames } from "@/app/types/types";
@@ -9,9 +9,10 @@ import { DesktopMenu } from "./DesktopMenu";
 
 type Props = {
   className?: ExtraClassNames,
+  setIsmobilemenuclicked: Dispatch<SetStateAction<boolean>>
 }
 
-export const Menu = ({ className }: Props) => {
+export const Menu = ({ className, setIsmobilemenuclicked }: Props) => {
   const [isCartHidden, setIscarthidden] = useState(true);
   const cartELement = useRef<HTMLDivElement>(null);
 
@@ -41,10 +42,7 @@ export const Menu = ({ className }: Props) => {
         className={className}
       />
 
-      <MobileMenu
-        className={className}
-        handleCartClick={handleCartClick}
-      />
+      <MobileMenu handleCartClick={handleCartClick} setIsmobilemenuclicked={setIsmobilemenuclicked} />
 
       <Cart
         isCartHidden={isCartHidden}

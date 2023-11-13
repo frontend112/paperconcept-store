@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { StaticImageData } from "next/image";
 
 export enum DIRECTIONS {
@@ -12,6 +12,7 @@ export interface ArrowProps {
   handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
   children: ReactNode;
+  isMobilemenuclicked?: boolean
 }
 
 export interface BackgroundType {
@@ -23,6 +24,7 @@ export interface BackgroundType {
 
 export interface BackgroundsProps {
   bgCount: number,
+  isMobilemenuclicked: boolean,
   animationsDetails: {
     direction: DIRECTIONS,
     isActive: Boolean,
@@ -48,4 +50,5 @@ export enum ExtraClassNames {
 export interface MenuDevicesProps {
   className?: ExtraClassNames,
   handleCartClick: () => void,
+  setIsmobilemenuclicked: Dispatch<SetStateAction<boolean>>
 }
