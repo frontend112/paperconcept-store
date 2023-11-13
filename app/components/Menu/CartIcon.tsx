@@ -1,8 +1,8 @@
-import cn from "classnames"
-import { ExtraClassNames } from "@/app/types/types"
-import { useSelector } from "react-redux"
+import cn from "classnames";
+import { ExtraClassNames } from "@/app/types/types";
+import { useSelector } from "react-redux";
 
-import { RootState } from "@/app/GlobalRedux/store"
+import { RootState } from "@/app/GlobalRedux/store";
 
 type Props = {
   className?: ExtraClassNames,
@@ -10,10 +10,10 @@ type Props = {
 }
 
 export const CartIcon = ({ className, handleCartClick }: Props) => {
-  const cartProducts = useSelector((state: RootState) => state.products)
+  const cartProducts = useSelector((state: RootState) => state.products);
   const cartProductsquantity = cartProducts
     .map(product => product.quantity)
-    .reduce((acc, current) => acc + current, 0)
+    .reduce((acc, current) => acc + current, 0);
 
   return (
     <li

@@ -1,8 +1,8 @@
-import Image from "next/image"
-import cn from "classnames"
+import Image from "next/image";
+import cn from "classnames";
 
-import { BackgroundsProps, DIRECTIONS } from "@/app/types/types"
-import { bgImages } from "./bgImages"
+import { BackgroundsProps, DIRECTIONS } from "@/app/types/types";
+import { bgImages } from "./bgImages";
 
 export const Backgrounds = (
   {
@@ -11,7 +11,8 @@ export const Backgrounds = (
     {
       direction,
       isActive,
-    }
+    },
+    isMobilemenuclicked,
   }: BackgroundsProps
 ) => {
   const prevImage = bgCount <= 0 ? bgImages.length - 1 : bgCount - 1;
@@ -25,6 +26,7 @@ export const Backgrounds = (
           src={bgImages[prevImage].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             "translate-x-[-100vw]",
@@ -39,13 +41,19 @@ export const Backgrounds = (
           src={bgImages[bgCount].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             isActive && direction === DIRECTIONS.LEFT && 'animate-sliding-right-second-image',
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-second-image',
           )}
         />
-        <section className="absolute bottom-10 left-[5%]">
+        <section className={cn(
+          'absolute',
+          'bottom-10',
+          'left-[5%]',
+          !isMobilemenuclicked && 'z-10'
+        )}>
           <h2 className="uppercase text-white py-4 text-4xl font-light">{bgImages[bgCount].name}</h2>
           <a href={`/category/${bgImages[bgCount].slug}`} className="
             w-72
@@ -68,6 +76,7 @@ export const Backgrounds = (
           src={bgImages[nextImage].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             "translate-x-[100vw]",

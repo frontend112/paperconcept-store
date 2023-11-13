@@ -1,12 +1,12 @@
-import cn from "classnames"
+import cn from "classnames";
 
-import { ExtraClassNames } from "@/app/types/types"
-import { Logo } from "../Logo/Logo"
-import { SearchForm } from "../SearchForm/SearchForm"
-import { SubPages } from "../SubPages/SubPages"
-import { UserIcon } from "./UserIcon"
-import { CartIcon } from "./CartIcon"
-import { Categories } from "./Categories"
+import { ExtraClassNames } from "@/app/types/types";
+import { Logo } from "../Logo/Logo";
+import { SearchForm } from "../SearchForm/SearchForm";
+import { SubPages } from "../SubPages/SubPages";
+import { UserIcon } from "./UserIcon";
+import { CartIcon } from "./CartIcon";
+import { Categories } from "./Categories";
 
 type Props = {
   handleCartClick: () => void,
@@ -16,7 +16,8 @@ export const DesktopMenu = ({
   handleCartClick,
   className, }: Props) =>
   <section className={cn(
-    'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
+    'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', 'py-4',
+    className === ExtraClassNames.TRANSPARENT && 'text-white',
   )}>
     <nav className="nav section__nav flex justify-between p-5">
       <Logo className={className} />

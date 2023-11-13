@@ -1,8 +1,8 @@
-import { RefObject } from "react"
-import cn from "classnames"
-import { useSelector } from "react-redux"
+import { RefObject } from "react";
+import cn from "classnames";
+import { useSelector } from "react-redux";
 
-import { RootState } from "@/app/GlobalRedux/store"
+import { RootState } from "@/app/GlobalRedux/store";
 import { Button } from "@/components/ui/button";
 import { CartProduct } from "./CartProduct";
 
@@ -17,19 +17,19 @@ export const Cart = ({
   cartELement,
   handleCartClick,
 }: Props) => {
-  const cartProducts = useSelector((state: RootState) => state.products)
+  const cartProducts = useSelector((state: RootState) => state.products);
 
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
     .reduce((acc, current) => acc + current, 0)
-    .toFixed(2)
+    .toFixed(2);
 
   return (
     <div className=
       {cn(
         'flex', 'flex-col', 'justify-between',
         'fixed', 'right-0', 'top-0', 'w-96', 'h-screen',
-        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black',
+        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black', 'border-solid', 'border-2', 'border-black',
         isCartHidden && 'translate-x-full'
       )}
       ref={cartELement}

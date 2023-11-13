@@ -1,11 +1,12 @@
-import { FC } from "react"
-import cn from "classnames"
+import { FC } from "react";
+import cn from "classnames";
 import { ArrowProps, DIRECTIONS } from "@/app/types/types";
 
 export const Arrow: FC<ArrowProps> = ({
   direction,
   handleArrowClick,
   isLoading,
+  isMobilemenuclicked,
   children,
 }) => (
   <div className={cn(
@@ -14,7 +15,8 @@ export const Arrow: FC<ArrowProps> = ({
     'absolute',
     'translate-y-[-50%]',
     'hover: cursor-pointer',
-    direction === DIRECTIONS.LEFT ? 'left-5' : 'right-5'
+    !isMobilemenuclicked && 'z-10',
+    direction === DIRECTIONS.LEFT ? 'left-0' : 'right-0',
   )}
   >
     <div className="

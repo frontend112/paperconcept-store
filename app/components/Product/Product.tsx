@@ -1,11 +1,12 @@
-import { ChangeEvent, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { useDispatch } from "react-redux"
+import { ChangeEvent, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useDispatch } from "react-redux";
 
-import { ProductType } from "@/app/types/types"
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice"
-import { Button } from "@/components/ui/button"
+import { ProductType } from "@/app/types/types";
+import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { Button } from "@/components/ui/button";
+import cn from "classnames";
 
 export const Product = ({
   name,
@@ -15,13 +16,12 @@ export const Product = ({
   slug,
 }: ProductType) => {
   const dispatch = useDispatch();
-
   const [quantity, setQuantity] = useState(1);
 
   const handlequantityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setQuantity(+value)
-  }
+  };
 
   return (
     <div className="product">
@@ -56,7 +56,7 @@ export const Product = ({
           >Dodaj do koszyka</Button>
           <div className="text-center">
             <button
-              disabled={quantity === 1}
+              className={cn(quantity === 1 && 'invisible')}
               onClick={() => setQuantity(state => state - 1)}
             >-</button>
             <input

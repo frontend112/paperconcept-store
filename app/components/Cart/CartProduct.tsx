@@ -2,8 +2,9 @@ import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
 import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { RootState } from "@/app/GlobalRedux/store";
-import { AddedProduct } from "@/app/types/types";
+import { AddedProduct, ProductType } from "@/app/types/types";
 import Link from "next/link";
+import cn from 'classnames';
 
 export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProduct) => {
   const dispatch = useDispatch();
@@ -13,7 +14,13 @@ export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProdu
     .find(product => product.id === id)
     ?.quantity || 0
 
-  console.log(cartProducts)
+  const handleRemoveproduct = (id: string) => {
+    const storedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
+    localStorage.setItem('cart',
+      JSON.stringify(storedCart.filter(el => el.id !== id)));
+
+    dispatch(removeProduct({ id }))
+  }
   return (
     <li key={id} className="cart__product-wrapper">
       <section className="cart__product">
@@ -29,14 +36,12 @@ export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProdu
         <h3><Link className="cart__image-wrapper block" href={`/product-page/${id}-${slug}`}>{name}</Link></h3>
         <button
           className="cart__bin w-5 h-5 justify-self-end"
-          onClick={() => {
-            dispatch(removeProduct({ id }))
-          }}
+          onClick={() => handleRemoveproduct(id)}
         ></button>
         <h4>{price.toFixed(2)} zł</h4>
         <div className="text-center">
           <button
-            disabled={quantity === 1}
+            className={cn(quantity === 1 && 'invisible')}
             onClick={() => dispatch(decreaseQuantity({ id }))}
           >-</button>
           <input

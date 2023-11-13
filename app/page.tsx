@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -16,11 +16,14 @@ import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
 
 const Main = () => {
   const [bgCount, setBgcount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
+  const [isMobilemenuclicked, setIsmobilemenuclicked] = useState(false);
 
-  const [animationsDetails, setAnimationsDetails] = useState({ direction: DIRECTIONS.UNKNOWN, isActive: false })
+  const [animationsDetails, setAnimationsDetails] = useState(
+    { direction: DIRECTIONS.UNKNOWN, isActive: false }
+  );
 
   const mainELement = useRef<HTMLElement>(null)
 
@@ -50,10 +53,10 @@ const Main = () => {
   }
 
   useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}')
+    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
     if (savedCart.length > 0 && productCart.length === 0) {
       for (const key of savedCart) {
-        dispatch(addProduct(key))
+        dispatch(addProduct(key));
       }
     }
   }, [dispatch, productCart])
@@ -65,7 +68,7 @@ const Main = () => {
   return (
     <main
       ref={mainELement}
-      className="h-screen overflow-scroll"
+      className="min-h-screen overflow-scroll"
     >
       <DeliveryInfo />
       <header className={cn(
@@ -74,39 +77,41 @@ const Main = () => {
         'w-full',
         'bg-cover',
         'bg-center',
-        'overflow-x-hidden'
+        'overflow-x-hidden',
       )}
       >
-        <Menu className={ExtraClassNames.TRANSPARENT} />
+        <Menu className={ExtraClassNames.TRANSPARENT} setIsmobilemenuclicked={setIsmobilemenuclicked} />
+        <Backgrounds
+          bgCount={bgCount}
+          animationsDetails={animationsDetails}
+          isMobilemenuclicked={isMobilemenuclicked}
+        />
 
-        <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
+        <div className="mx-5 relative h-full">
+          <Arrow
+            direction={DIRECTIONS.LEFT}
+            handleArrowClick={changeBg}
+            isLoading={isLoading}
+            isMobilemenuclicked={isMobilemenuclicked}
+          >&lt;</Arrow>
 
-        <Arrow
-          direction={DIRECTIONS.LEFT}
-          handleArrowClick={changeBg}
-          isLoading={isLoading}
-        >&lt;</Arrow>
-
-        <Arrow
-          direction={DIRECTIONS.RIGHT}
-          handleArrowClick={changeBg}
-          isLoading={isLoading}
-        >&gt;</Arrow>
+          <Arrow
+            direction={DIRECTIONS.RIGHT}
+            handleArrowClick={changeBg}
+            isLoading={isLoading}
+            isMobilemenuclicked={isMobilemenuclicked}
+          >&gt;</Arrow>
+        </div>
       </header>
-      <section className="flex flex-col">
+      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
         <article>
-          <h1>PaperConcept to sklep plastyczny pełen produktów najlepszych marek</h1>
+          <h1 className="text-4xl font-semibold py-20">PaperConcept to sklep plastyczny pełen produktów<br />najlepszych marek.</h1>
         </article>
         <article>
-          <h3>Polecane produkty:</h3>
-          <div>
-            <Recommended />
-          </div>
+          <h3 className="font-semibold py-10">Polecane produkty:</h3>
+          <Recommended />
         </article>
       </section>
-      <footer>
-        footer
-      </footer>
     </main>
   )
 }

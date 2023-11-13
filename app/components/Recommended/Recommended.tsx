@@ -1,53 +1,110 @@
 'use client'
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { DIRECTIONS } from "@/app/types/types";
-import { getProducts } from "@/app/getData/getProducts"
+import { getProducts as products } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
 
-const productAmount = 4;
-
 export const Recommended = () => {
-  const [counter, setCounter] = useState(0)
+  const [productAmount, setProductAmount] = useState(4)
+  const [counter, setCounter] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const maxProductPosition = products.length - 2 * productAmount
+  const productsEl = useRef<HTMLDivElement>(null);
 
-  const changeCounter = (direction: DIRECTIONS) => {
-    if (direction === DIRECTIONS.LEFT && counter < productAmount) (
-      setCounter(getProducts.length - productAmount)
-    )
-    if (direction === DIRECTIONS.RIGHT && counter > getProducts.length - productAmount - 1) (
-      setCounter(0)
-    )
-    if (direction === DIRECTIONS.LEFT) (
-      setCounter(state => state - productAmount)
-    )
-    if (direction === DIRECTIONS.RIGHT) (
-      setCounter(state => state + productAmount)
-    )
-  }
+  const interval = setInterval(() => { changeCounter(DIRECTIONS.RIGHT) }, 2000)
+  const changeCounter = useCallback((direction: DIRECTIONS) => {
+    clearInterval(interval)
+    setIsLoading(true);
+    if (direction === DIRECTIONS.LEFT && counter < productAmount) {
+      productsEl.current?.classList.add('animate-move-product-right')
+      setTimeout(() => {
+        productsEl.current?.classList.remove('animate-move-product-right')
+        setCounter(maxProductPosition)
+        setIsLoading(false)
+      }, 400)
+      return
+    }
+    if (direction === DIRECTIONS.RIGHT && counter >= maxProductPosition) {
+      productsEl.current?.classList.add('animate-move-product-left')
+      setTimeout(() => {
+        productsEl.current?.classList.remove('animate-move-product-left')
+        setCounter(0)
+        setIsLoading(false)
+      }, 400)
+      return
+    }
+    if (direction === DIRECTIONS.LEFT) {
+      productsEl.current?.classList.add('animate-move-product-right')
+      setTimeout(() => {
+        productsEl.current?.classList.remove('animate-move-product-right')
+        setCounter(state => state - productAmount)
+        setIsLoading(false)
+      }, 400)
+    }
+    if (direction === DIRECTIONS.RIGHT) {
+      productsEl.current?.classList.add('animate-move-product-left')
+      setTimeout(() => {
+        productsEl.current?.classList.remove('animate-move-product-left')
+        setCounter(state => state + productAmount)
+        setIsLoading(false)
+      }, 400)
+    }
+  }, [counter, maxProductPosition, interval, productAmount])
+  const setProductLength = useCallback(() => {
+    setProductAmount(() => window.innerWidth < 1024 ? 2 : 4)
+  }, [])
+  const onResize = useCallback(() => window.addEventListener('resize', () =>
+    setProductLength()
+  ), [setProductLength])
+
+  useEffect(() => {
+    return () => clearInterval(interval);
+  }, [interval])
+  useEffect(() => {
+    if (window) {
+      setProductLength()
+      onResize()
+    }
+    return () => window.removeEventListener('resize', onResize)
+  }, [setProductLength, onResize])
+
+  useEffect(() => {
+    if (isMouseEnter) {
+      clearInterval(interval)
+    }
+  }, [isMouseEnter, interval])
+
   return (
-    <div className="relative overflow-hidden">
+    <div
+      onMouseEnter={() => setIsMouseEnter(true)}
+      onMouseLeave={() => setIsMouseEnter(false)}
+      className="relative"
+    >
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
-        isLoading={false}
+        isLoading={isLoading}
       >&lt;</Arrow>
-      <div className="grid grid-cols-[repeat(4,1fr)] gap-4 px-12">
+      <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
-          <Product
-            id={(counter + el).toString()}
-            key={counter + el}
-            name={getProducts[counter + el].name}
-            price={getProducts[counter + el].price}
-            src={getProducts[counter + el].src}
-            slug={getProducts[counter + el].slug}
-          />
+          <div key={counter + el}>
+            <Product
+              id={(counter + el).toString()}
+              name={products[counter + el].name}
+              price={products[counter + el].price}
+              src={products[counter + el].src}
+              slug={products[counter + el].slug}
+            />
+          </div>
         ))}
       </div>
       <Arrow
         direction={DIRECTIONS.RIGHT}
         handleArrowClick={changeCounter}
-        isLoading={false}
+        isLoading={isLoading}
       >&gt;</Arrow>
     </div>
   )
