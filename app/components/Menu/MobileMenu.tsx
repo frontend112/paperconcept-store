@@ -24,7 +24,9 @@ export const MobileMenu = ({ handleCartClick, setIsmobilemenuclicked }: MenuDevi
 
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden');
-    setIsmobilemenuclicked(state => !state);
+    if (setIsmobilemenuclicked) {
+      setIsmobilemenuclicked(state => !state);
+    }
   }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
