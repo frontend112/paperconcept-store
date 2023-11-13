@@ -29,7 +29,7 @@ export const Cart = ({
       {cn(
         'flex', 'flex-col', 'justify-between',
         'fixed', 'right-0', 'top-0', 'w-96', 'h-screen',
-        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black',
+        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black', 'border-solid', 'border-2', 'border-black',
         isCartHidden && 'translate-x-full'
       )}
       ref={cartELement}

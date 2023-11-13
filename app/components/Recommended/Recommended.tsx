@@ -10,10 +10,11 @@ export const Recommended = () => {
   const [productAmount, setProductAmount] = useState(4)
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount
   const productsEl = useRef<HTMLDivElement>(null);
 
-  const interval = setInterval(() => { changeCounter(DIRECTIONS.RIGHT) }, 7000)
+  const interval = setInterval(() => { changeCounter(DIRECTIONS.RIGHT) }, 2000)
   const changeCounter = useCallback((direction: DIRECTIONS) => {
     clearInterval(interval)
     setIsLoading(true);
@@ -70,8 +71,18 @@ export const Recommended = () => {
     return () => window.removeEventListener('resize', onResize)
   }, [setProductLength, onResize])
 
+  useEffect(() => {
+    if (isMouseEnter) {
+      clearInterval(interval)
+    }
+  }, [isMouseEnter, interval])
+
   return (
-    <div className="relative">
+    <div
+      onMouseEnter={() => setIsMouseEnter(true)}
+      onMouseLeave={() => setIsMouseEnter(false)}
+      className="relative"
+    >
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}

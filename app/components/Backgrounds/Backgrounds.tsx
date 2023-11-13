@@ -25,6 +25,7 @@ export const Backgrounds = (
           src={bgImages[prevImage].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             "translate-x-[-100vw]",
@@ -39,13 +40,14 @@ export const Backgrounds = (
           src={bgImages[bgCount].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             isActive && direction === DIRECTIONS.LEFT && 'animate-sliding-right-second-image',
             isActive && direction === DIRECTIONS.RIGHT && 'animate-sliding-left-second-image',
           )}
         />
-        <section className="absolute bottom-10 left-[5%]">
+        <section className="absolute bottom-10 left-[5%] z-10">
           <h2 className="uppercase text-white py-4 text-4xl font-light">{bgImages[bgCount].name}</h2>
           <a href={`/category/${bgImages[bgCount].slug}`} className="
             w-72
@@ -68,6 +70,7 @@ export const Backgrounds = (
           src={bgImages[nextImage].src}
           layout="fill"
           className={cn(
+            'brightness-75',
             'absolute',
             'object-cover',
             "translate-x-[100vw]",
