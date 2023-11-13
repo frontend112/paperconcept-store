@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { getProducts as products } from "@/app/getData/getProducts";
 import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
+import cn from "classnames";
 
 const Page = () => {
   const pathname = usePathname().replace('/product-page/', '');
@@ -56,7 +57,7 @@ const Page = () => {
           <h3 className="text-2xl md:pt-4">{price} zł</h3>
           <div className="text-center md:pt-4">
             <button
-              disabled={quantity === 1}
+              className={cn(quantity === 1 && 'invisible')}
               onClick={() => setQuantity(state => state - 1)}
             >-</button>
             <input

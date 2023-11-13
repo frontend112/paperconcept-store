@@ -4,6 +4,7 @@ import { decreaseQuantity, increaseQuantity, removeProduct } from "@/app/GlobalR
 import { RootState } from "@/app/GlobalRedux/store";
 import { AddedProduct, ProductType } from "@/app/types/types";
 import Link from "next/link";
+import cn from 'classnames';
 
 export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProduct) => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export const CartProduct = ({ id, name, price, src, quantity, slug }: AddedProdu
         <h4>{price.toFixed(2)} zł</h4>
         <div className="text-center">
           <button
-            disabled={quantity === 1}
+            className={cn(quantity === 1 && 'invisible')}
             onClick={() => dispatch(decreaseQuantity({ id }))}
           >-</button>
           <input

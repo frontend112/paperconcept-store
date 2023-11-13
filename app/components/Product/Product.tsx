@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { ProductType } from "@/app/types/types";
 import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
+import cn from "classnames";
 
 export const Product = ({
   name,
@@ -55,7 +56,7 @@ export const Product = ({
           >Dodaj do koszyka</Button>
           <div className="text-center">
             <button
-              disabled={quantity === 1}
+              className={cn(quantity === 1 && 'invisible')}
               onClick={() => setQuantity(state => state - 1)}
             >-</button>
             <input
