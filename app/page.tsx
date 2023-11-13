@@ -95,12 +95,12 @@ const Main = () => {
           isLoading={isLoading}
         >&gt;</Arrow>
       </header>
-      <section className="flex flex-col">
+      <section className="flex flex-col relative overflow-hidden mx-4 lg:mx-[5%] lg:px-10">
         <article>
-          <h1>PaperConcept to sklep plastyczny pełen produktów najlepszych marek</h1>
+          <h1 className="text-4xl font-semibold py-20">PaperConcept to sklep plastyczny pełen produktów<br />najlepszych marek.</h1>
         </article>
         <article>
-          <h3>Polecane produkty:</h3>
+          <h3 className="font-semibold py-10">Polecane produkty:</h3>
           <div>
             <Recommended />
           </div>

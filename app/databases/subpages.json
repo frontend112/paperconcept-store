@@ -21,22 +21,22 @@
       {
         "id": "2",
         "name": "blog",
-        "slug": "blog"
+        "slug": "https://blog.paperconcept.pl/"
       },
       {
         "id": "3",
         "name": "faq",
-        "slug": "faq"
+        "slug": "https://paperconcept.pl/pl/najczesciej-zadawane-pytania"
       },
       {
         "id": "4",
         "name": "o nas",
-        "slug": "o-nas"
+        "slug": "https://paperconcept.pl/pl/o-nas"
       },
       {
         "id": "5",
         "name": "kontakt",
-        "slug": "kontakt"
+        "slug": "https://paperconcept.pl/pl/kontakt"
       }
     ]
   }

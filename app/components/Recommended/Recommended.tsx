@@ -65,13 +65,13 @@ export const Recommended = () => {
   }, [setProductLength, onResize])
 
   return (
-    <div className="relative overflow-hidden mx-4 lg:mx-[5%]">
+    <div>
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
         isLoading={false}
       >&lt;</Arrow>
-      <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 lg:px-10`} ref={productsEl}>
+      <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
           <div key={counter + el}>
             <Product
