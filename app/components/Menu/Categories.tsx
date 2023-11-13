@@ -11,4 +11,3 @@ export const Categories = () =>
       </li>
     ))}
   </ul>
-

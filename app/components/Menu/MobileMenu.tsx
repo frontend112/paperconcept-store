@@ -45,7 +45,7 @@ export const MobileMenu = ({ handleCartClick, setIsmobilemenuclicked }: MenuDevi
   };
 
   return (
-    <div className="mobile-menu lg:hidden w-full min-h-screen top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4">
+    <div className="mobile-menu lg:hidden w-full min-h-screen top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 px-8">
       <section className="flex justify-between items-center">
         <div>
           <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />

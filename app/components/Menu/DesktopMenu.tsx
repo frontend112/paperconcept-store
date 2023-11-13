@@ -16,7 +16,8 @@ export const DesktopMenu = ({
   handleCartClick,
   className, }: Props) =>
   <section className={cn(
-    'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', className === ExtraClassNames.TRANSPARENT && 'text-white',
+    'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', 'py-4',
+    className === ExtraClassNames.TRANSPARENT && 'text-white',
   )}>
     <nav className="nav section__nav flex justify-between p-5">
       <Logo className={className} />

@@ -1,12 +1,12 @@
 import Image from "next/image"
 const shops = [
-  { name: "varso", address: "chmielna 73" },
-  { name: "koneser", address: "plac konesera 10A" },
-  { name: "krakow", address: "pawia 34" },
-  { name: "gdansk", address: "rajska 10" },
-  { name: "poznan", address: "pl wolności 8" },
-  { name: "wroclaw", address: "krupnicza 6/8" },
-  { name: "katowice", address: "krzywa 12" },
+  { name: "varso", city: "warszawa", address: "chmielna 73" },
+  { name: "koneser", city: "warszawa", address: "plac konesera 10A" },
+  { name: "krakow", city: "kraków", address: "pawia 34" },
+  { name: "gdansk", city: "gdańsk", address: "rajska 10" },
+  { name: "poznan", city: "poznań", address: "pl wolności 8" },
+  { name: "wroclaw", city: "wrocław", address: "krupnicza 6/8" },
+  { name: "katowice", city: "katowice", address: "krzywa 12" },
 ]
 const page = () => {
   return (
@@ -23,7 +23,7 @@ const page = () => {
       <section className="p-5 lg:p-[10%]">
         <h3 className="uppercase font-mono">PaperConcept to także sklepy stacjonarne!</h3>
         <ul className="flex items-center flex-col lg:grid lg:grid-cols-2">
-          {shops.map(({ name, address }) => (<li className="w-[80vw] h-[calc(80vw/2)] lg:w-[30vw] lg:h-[calc(40vw/2)]" key={name}>
+          {shops.map(({ name, address, city }) => (<li className="w-[80vw] h-[calc(80vw/2)] lg:w-[30vw] lg:h-[calc(40vw/2)] lg:pt-12" key={name}>
             <div style={{ width: "100%", height: "70%", position: "relative" }}>
               <Image
                 src={`https://paperconcept.pl/modules/pc_custom_pages/views/img/stores/paperconcept_${name}_front.jpg`}
@@ -33,8 +33,8 @@ const page = () => {
               />
             </div>
             <address>
-              <h4>{name}</h4>
-              <h5>{address}</h5>
+              <h5 className="uppercase pt-4">{address}</h5>
+              <h4 className="font-semibold capitalize py-1">{city}</h4>
             </address>
           </li>))}
         </ul>

@@ -24,7 +24,7 @@ export const Recommended = () => {
         productsEl.current?.classList.remove('animate-move-product-right')
         setCounter(maxProductPosition)
         setIsLoading(false)
-      }, 200)
+      }, 400)
       return
     }
     if (direction === DIRECTIONS.RIGHT && counter >= maxProductPosition) {
@@ -33,7 +33,7 @@ export const Recommended = () => {
         productsEl.current?.classList.remove('animate-move-product-left')
         setCounter(0)
         setIsLoading(false)
-      }, 200)
+      }, 400)
       return
     }
     if (direction === DIRECTIONS.LEFT) {
@@ -42,7 +42,7 @@ export const Recommended = () => {
         productsEl.current?.classList.remove('animate-move-product-right')
         setCounter(state => state - productAmount)
         setIsLoading(false)
-      }, 200)
+      }, 400)
     }
     if (direction === DIRECTIONS.RIGHT) {
       productsEl.current?.classList.add('animate-move-product-left')
@@ -50,7 +50,7 @@ export const Recommended = () => {
         productsEl.current?.classList.remove('animate-move-product-left')
         setCounter(state => state + productAmount)
         setIsLoading(false)
-      }, 200)
+      }, 400)
     }
   }, [counter, maxProductPosition, interval, productAmount])
   const setProductLength = useCallback(() => {

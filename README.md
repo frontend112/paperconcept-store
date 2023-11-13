@@ -17,4 +17,4 @@ app/components
 <GlobalRedux/> - add products to cart / increase quantity / remove product
 
 <Menu> - main inside Menu.tsx, wheather it is Desktop or mobile go to related file
-<Logo> - force refresh on click
+<Logo> - force refresh on click and go to homepage
