@@ -76,34 +76,33 @@ const Main = () => {
         'w-full',
         'bg-cover',
         'bg-center',
-        'overflow-x-hidden'
+        'overflow-x-hidden',
       )}
       >
         <Menu className={ExtraClassNames.TRANSPARENT} />
-
         <Backgrounds bgCount={bgCount} animationsDetails={animationsDetails} />
 
-        <Arrow
-          direction={DIRECTIONS.LEFT}
-          handleArrowClick={changeBg}
-          isLoading={isLoading}
-        >&lt;</Arrow>
+        <div className="mx-5 relative h-full">
+          <Arrow
+            direction={DIRECTIONS.LEFT}
+            handleArrowClick={changeBg}
+            isLoading={isLoading}
+          >&lt;</Arrow>
 
-        <Arrow
-          direction={DIRECTIONS.RIGHT}
-          handleArrowClick={changeBg}
-          isLoading={isLoading}
-        >&gt;</Arrow>
+          <Arrow
+            direction={DIRECTIONS.RIGHT}
+            handleArrowClick={changeBg}
+            isLoading={isLoading}
+          >&gt;</Arrow>
+        </div>
       </header>
-      <section className="flex flex-col relative overflow-hidden mx-4 lg:mx-[5%] lg:px-10">
+      <section className="flex flex-col overflow-hidden mx-4 lg:mx-[5%] lg:px-10">
         <article>
           <h1 className="text-4xl font-semibold py-20">PaperConcept to sklep plastyczny pełen produktów<br />najlepszych marek.</h1>
         </article>
         <article>
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
-          <div>
-            <Recommended />
-          </div>
+          <Recommended />
         </article>
       </section>
       <footer>

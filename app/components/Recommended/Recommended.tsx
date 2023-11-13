@@ -65,7 +65,7 @@ export const Recommended = () => {
   }, [setProductLength, onResize])
 
   return (
-    <div>
+    <div className="relative">
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
