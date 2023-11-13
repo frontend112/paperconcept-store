@@ -105,9 +105,6 @@ const Main = () => {
           <Recommended />
         </article>
       </section>
-      <footer>
-        footer
-      </footer>
     </main>
   )
 }

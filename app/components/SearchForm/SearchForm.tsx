@@ -1,3 +1,5 @@
+'use client'
+
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -5,19 +7,20 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { MenuDevicesProps, ProductType } from "@/app/types/types";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
+import { useRouter } from "next/navigation";
 
 export const SearchForm = ({
   className,
 }: MenuDevicesProps) => {
   const [searchInput, setSearchinput] = useState('');
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
+  const router = useRouter();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (event) {
-      event.preventDefault();
-    }
-    // add searching with bit delay on typing with
-  };
+    event.preventDefault();
+    router.push(`/submit-search/${searchInput}`)
+    clearFoundProducts();
+  }
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchinput(value);

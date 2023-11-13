@@ -5,6 +5,7 @@ type Props = {
 };
 
 import Image from "next/image";
+import Link from "next/link";
 export const FoundedProducts = ({ foundProducts, clearFoundProducts }: Props) => {
   return (
     <>
@@ -17,13 +18,18 @@ export const FoundedProducts = ({ foundProducts, clearFoundProducts }: Props) =>
               id,
               name,
               price,
-              src
+              src,
+              slug
             }) =>
               <li key={id}>
                 <div>
-                  <Image width={140} height={140} alt="product" src={src} />
+                  <Link onClick={clearFoundProducts} href={`/product-page/${id}-${slug}`} className="block">
+                    <Image width={140} height={140} alt="product" src={src} />
+                  </Link>
                 </div>
-                <p>{name}</p>
+                <p><Link onClick={clearFoundProducts} href={`/product-page/${id}-${slug}`} className="block">
+                  {name}
+                </Link></p>
                 <p>{price} zł</p>
               </li>
             )}</ul>

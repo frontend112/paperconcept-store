@@ -13,6 +13,7 @@ import { CartIcon } from "./CartIcon";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
+import { useRouter } from "next/navigation";
 
 export const MobileMenu = ({
   handleCartClick,
@@ -22,15 +23,15 @@ export const MobileMenu = ({
   const formElement = useRef<HTMLFormElement>(null);
   const [searchInput, setSearchinput] = useState('');
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
+  const router = useRouter();
 
   const toggleMenu = () => categoriesElement
     .current?.classList.toggle('hidden');
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (event) {
-      event.preventDefault();
-    }
-    // add searching with bit delay on typing with
-  };
+    event.preventDefault();
+    router.push(`/submit-search/${searchInput}`)
+    clearFoundProducts();
+  }
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchinput(value);

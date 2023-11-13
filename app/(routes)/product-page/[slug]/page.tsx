@@ -10,10 +10,9 @@ import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
 
 const Page = () => {
-  const pathname = usePathname();
-  const directPath = pathname.replace('/product-page/', '');
+  const pathname = usePathname().replace('/product-page/', '');
 
-  const recentProduct = products.find(({ slug, id }) => `${id}-${slug}` === directPath)
+  const recentProduct = products.find(({ slug, id }) => `${id}-${slug}` === pathname)
 
   if (!recentProduct) {
     redirect('/')
