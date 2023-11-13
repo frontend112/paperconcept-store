@@ -50,5 +50,5 @@ export enum ExtraClassNames {
 export interface MenuDevicesProps {
   className?: ExtraClassNames,
   handleCartClick: () => void,
-  setIsmobilemenuclicked: Dispatch<SetStateAction<boolean>>
+  setIsmobilemenuclicked?: Dispatch<SetStateAction<boolean>>
 }

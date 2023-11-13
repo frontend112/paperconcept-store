@@ -9,7 +9,7 @@ import { DesktopMenu } from "./DesktopMenu";
 
 type Props = {
   className?: ExtraClassNames,
-  setIsmobilemenuclicked: Dispatch<SetStateAction<boolean>>
+  setIsmobilemenuclicked?: Dispatch<SetStateAction<boolean>>
 }
 
 export const Menu = ({ className, setIsmobilemenuclicked }: Props) => {
