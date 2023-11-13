@@ -9,17 +9,20 @@ import { Arrow } from "../Arrow/Arrow";
 export const Recommended = () => {
   const [productAmount, setProductAmount] = useState(4)
   const [counter, setCounter] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount
   const productsEl = useRef<HTMLDivElement>(null);
 
   const interval = setInterval(() => { changeCounter(DIRECTIONS.RIGHT) }, 7000)
   const changeCounter = useCallback((direction: DIRECTIONS) => {
     clearInterval(interval)
+    setIsLoading(true);
     if (direction === DIRECTIONS.LEFT && counter < productAmount) {
       productsEl.current?.classList.add('animate-move-product-right')
       setTimeout(() => {
         productsEl.current?.classList.remove('animate-move-product-right')
         setCounter(maxProductPosition)
+        setIsLoading(false)
       }, 200)
       return
     }
@@ -28,6 +31,7 @@ export const Recommended = () => {
       setTimeout(() => {
         productsEl.current?.classList.remove('animate-move-product-left')
         setCounter(0)
+        setIsLoading(false)
       }, 200)
       return
     }
@@ -36,6 +40,7 @@ export const Recommended = () => {
       setTimeout(() => {
         productsEl.current?.classList.remove('animate-move-product-right')
         setCounter(state => state - productAmount)
+        setIsLoading(false)
       }, 200)
     }
     if (direction === DIRECTIONS.RIGHT) {
@@ -43,6 +48,7 @@ export const Recommended = () => {
       setTimeout(() => {
         productsEl.current?.classList.remove('animate-move-product-left')
         setCounter(state => state + productAmount)
+        setIsLoading(false)
       }, 200)
     }
   }, [counter, maxProductPosition, interval, productAmount])
@@ -69,7 +75,7 @@ export const Recommended = () => {
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
-        isLoading={false}
+        isLoading={isLoading}
       >&lt;</Arrow>
       <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
@@ -87,7 +93,7 @@ export const Recommended = () => {
       <Arrow
         direction={DIRECTIONS.RIGHT}
         handleArrowClick={changeCounter}
-        isLoading={false}
+        isLoading={isLoading}
       >&gt;</Arrow>
     </div>
   )
