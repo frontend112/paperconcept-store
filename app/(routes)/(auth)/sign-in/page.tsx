@@ -1,11 +1,4 @@
 'use client'
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import axios from "axios"
-import { useState } from "react"
-// make sign up and sign in with shadcn ui
-'use client'
-import * as React from "react"
 
 import { schema } from "@/app/validators/sign-in"
 import { useForm } from "react-hook-form"

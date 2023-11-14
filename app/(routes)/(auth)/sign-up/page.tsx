@@ -1,15 +1,5 @@
 'use client'
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import axios from "axios"
-import { useState } from "react"
-// make sign up and sign in with shadcn ui
-'use client'
-import * as React from "react"
 
-import {
-  Card,
-} from "@/components/ui/card"
 import { schema } from "@/app/validators/sign-up"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -24,8 +14,12 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from "next/navigation"
 
 const SignUp = () => {
+  const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -39,6 +33,10 @@ const SignUp = () => {
 
   const onSubmit = (input: z.infer<typeof schema>) => {
     console.log(input)
+    toast({
+      description: `user ${input.userName} is registered now`
+    })
+    setTimeout(() => router.push('/sign-in'), 2000)
   }
 
   return (
