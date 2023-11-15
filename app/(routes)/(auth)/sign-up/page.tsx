@@ -34,13 +34,14 @@ const SignUp = () => {
   const onSubmit = (input: z.infer<typeof schema>) => {
     console.log(input)
     toast({
-      description: `user ${input.userName} is registered now`
+      description: `użytkownik ${input.userName} jest teraz zarejestrowany`
     })
-    setTimeout(() => router.push('/sign-in'), 2000)
+    setTimeout(() => router.push('/sign-in'), 5000)
   }
 
   return (
     <div className="w-11/12 m-auto">
+      <h2 className="text-3xl py-8 text-center">Zarejestruj się</h2>
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -48,7 +49,7 @@ const SignUp = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>email</FormLabel>
+                <FormLabel>Adres email</FormLabel>
                 <FormControl>
                   <Input placeholder="example@gmail.com" type="email" {...field} />
                 </FormControl>
@@ -61,7 +62,7 @@ const SignUp = () => {
             name="userName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Nazwa użytkownika</FormLabel>
                 <FormControl>
                   <Input placeholder="kovalsky123" {...field} />
                 </FormControl>
@@ -74,7 +75,7 @@ const SignUp = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel>Hasło</FormLabel>
                 <FormControl>
                   <Input placeholder="hasło" type="password" {...field} />
                 </FormControl>
@@ -87,7 +88,7 @@ const SignUp = () => {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>powtórz hasło</FormLabel>
+                <FormLabel>Powtórz hasło</FormLabel>
                 <FormControl>
                   <Input placeholder="powtórz hasło" type="password" {...field} />
                 </FormControl>

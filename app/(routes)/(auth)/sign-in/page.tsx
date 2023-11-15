@@ -31,6 +31,7 @@ const SignIn = () => {
 
   return (
     <div className="w-11/12 m-auto">
+      <h2 className="text-3xl py-8 text-center">Zaloguj się</h2>
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -38,7 +39,7 @@ const SignIn = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>email</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input placeholder="example@gmail.com" type="email" {...field} />
                 </FormControl>
@@ -51,7 +52,7 @@ const SignIn = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel>Hasło</FormLabel>
                 <FormControl>
                   <Input placeholder="hasło" type="password" {...field} />
                 </FormControl>

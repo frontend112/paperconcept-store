@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
 
-const Main = () => {
+const HomePage = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
@@ -116,4 +116,4 @@ const Main = () => {
   )
 }
 
-export default Main;
+export default HomePage;
