@@ -8,3 +8,7 @@ add login and register with next auth:
 add forms for sign in and sign up with shadcn ui and zod
 register: on submit check if user already exist, check if passwords are same
 add checkout page for registered user and non registered user too and allow them to make fake payment
+check if pass confirm is same in zod
+
+http methods in mongodb explained
+https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial

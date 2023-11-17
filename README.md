@@ -4,6 +4,15 @@ sass --watch ./app/globals.scss:./app/globals.css
 run project:
 npm run dev
 
+for mongodb:
+db.products.insertMany([{
+"name": "Podobrazie malarskie Artist's - Phoenix - czarne, 40 x 50 cm",
+"slug": "plastyczne",
+"category": "plastyczne",
+"price": 29.9,
+"src": "img"
+},...])
+
 app description:
 Page inspired by: https://paperconcept.pl/pl/
 

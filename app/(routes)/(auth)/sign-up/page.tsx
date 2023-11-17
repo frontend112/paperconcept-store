@@ -26,17 +26,37 @@ const SignUp = () => {
       email: '',
       password: '',
       userName: '',
-      confirmPassword: '',
+      // confirmPassword: '',
     }
   })
   const { handleSubmit } = form;
 
-  const onSubmit = (input: z.infer<typeof schema>) => {
-    console.log(input)
-    toast({
-      description: `użytkownik ${input.userName} jest teraz zarejestrowany`
-    })
-    setTimeout(() => router.push('/sign-in'), 5000)
+  const onSubmit = async (input: z.infer<typeof schema>) => {
+    const { userName, email, password } = input
+
+    try {
+      const res = await fetch('/api/register', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName,
+          email,
+          password
+        })
+      })
+      if (res.ok) {
+        toast({
+          description: `użytkownik ${input.userName} jest teraz zarejestrowany`
+        })
+        setTimeout(() => router.push('/sign-in'), 5000)
+      } else {
+        console.log('page.tsx page', res)
+      }
+    } catch (error) {
+      console.log('error')
+    }
   }
 
   return (
@@ -78,19 +98,6 @@ const SignUp = () => {
                 <FormLabel>Hasło</FormLabel>
                 <FormControl>
                   <Input placeholder="hasło" type="password" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Powtórz hasło</FormLabel>
-                <FormControl>
-                  <Input placeholder="powtórz hasło" type="password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
