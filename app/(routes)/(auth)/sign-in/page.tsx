@@ -25,10 +25,25 @@ const SignIn = () => {
   })
   const { handleSubmit } = form;
 
-  const onSubmit = (input: z.infer<typeof schema>) => {
-    console.log(input)
+  const onSubmit = async (input: z.infer<typeof schema>) => {
+    const { email, password } = input
+    try {
+      const res = await fetch('/api/login', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email, password
+        })
+      })
+      if (res.ok) {
+        console.log(res)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
-
   return (
     <div className="w-11/12 m-auto">
       <h2 className="text-3xl py-8 text-center">Zaloguj się</h2>
