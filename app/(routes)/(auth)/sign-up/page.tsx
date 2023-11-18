@@ -26,7 +26,6 @@ const SignUp = () => {
       email: '',
       password: '',
       userName: '',
-      // confirmPassword: '',
     }
   })
   const { handleSubmit } = form;
@@ -35,7 +34,35 @@ const SignUp = () => {
     const { userName, email, password } = input
 
     try {
-      const res = await fetch('/api/register', {
+      const rescheckEmail = await fetch('/api/emailExist', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        })
+      })
+      if (rescheckEmail.ok) {
+        toast({ description: `adres ${email} jest już zarejestrowany`, variant: "destructive" })
+        return
+      }
+
+      const rescheckUserName = await fetch('/api/usernameExist', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName,
+        })
+      })
+      if (rescheckUserName.ok) {
+        toast({ description: `uzytkownik ${userName} jest już zarejestrowany`, variant: "destructive" })
+        return
+      }
+
+      const resSendUser = await fetch('/api/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,13 +73,11 @@ const SignUp = () => {
           password
         })
       })
-      if (res.ok) {
+      if (resSendUser.ok) {
         toast({
           description: `użytkownik ${input.userName} jest teraz zarejestrowany`
         })
-        setTimeout(() => router.push('/sign-in'), 5000)
-      } else {
-        console.log('page.tsx page', res)
+        router.push('/sign-in')
       }
     } catch (error) {
       console.log('error')
