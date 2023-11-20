@@ -21,7 +21,7 @@ export const DesktopMenu = ({
   )}>
     <nav className="nav section__nav flex justify-between p-5">
       <Logo className={className} />
-      <SearchForm className={className} handleCartClick={handleCartClick} />
+      <SearchForm />
       <div className="flex flex-col">
         <SubPages />
 

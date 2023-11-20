@@ -9,9 +9,7 @@ import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { useRouter } from "next/navigation";
 
-export const SearchForm = ({
-  className,
-}: MenuDevicesProps) => {
+export const SearchForm = () => {
   const [searchInput, setSearchinput] = useState('');
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const router = useRouter();
