@@ -4,7 +4,7 @@ import { ExtraClassNames } from "@/app/types/types";
 
 export const UserIcon = ({ className }: { className?: string }) =>
   <li>
-    <Link href='/user-panel' className=
+    <Link href='/sign-up' className=
       {cn(
         'nav__user',
         className === ExtraClassNames.TRANSPARENT && 'nav__user--transparent',

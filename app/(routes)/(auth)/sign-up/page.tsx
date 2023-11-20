@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const SignUp = () => {
   const router = useRouter();
@@ -132,8 +133,11 @@ const SignUp = () => {
           <Button type="submit" >Zarejestruj się</Button>
         </form>
       </Form>
+      <h2 className="pt-4">
+        Posiadasz już konto ?
+        <Link href="/sign-in" className="underline text-blue-800 pl-2">zaloguj się</Link>
+      </h2>
     </div>
-
   )
 }
 

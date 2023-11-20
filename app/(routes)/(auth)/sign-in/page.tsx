@@ -14,8 +14,14 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { toast } from "@/components/ui/use-toast"
+import Link from "next/link"
 
 const SignIn = () => {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -27,21 +33,35 @@ const SignIn = () => {
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
     const { email, password } = input
+    // try {
+    //   const res = await fetch('/api/login', {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //       email, password
+    //     })
+    //   })
+    //   if (res.ok) {
+    //     console.log(res)
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // }
     try {
-      const res = await fetch('/api/login', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email, password
-        })
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
       })
-      if (res.ok) {
-        console.log(res)
+      if (!res) {
+        toast({ description: 'niepoprawne dane', variant: "destructive" })
+        return;
       }
+      router.replace('/user-panel')
     } catch (error) {
-      console.log(error)
+      console.log('error during login')
     }
   }
   return (
@@ -78,8 +98,11 @@ const SignIn = () => {
           <Button type="submit" >Zaloguj się</Button>
         </form>
       </Form>
+      <h2 className="pt-4">
+        Nie masz konta ?
+        <Link href="/sign-up" className="underline text-blue-800 pl-2">Zarejestruj się</Link>
+      </h2>
     </div>
-
   )
 }
 
