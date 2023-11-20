@@ -1,13 +1,15 @@
-import { ReactNode } from "react"
+'use client'
+import { ReactNode, useState } from "react"
 import { Menu } from "../components/Menu/Menu"
 import { DeliveryInfo } from "../components/DeliveryInfo/DeliveryInfo"
 import { Toaster } from "@/components/ui/toaster"
 
-const layout = ({ children }: { children: ReactNode, }) => {
+const Layout = ({ children }: { children: ReactNode, }) => {
+  const [_, setIsarrowhidden] = useState(false);
   return (
     <>
       <DeliveryInfo />
-      <Menu setIsarrowhidden={() => { }} />
+      <Menu setIsarrowhidden={setIsarrowhidden} />
       <Toaster />
       <div className="mt-40">
         {children}
@@ -16,4 +18,4 @@ const layout = ({ children }: { children: ReactNode, }) => {
   )
 }
 
-export default layout
+export default Layout
