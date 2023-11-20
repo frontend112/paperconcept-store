@@ -9,10 +9,10 @@ import { DesktopMenu } from "./DesktopMenu";
 
 type Props = {
   className?: ExtraClassNames,
-  setIsmobilemenuclicked?: Dispatch<SetStateAction<boolean>>
+  setIsarrowhidden: Dispatch<SetStateAction<boolean>>
 }
 
-export const Menu = ({ className, setIsmobilemenuclicked }: Props) => {
+export const Menu = ({ className, setIsarrowhidden }: Props) => {
   const [isCartHidden, setIscarthidden] = useState(true);
   const cartELement = useRef<HTMLDivElement>(null);
 
@@ -28,6 +28,8 @@ export const Menu = ({ className, setIsmobilemenuclicked }: Props) => {
     setTimeout(() => {
       setIscarthidden(state => !state)
     }, 500);
+
+    setIsarrowhidden(state => !state)
   };
 
   return (
@@ -42,7 +44,7 @@ export const Menu = ({ className, setIsmobilemenuclicked }: Props) => {
         className={className}
       />
 
-      <MobileMenu handleCartClick={handleCartClick} setIsmobilemenuclicked={setIsmobilemenuclicked} />
+      <MobileMenu handleCartClick={handleCartClick} setIsarrowhidden={setIsarrowhidden} />
 
       <Cart
         isCartHidden={isCartHidden}

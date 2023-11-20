@@ -6,7 +6,7 @@ import { getProducts as products } from "@/app/getData/getProducts"
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
 
-export const Recommended = () => {
+export const Recommended = ({ isArrowhidden }: { isArrowhidden: boolean }) => {
   const [productAmount, setProductAmount] = useState(4)
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -87,6 +87,7 @@ export const Recommended = () => {
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
         isLoading={isLoading}
+        isArrowhidden={isArrowhidden}
       >&lt;</Arrow>
       <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
         {Array.from({ length: productAmount }, (_, i) => i).map(el => (
@@ -105,6 +106,7 @@ export const Recommended = () => {
         direction={DIRECTIONS.RIGHT}
         handleArrowClick={changeCounter}
         isLoading={isLoading}
+        isArrowhidden={isArrowhidden}
       >&gt;</Arrow>
     </div>
   )

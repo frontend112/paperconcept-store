@@ -15,7 +15,7 @@ import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { useRouter } from "next/navigation";
 
-export const MobileMenu = ({ handleCartClick, setIsmobilemenuclicked }: MenuDevicesProps) => {
+export const MobileMenu = ({ handleCartClick, setIsarrowhidden }: MenuDevicesProps) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const formElement = useRef<HTMLFormElement>(null);
   const [searchInput, setSearchinput] = useState('');
@@ -24,8 +24,8 @@ export const MobileMenu = ({ handleCartClick, setIsmobilemenuclicked }: MenuDevi
 
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle('hidden');
-    if (setIsmobilemenuclicked) {
-      setIsmobilemenuclicked(state => !state);
+    if (setIsarrowhidden) {
+      setIsarrowhidden(state => !state);
     }
   }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
