@@ -8,7 +8,7 @@ const Page = () => {
   const { email } = useSession()?.data?.user || {};
   const router = useRouter();
   if (!email) {
-    router.replace('/sign-in')
+    router.push('/sign-in')
   }
   return (
     <div className="px-[5%] pt-4">

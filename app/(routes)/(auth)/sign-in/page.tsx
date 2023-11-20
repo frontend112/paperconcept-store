@@ -24,7 +24,7 @@ const SignIn = () => {
   const { email } = useSession()?.data?.user || {};
   const router = useRouter();
   if (email) {
-    router.replace('/user-panel');
+    router.push('/user-panel');
   }
 
   const form = useForm<z.infer<typeof schema>>({
@@ -50,7 +50,7 @@ const SignIn = () => {
         return;
       }
       toast({ description: 'Dane poprawne, zostałeś zalogowany' })
-      router.replace('/user-panel')
+      router.push('/user-panel')
     } catch (error) {
       console.log('error during login')
     }
