@@ -21,9 +21,9 @@ import Link from "next/link"
 import { useSession } from "next-auth/react"
 
 const SignIn = () => {
-  const { email } = useSession()?.data?.user || {};
+  const recentUser = useSession()?.data?.user || {};
   const router = useRouter();
-  if (email) {
+  if (recentUser.email) {
     router.push('/user-panel');
   }
 

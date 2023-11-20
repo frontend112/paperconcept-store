@@ -10,6 +10,7 @@ const Page = () => {
   if (!email) {
     router.push('/sign-in')
   }
+
   return (
     <div className="px-[5%] pt-4">
       <div className="text-right">
