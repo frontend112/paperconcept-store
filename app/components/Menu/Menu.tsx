@@ -9,7 +9,7 @@ import { DesktopMenu } from "./DesktopMenu";
 
 type Props = {
   className?: ExtraClassNames,
-  setIsarrowhidden: Dispatch<SetStateAction<boolean>>
+  setIsarrowhidden?: Dispatch<SetStateAction<boolean>>
 }
 
 export const Menu = ({ className, setIsarrowhidden }: Props) => {
@@ -45,7 +45,10 @@ export const Menu = ({ className, setIsarrowhidden }: Props) => {
         className={className}
       />
 
-      <MobileMenu handleCartClick={handleCartClick} setIsarrowhidden={setIsarrowhidden} />
+      {setIsarrowhidden
+        &&
+        <MobileMenu handleCartClick={handleCartClick} setIsarrowhidden={setIsarrowhidden} />
+      }
 
       <Cart
         isCartHidden={isCartHidden}
