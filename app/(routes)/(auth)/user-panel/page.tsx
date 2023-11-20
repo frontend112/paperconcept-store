@@ -1,13 +1,20 @@
 'use client'
 import { Button } from "./Button"
-
 import { signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
-const page = () => {
+const Page = () => {
+  const { email } = useSession()?.data?.user || {};
+  const router = useRouter();
+  if (!email) {
+    router.replace('/sign-in')
+  }
   return (
     <div className="px-[5%] pt-4">
       <div className="text-right">
         <button onClick={() => signOut()}>wyloguj się</button>
+        <div>{email}</div>
       </div>
       <div >
         <div className="text-center pt-4">
@@ -29,8 +36,8 @@ const page = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
-export default page
+export default Page
