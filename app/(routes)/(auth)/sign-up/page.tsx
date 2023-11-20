@@ -129,7 +129,6 @@ const SignUp = () => {
               </FormItem>
             )}
           />
-
           <Button type="submit" >Zarejestruj się</Button>
         </form>
       </Form>
