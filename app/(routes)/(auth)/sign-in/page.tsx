@@ -33,32 +33,18 @@ const SignIn = () => {
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
     const { email, password } = input
-    // try {
-    //   const res = await fetch('/api/login', {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //       email, password
-    //     })
-    //   })
-    //   if (res.ok) {
-    //     console.log(res)
-    //   }
-    // } catch (error) {
-    //   console.log(error)
-    // }
+
     try {
       const res = await signIn("credentials", {
-        email,
+        email: email.toLocaleLowerCase(),
         password,
         redirect: false,
       })
-      if (!res) {
+      if (res?.error) {
         toast({ description: 'niepoprawne dane', variant: "destructive" })
         return;
       }
+      toast({ description: 'Dane poprawne, zostałeś zalogowany' })
       router.replace('/user-panel')
     } catch (error) {
       console.log('error during login')

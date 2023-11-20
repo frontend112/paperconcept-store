@@ -41,7 +41,7 @@ const SignUp = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
+          email: email.toLocaleLowerCase(),
         })
       })
       if (rescheckEmail.ok) {
@@ -55,7 +55,7 @@ const SignUp = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName,
+          userName: userName.toLocaleLowerCase(),
         })
       })
       if (rescheckUserName.ok) {
@@ -69,8 +69,8 @@ const SignUp = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName,
-          email,
+          userName: userName.toLocaleLowerCase(),
+          email: email.toLocaleLowerCase(),
           password
         })
       })

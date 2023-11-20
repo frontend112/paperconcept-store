@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="px-[5%] pt-4">
       <div className="text-right">
-        <button onClick={() => signOut()}>sign out</button>
+        <button onClick={() => signOut()}>wyloguj się</button>
       </div>
       <div >
         <div className="text-center pt-4">

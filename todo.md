@@ -14,3 +14,4 @@ http methods in mongodb explained
 https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
 
 onsubmit add button isloading to true and add disabled onloading
+after refresh user should be still signed up
