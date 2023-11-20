@@ -7,7 +7,7 @@ const layout = ({ children }: { children: ReactNode, }) => {
   return (
     <>
       <DeliveryInfo />
-      <Menu />
+      <Menu setIsarrowhidden={() => { }} />
       <Toaster />
       <div className="mt-40">
         {children}

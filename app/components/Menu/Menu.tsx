@@ -28,8 +28,9 @@ export const Menu = ({ className, setIsarrowhidden }: Props) => {
     setTimeout(() => {
       setIscarthidden(state => !state)
     }, 500);
-
-    setIsarrowhidden(state => !state)
+    if (setIsarrowhidden) {
+      setIsarrowhidden(state => !state)
+    }
   };
 
   return (
