@@ -17,3 +17,5 @@ onsubmit add button isloading to true and add disabled onloading
 after refresh user should be still signed up
 checklist:
 https://nextjs.org/docs/messages/prerender-error
+
+EXPORT JSX part of code to component folder then we can make this component server side and use getServerSession

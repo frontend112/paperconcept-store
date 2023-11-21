@@ -27,13 +27,12 @@ const SignUp = () => {
     defaultValues: {
       email: '',
       password: '',
-      userName: '',
     }
   })
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
-    const { userName, email, password } = input
+    const { email, password } = input
 
     try {
       const rescheckEmail = await fetch('/api/emailExist', {
@@ -50,34 +49,19 @@ const SignUp = () => {
         return
       }
 
-      const rescheckUserName = await fetch('/api/usernameExist', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userName: userName.toLocaleLowerCase(),
-        })
-      })
-      if (rescheckUserName.ok) {
-        toast({ description: `uzytkownik ${userName} jest już zarejestrowany`, variant: "destructive" })
-        return
-      }
-
       const resSendUser = await fetch('/api/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName: userName.toLocaleLowerCase(),
           email: email.toLocaleLowerCase(),
           password
         })
       })
       if (resSendUser.ok) {
         toast({
-          description: `użytkownik ${input.userName} jest teraz zarejestrowany`
+          description: `użytkownik ${input.email} jest teraz zarejestrowany`
         })
         router.push('/sign-in')
       }
@@ -99,19 +83,6 @@ const SignUp = () => {
                 <FormLabel>Adres email</FormLabel>
                 <FormControl>
                   <Input placeholder="example@gmail.com" type="email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="userName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nazwa użytkownika</FormLabel>
-                <FormControl>
-                  <Input placeholder="kovalsky123" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
