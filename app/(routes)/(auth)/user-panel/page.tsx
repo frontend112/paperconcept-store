@@ -2,20 +2,15 @@
 import { Button } from "./Button"
 import { signOut } from "next-auth/react"
 import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
 
 const Page = () => {
-  const { email } = useSession()?.data?.user || {};
-  const router = useRouter();
-  if (!email) {
-    router.push('/sign-in')
-  }
+  const session = useSession();
 
   return (
     <div className="px-[5%] pt-4">
       <div className="text-right">
         <button onClick={() => signOut()}>wyloguj się</button>
-        <div>{email}</div>
+        <div>{session?.data?.user?.email}</div>
       </div>
       <div >
         <div className="text-center pt-4">

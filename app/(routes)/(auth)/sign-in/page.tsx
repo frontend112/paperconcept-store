@@ -18,14 +18,9 @@ import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { toast } from "@/components/ui/use-toast"
 import Link from "next/link"
-import { useSession } from "next-auth/react"
 
 const SignIn = () => {
-  const recentUser = useSession()?.data?.user || {};
   const router = useRouter();
-  if (recentUser.email) {
-    router.push('/user-panel');
-  }
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
