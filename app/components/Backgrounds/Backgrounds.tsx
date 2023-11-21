@@ -12,7 +12,7 @@ export const Backgrounds = (
       direction,
       isActive,
     },
-    isMobilemenuclicked,
+    isArrowHidden,
   }: BackgroundsProps
 ) => {
   const prevImage = bgCount <= 0 ? bgImages.length - 1 : bgCount - 1;
@@ -52,7 +52,7 @@ export const Backgrounds = (
           'absolute',
           'bottom-10',
           'left-[5%]',
-          !isMobilemenuclicked && 'z-10'
+          !isArrowHidden && 'z-10'
         )}>
           <h2 className="uppercase text-white py-4 text-4xl font-light">{bgImages[bgCount].name}</h2>
           <a href={`/category/${bgImages[bgCount].slug}`} className="

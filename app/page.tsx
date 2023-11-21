@@ -14,12 +14,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
 
-const Main = () => {
+const HomePage = () => {
   const [bgCount, setBgcount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
-  const [isMobilemenuclicked, setIsmobilemenuclicked] = useState(false);
+  const [isArrowHidden, setIsarrowhidden] = useState(false);
 
   const [animationsDetails, setAnimationsDetails] = useState(
     { direction: DIRECTIONS.UNKNOWN, isActive: false }
@@ -80,11 +80,11 @@ const Main = () => {
         'overflow-x-hidden',
       )}
       >
-        <Menu className={ExtraClassNames.TRANSPARENT} setIsmobilemenuclicked={setIsmobilemenuclicked} />
+        <Menu className={ExtraClassNames.TRANSPARENT} setIsarrowhidden={setIsarrowhidden} />
         <Backgrounds
           bgCount={bgCount}
           animationsDetails={animationsDetails}
-          isMobilemenuclicked={isMobilemenuclicked}
+          isArrowHidden={isArrowHidden}
         />
 
         <div className="mx-5 relative h-full">
@@ -92,14 +92,14 @@ const Main = () => {
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
             isLoading={isLoading}
-            isMobilemenuclicked={isMobilemenuclicked}
+            isArrowhidden={isArrowHidden}
           >&lt;</Arrow>
 
           <Arrow
             direction={DIRECTIONS.RIGHT}
             handleArrowClick={changeBg}
             isLoading={isLoading}
-            isMobilemenuclicked={isMobilemenuclicked}
+            isArrowhidden={isArrowHidden}
           >&gt;</Arrow>
         </div>
       </header>
@@ -109,11 +109,11 @@ const Main = () => {
         </article>
         <article>
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
-          <Recommended />
+          <Recommended isArrowhidden={isArrowHidden} />
         </article>
       </section>
     </main>
   )
 }
 
-export default Main;
+export default HomePage;

@@ -12,7 +12,7 @@ export interface ArrowProps {
   handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
   children: ReactNode;
-  isMobilemenuclicked?: boolean
+  isArrowhidden?: boolean
 }
 
 export interface BackgroundType {
@@ -24,7 +24,7 @@ export interface BackgroundType {
 
 export interface BackgroundsProps {
   bgCount: number,
-  isMobilemenuclicked: boolean,
+  isArrowHidden: boolean,
   animationsDetails: {
     direction: DIRECTIONS,
     isActive: Boolean,
@@ -50,5 +50,5 @@ export enum ExtraClassNames {
 export interface MenuDevicesProps {
   className?: ExtraClassNames,
   handleCartClick: () => void,
-  setIsmobilemenuclicked?: Dispatch<SetStateAction<boolean>>
+  setIsarrowhidden: Dispatch<SetStateAction<boolean>>
 }
