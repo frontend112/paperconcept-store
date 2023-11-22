@@ -19,3 +19,4 @@ checklist:
 https://nextjs.org/docs/messages/prerender-error
 
 on refresh update cart from localstorage (useEffect)
+https://stripe.com/docs/checkout/quickstart?lang=node&client=next

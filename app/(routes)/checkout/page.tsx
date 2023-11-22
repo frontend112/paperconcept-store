@@ -78,7 +78,6 @@ const Page = () => {
                 }>+</button>
               </div>
               <h4 className="font-bold">{price.toFixed(2)} zł</h4>
-
             </div>
           </section>
         </li>))}
@@ -98,7 +97,12 @@ const Page = () => {
         </div>
         <hr className="font-bold bg-black h-[1.5px]" />
         <div className="flex justify-between p-4">
-          <strong>RAZEM</strong>
+          <p>Produkty</p>
+          <span>{totalPrice} zł</span>
+        </div>
+        <hr className="font-bold bg-black h-[1.5px]" />
+        <div className="flex justify-between p-4">
+          <strong className="uppercase">razem<sub className="pl-1">(bez kosztów wysyłki)</sub></strong>
           <span>{totalPrice} zł</span>
         </div>
         <Button className="w-full rounded-none">Realizuj zamówienie</Button>
