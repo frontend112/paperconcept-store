@@ -1,19 +1,19 @@
 'use client'
-import { RootState } from "@/app/GlobalRedux/store";
 import cn from "classnames";
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from "react-redux"
-import { ProductType } from "@/app/types/types";
-import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
-import Image from "next/image";
-import { decreaseQuantity, increaseQuantity } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import Link from "next/link";
+import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux"
+
+import { RootState } from "@/app/GlobalRedux/store";
+import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { decreaseQuantity, increaseQuantity } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
+import { ProductType } from "@/app/types/types";
 
 const Page = () => {
   const dispatch = useDispatch();
-  const productCart = useSelector((state: RootState) => state.products);
 
   const handleRemoveproduct = (id: string) => {
     const storedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
@@ -22,21 +22,13 @@ const Page = () => {
 
     dispatch(removeProduct({ id }))
   }
+
   const cartProducts = useSelector((state: RootState) => state.products);
 
   const totalPrice = cartProducts
     .map(({ price, quantity }) => price * quantity)
     .reduce((acc, current) => acc + current, 0)
     .toFixed(2);
-
-  useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
-    if (savedCart.length > 0 && productCart.length === 0) {
-      for (const key of savedCart) {
-        dispatch(addProduct(key));
-      }
-    }
-  }, [dispatch, productCart])
 
   if (cartProducts.length === 0) {
     return <h2 className="flex items-center lg:min-h-[calc(100vh-15rem)] min-w-screen text-2xl justify-center">Twój koszyk jest pusty</h2>
