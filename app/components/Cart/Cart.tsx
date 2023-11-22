@@ -71,7 +71,7 @@ export const Cart = ({
         </section>
         <section className="p-4">
           <Link className="block" href="/checkout">
-            <Button className="w-full rounded-none">Przejdź do koszyka</Button>
+            <Button className="w-full rounded-none" onClick={handleCartClick}>Przejdź do koszyka</Button>
           </Link>
         </section>
       </article>

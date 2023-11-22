@@ -39,7 +39,7 @@ const Page = () => {
   }, [dispatch, productCart])
 
   if (cartProducts.length === 0) {
-    return <h2 className="flex text-center text-xxl items-center">Twój koszyk jest pusty</h2>
+    return <h2 className="flex items-center lg:min-h-[calc(100vh-15rem)] min-w-screen text-2xl justify-center">Twój koszyk jest pusty</h2>
   }
 
   return (<>
