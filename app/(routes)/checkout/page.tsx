@@ -91,7 +91,7 @@ const Page = () => {
           </section>
         </li>))}
       </ul>
-      <aside className="lg:w-2/5 pr-[5%] text-sm pt-8">
+      <aside className="lg:w-2/5 lg:pr-[5%] text-sm py-8">
         {+totalPrice < 300 && <div className="flex justify-between px-4 py-2">
           <p>Do darmowej wysyłki kurierem brakuje</p>
           <span>{(300 - +totalPrice).toFixed(2)} zł</span>

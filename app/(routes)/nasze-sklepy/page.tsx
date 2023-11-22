@@ -11,7 +11,7 @@ const shops = [
 const page = () => {
   return (
     <>
-      <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+      <div style={{ width: '100svw', height: '100svh', position: 'relative' }}>
         <Image
           fill
           alt="background shop"
