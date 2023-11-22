@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/app/GlobalRedux/store";
 import { Button } from "@/components/ui/button";
 import { CartProduct } from "./CartProduct";
+import Link from "next/link";
 
 interface Props {
   isCartHidden: boolean;
@@ -69,7 +70,9 @@ export const Cart = ({
           <strong>{totalPrice} zł</strong>
         </section>
         <section className="p-4">
-          <Button className="w-full rounded-none">Przejdź do koszyka</Button>
+          <Link className="block" href="/checkout">
+            <Button className="w-full rounded-none">Przejdź do koszyka</Button>
+          </Link>
         </section>
       </article>
     </div>
