@@ -20,6 +20,7 @@ const HomePage = () => {
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
+  const [isMouseenter, setIsmouseenter] = useState(false);
 
   const [animationsDetails, setAnimationsDetails] = useState({
     direction: DIRECTIONS.UNKNOWN,
@@ -69,7 +70,7 @@ const HomePage = () => {
   }, [productCart]);
 
   return (
-    <main ref={mainELement} className="min-h-screen overflow-auto">
+    <main className="min-h-screen overflow-auto">
       <DeliveryInfo />
       <header
         className={cn(
@@ -111,7 +112,11 @@ const HomePage = () => {
           </Arrow>
         </div>
       </header>
-      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
+      <section
+        onMouseEnter={() => setIsmouseenter(true)}
+        onMouseLeave={() => setIsmouseenter(false)}
+        className="flex flex-col mx-4 lg:mx-[5%] lg:px-10"
+      >
         <article>
           <h1 className="text-4xl font-semibold py-20">
             PaperConcept to sklep plastyczny pełen produktów
@@ -121,7 +126,10 @@ const HomePage = () => {
         </article>
         <article>
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
-          <Recommended isArrowhidden={isArrowHidden} />
+          <Recommended
+            isArrowhidden={isArrowHidden}
+            isMouseenter={isMouseenter}
+          />
         </article>
       </section>
     </main>

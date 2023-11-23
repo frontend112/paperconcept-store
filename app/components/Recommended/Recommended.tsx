@@ -6,11 +6,16 @@ import { getProducts as products } from "@/app/getData/getProducts";
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
 
-export const Recommended = ({ isArrowhidden }: { isArrowhidden: boolean }) => {
+export const Recommended = ({
+  isArrowhidden,
+  isMouseenter,
+}: {
+  isArrowhidden: boolean;
+  isMouseenter: boolean;
+}) => {
   const [productAmount, setProductAmount] = useState(4);
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount;
   const productsEl = useRef<HTMLDivElement>(null);
 
@@ -78,17 +83,13 @@ export const Recommended = ({ isArrowhidden }: { isArrowhidden: boolean }) => {
   }, [setProductLength, onResize]);
 
   useEffect(() => {
-    if (isMouseEnter) {
+    if (isMouseenter) {
       clearInterval(interval);
     }
-  }, [isMouseEnter, interval]);
+  }, [isMouseenter, interval]);
 
   return (
-    <div
-      onMouseEnter={() => setIsMouseEnter(true)}
-      onMouseLeave={() => setIsMouseEnter(false)}
-      className="relative"
-    >
+    <div className="relative">
       <Arrow
         direction={DIRECTIONS.LEFT}
         handleArrowClick={changeCounter}
