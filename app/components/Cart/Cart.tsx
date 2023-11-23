@@ -33,7 +33,7 @@ export const Cart = ({ isCartHidden, cartELement, handleCartClick }: Props) => {
         "w-96",
         "h-screen",
         "bg-white text-center",
-        "overflow-scroll",
+        "overflow-auto",
         "z-20",
         "text-black",
         "border-solid",

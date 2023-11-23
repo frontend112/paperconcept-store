@@ -69,7 +69,7 @@ const HomePage = () => {
   }, [productCart]);
 
   return (
-    <main ref={mainELement} className="min-h-screen overflow-scroll">
+    <main ref={mainELement} className="min-h-screen overflow-auto">
       <DeliveryInfo />
       <header
         className={cn(
