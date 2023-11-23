@@ -9,16 +9,21 @@ import { CartIcon } from "./CartIcon";
 import { Categories } from "./Categories";
 
 type Props = {
-  handleCartClick: () => void,
-  className?: ExtraClassNames,
-}
-export const DesktopMenu = ({
-  handleCartClick,
-  className, }: Props) =>
-  <section className={cn(
-    'section', 'm-auto', 'px-[5%]', 'hidden', 'lg:block', 'py-4',
-    className === ExtraClassNames.TRANSPARENT && 'text-white',
-  )}>
+  handleCartClick: () => void;
+  className?: ExtraClassNames;
+};
+export const DesktopMenu = ({ handleCartClick, className }: Props) => (
+  <section
+    className={cn(
+      "section",
+      "m-auto",
+      "px-[5%]",
+      "hidden",
+      "lg:block",
+      "py-4",
+      className === ExtraClassNames.TRANSPARENT && "text-white"
+    )}
+  >
     <nav className="nav section__nav flex justify-between p-5">
       <Logo className={className} />
       <SearchForm />
@@ -27,12 +32,10 @@ export const DesktopMenu = ({
 
         <ul className="nav__middle-icons flex justify-end gap-4">
           <UserIcon className={className} />
-          <CartIcon
-            className={className}
-            handleCartClick={handleCartClick}
-          />
+          <CartIcon className={className} handleCartClick={handleCartClick} />
         </ul>
       </div>
     </nav>
     <Categories />
   </section>
+);

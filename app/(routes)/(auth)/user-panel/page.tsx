@@ -1,7 +1,7 @@
-'use client'
-import { Button } from "./Button"
-import { signOut } from "next-auth/react"
-import { useSession } from "next-auth/react"
+"use client";
+import { Button } from "./Button";
+import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const Page = () => {
   const session = useSession();
@@ -12,10 +12,13 @@ const Page = () => {
         <button onClick={() => signOut()}>wyloguj się</button>
         <div>{session?.data?.user?.email}</div>
       </div>
-      <div >
+      <div>
         <div className="text-center pt-4">
           <h2 className="uppercase font-normal text-2xl">Moje konto</h2>
-          <p>Możesz tu zarządzać swoimi danymi personalnymi jak również przeglądać swoje zamówienia.</p>
+          <p>
+            Możesz tu zarządzać swoimi danymi personalnymi jak również
+            przeglądać swoje zamówienia.
+          </p>
           <div className="container max-w-5xl">
             <section className="flex justify-center gap-4">
               <Button>Dodaj pierwszy adres</Button>
@@ -32,8 +35,8 @@ const Page = () => {
           </div>
         </div>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default Page
+export default Page;

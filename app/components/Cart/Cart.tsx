@@ -9,15 +9,11 @@ import Link from "next/link";
 
 interface Props {
   isCartHidden: boolean;
-  cartELement: RefObject<HTMLDivElement>
+  cartELement: RefObject<HTMLDivElement>;
   handleCartClick: () => void;
 }
 
-export const Cart = ({
-  isCartHidden,
-  cartELement,
-  handleCartClick,
-}: Props) => {
+export const Cart = ({ isCartHidden, cartELement, handleCartClick }: Props) => {
   const cartProducts = useSelector((state: RootState) => state.products);
 
   const totalPrice = cartProducts
@@ -26,19 +22,36 @@ export const Cart = ({
     .toFixed(2);
 
   return (
-    <div className=
-      {cn(
-        'flex', 'flex-col', 'justify-between',
-        'fixed', 'right-0', 'top-0', 'w-96', 'h-screen',
-        'bg-white text-center', 'overflow-scroll', 'z-20', 'text-black', 'border-solid', 'border-2', 'border-black',
-        isCartHidden && 'translate-x-full'
+    <div
+      className={cn(
+        "flex",
+        "flex-col",
+        "justify-between",
+        "fixed",
+        "right-0",
+        "top-0",
+        "w-96",
+        "h-screen",
+        "bg-white text-center",
+        "overflow-scroll",
+        "z-20",
+        "text-black",
+        "border-solid",
+        "border-2",
+        "border-black",
+        isCartHidden && "translate-x-full"
       )}
       ref={cartELement}
     >
       <article className="cart">
         <section className="relative p-4">
           <h3 className="uppercase">podgląd koszyka</h3>
-          <button onClick={handleCartClick} className="absolute right-4 top-[50%] translate-y-[-50%] text-xl">x</button>
+          <button
+            onClick={handleCartClick}
+            className="absolute right-4 top-[50%] translate-y-[-50%] text-xl"
+          >
+            x
+          </button>
         </section>
         <hr />
         {cartProducts.length > 0 ? (
@@ -71,10 +84,12 @@ export const Cart = ({
         </section>
         <section className="p-4">
           <Link className="block" href="/checkout">
-            <Button className="w-full rounded-none" onClick={handleCartClick}>Przejdź do koszyka</Button>
+            <Button className="w-full rounded-none" onClick={handleCartClick}>
+              Przejdź do koszyka
+            </Button>
           </Link>
         </section>
       </article>
     </div>
-  )
-}
+  );
+};

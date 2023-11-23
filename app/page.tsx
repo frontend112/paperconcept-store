@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
@@ -21,19 +21,20 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
 
-  const [animationsDetails, setAnimationsDetails] = useState(
-    { direction: DIRECTIONS.UNKNOWN, isActive: false }
-  );
+  const [animationsDetails, setAnimationsDetails] = useState({
+    direction: DIRECTIONS.UNKNOWN,
+    isActive: false,
+  });
 
-  const mainELement = useRef<HTMLElement>(null)
+  const mainELement = useRef<HTMLElement>(null);
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
-    setAnimationsDetails({ direction, isActive: true })
+    setAnimationsDetails({ direction, isActive: true });
 
     setTimeout(() => {
-      setIsLoading(false)
-      setAnimationsDetails({ direction, isActive: false })
+      setIsLoading(false);
+      setAnimationsDetails({ direction, isActive: false });
 
       if (direction === DIRECTIONS.LEFT && bgCount <= 0) {
         setBgcount(bgImages.length - 1);
@@ -44,43 +45,46 @@ const HomePage = () => {
         return;
       }
       if (direction === DIRECTIONS.LEFT) {
-        setBgcount(count => count - 1);
+        setBgcount((count) => count - 1);
       }
       if (direction === DIRECTIONS.RIGHT) {
-        setBgcount(count => count + 1);
+        setBgcount((count) => count + 1);
       }
-    }, 500)
-  }
+    }, 500);
+  };
 
   useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(localStorage.getItem('cart') || '{}');
+    const savedCart: ProductType[] = JSON.parse(
+      localStorage.getItem("cart") || "{}"
+    );
     if (savedCart.length > 0 && productCart.length === 0) {
       for (const key of savedCart) {
         dispatch(addProduct(key));
       }
     }
-  }, [dispatch, productCart])
+  }, [dispatch, productCart]);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(productCart))
-  }, [productCart])
+    localStorage.setItem("cart", JSON.stringify(productCart));
+  }, [productCart]);
 
   return (
-    <main
-      ref={mainELement}
-      className="min-h-screen overflow-scroll"
-    >
+    <main ref={mainELement} className="min-h-screen overflow-scroll">
       <DeliveryInfo />
-      <header className={cn(
-        'header',
-        'relative',
-        'w-full',
-        'bg-cover',
-        'bg-center',
-        'overflow-x-hidden',
-      )}
+      <header
+        className={cn(
+          "header",
+          "relative",
+          "w-full",
+          "bg-cover",
+          "bg-center",
+          "overflow-x-hidden"
+        )}
       >
-        <Menu className={ExtraClassNames.TRANSPARENT} setIsarrowhidden={setIsarrowhidden} />
+        <Menu
+          className={ExtraClassNames.TRANSPARENT}
+          setIsarrowhidden={setIsarrowhidden}
+        />
         <Backgrounds
           bgCount={bgCount}
           animationsDetails={animationsDetails}
@@ -93,19 +97,27 @@ const HomePage = () => {
             handleArrowClick={changeBg}
             isLoading={isLoading}
             isArrowhidden={isArrowHidden}
-          >&lt;</Arrow>
+          >
+            &lt;
+          </Arrow>
 
           <Arrow
             direction={DIRECTIONS.RIGHT}
             handleArrowClick={changeBg}
             isLoading={isLoading}
             isArrowhidden={isArrowHidden}
-          >&gt;</Arrow>
+          >
+            &gt;
+          </Arrow>
         </div>
       </header>
       <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
         <article>
-          <h1 className="text-4xl font-semibold py-20">PaperConcept to sklep plastyczny pełen produktów<br />najlepszych marek.</h1>
+          <h1 className="text-4xl font-semibold py-20">
+            PaperConcept to sklep plastyczny pełen produktów
+            <br />
+            najlepszych marek.
+          </h1>
         </article>
         <article>
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
@@ -113,7 +125,7 @@ const HomePage = () => {
         </article>
       </section>
     </main>
-  )
-}
+  );
+};
 
 export default HomePage;

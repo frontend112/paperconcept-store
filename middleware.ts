@@ -1,3 +1,3 @@
-export { default } from "next-auth/middleware"
+export { default } from "next-auth/middleware";
 
-export const config = { matcher: ["/user-panel"] }
+export const config = { matcher: ["/user-panel"] };

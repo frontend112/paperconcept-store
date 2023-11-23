@@ -12,31 +12,31 @@ export interface ArrowProps {
   handleArrowClick: (direction: DIRECTIONS) => void;
   isLoading: boolean;
   children: ReactNode;
-  isArrowhidden?: boolean
+  isArrowhidden?: boolean;
 }
 
 export interface BackgroundType {
-  id: number,
-  src: StaticImageData,
-  name: string,
-  slug: string,
+  id: number;
+  src: StaticImageData;
+  name: string;
+  slug: string;
 }
 
 export interface BackgroundsProps {
-  bgCount: number,
-  isArrowHidden: boolean,
+  bgCount: number;
+  isArrowHidden: boolean;
   animationsDetails: {
-    direction: DIRECTIONS,
-    isActive: Boolean,
-  }
+    direction: DIRECTIONS;
+    isActive: Boolean;
+  };
 }
 
 export interface ProductType {
-  name: string,
-  price: number,
-  src: string,
-  id: string,
-  slug: string,
+  name: string;
+  price: number;
+  src: string;
+  id: string;
+  slug: string;
 }
 
 export interface AddedProduct extends ProductType {
@@ -48,7 +48,7 @@ export enum ExtraClassNames {
 }
 
 export interface MenuDevicesProps {
-  className?: ExtraClassNames,
-  handleCartClick: () => void,
-  setIsarrowhidden: Dispatch<SetStateAction<boolean>>
+  className?: ExtraClassNames;
+  handleCartClick: () => void;
+  setIsarrowhidden: Dispatch<SetStateAction<boolean>>;
 }

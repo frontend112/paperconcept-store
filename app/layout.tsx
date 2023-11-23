@@ -1,30 +1,28 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ReduxProvider } from "./GlobalRedux/provider"
-import { AuthProvider } from "./Providers"
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ReduxProvider } from "./GlobalRedux/provider";
+import { AuthProvider } from "./Providers";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'PaperConcept | sklep plastyczny',
-  description: 'sklep internetowy | stacjonarny',
-}
+  title: "PaperConcept | sklep plastyczny",
+  description: "sklep internetowy | stacjonarny",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html>
       <body className={inter.className}>
         <ReduxProvider>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
+          <AuthProvider>{children}</AuthProvider>
         </ReduxProvider>
       </body>
     </html>
-  )
+  );
 }

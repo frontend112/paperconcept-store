@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 
@@ -10,24 +10,25 @@ import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { useRouter } from "next/navigation";
 
 export const SearchForm = () => {
-  const [searchInput, setSearchinput] = useState('');
+  const [searchInput, setSearchinput] = useState("");
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const router = useRouter();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(`/submit-search/${searchInput}`)
+    router.push(`/submit-search/${searchInput}`);
     clearFoundProducts();
-  }
+  };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchinput(value);
-    value.trim().length > 0 ? setFoundproducts(getProductsByInput(e.target.value))
-      : setFoundproducts([])
+    value.trim().length > 0
+      ? setFoundproducts(getProductsByInput(e.target.value))
+      : setFoundproducts([]);
   };
   const clearFoundProducts = () => {
-    setFoundproducts([])
-    setSearchinput('')
+    setFoundproducts([]);
+    setSearchinput("");
   };
 
   return (
@@ -68,5 +69,5 @@ export const SearchForm = () => {
         clearFoundProducts={clearFoundProducts}
       />
     </>
-  )
-}
+  );
+};

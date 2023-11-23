@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import Link from "next/link";
 
@@ -15,42 +15,51 @@ import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { useRouter } from "next/navigation";
 
-export const MobileMenu = ({ handleCartClick, setIsarrowhidden }: MenuDevicesProps) => {
+export const MobileMenu = ({
+  handleCartClick,
+  setIsarrowhidden,
+}: MenuDevicesProps) => {
   const categoriesElement = useRef<HTMLElement>(null);
   const formElement = useRef<HTMLFormElement>(null);
-  const [searchInput, setSearchinput] = useState('');
+  const [searchInput, setSearchinput] = useState("");
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const router = useRouter();
 
   const toggleMenu = () => {
-    categoriesElement.current?.classList.toggle('hidden');
+    categoriesElement.current?.classList.toggle("hidden");
     if (setIsarrowhidden) {
-      setIsarrowhidden(state => !state);
+      setIsarrowhidden((state) => !state);
     }
-  }
+  };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(`/submit-search/${searchInput}`)
+    router.push(`/submit-search/${searchInput}`);
     clearFoundProducts();
-  }
+  };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchinput(value);
-    value ? setFoundproducts(getProductsByInput(e.target.value))
-      : setFoundproducts([])
+    value
+      ? setFoundproducts(getProductsByInput(e.target.value))
+      : setFoundproducts([]);
   };
   const clearFoundProducts = () => {
-    setFoundproducts([])
-    setSearchinput('')
+    setFoundproducts([]);
+    setSearchinput("");
   };
 
   return (
     <div className="mobile-menu lg:hidden w-full min-h-screen top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 px-8">
       <section className="flex justify-between items-center">
         <div>
-          <button className="mobile-menu__stripes w-5 h-5" onClick={toggleMenu} />
+          <button
+            className="mobile-menu__stripes w-5 h-5"
+            onClick={toggleMenu}
+          />
         </div>
-        <div><Logo /></div>
+        <div>
+          <Logo />
+        </div>
         <ul className="flex gap-4 pr-4">
           <SearchIcon formElement={formElement} />
           <UserIcon />
@@ -59,15 +68,30 @@ export const MobileMenu = ({ handleCartClick, setIsarrowhidden }: MenuDevicesPro
       </section>
       <section
         className="hidden absolute left-0 top-0 w-full"
-        ref={categoriesElement}>
+        ref={categoriesElement}
+      >
         <div className="text-right bg-white relative">
           <h3 className="uppercase text-center p-4">menu</h3>
-          <button onClick={toggleMenu} className="absolute top-1/2 right-4 translate-y-[-50%] text-xl">x</button>
+          <button
+            onClick={toggleMenu}
+            className="absolute top-1/2 right-4 translate-y-[-50%] text-xl"
+          >
+            x
+          </button>
         </div>
         <hr />
-        <ul className="text-black bg-white py-4">{categories.map(({ category, id, slug }) => (
-          <li className="category p-4 relative w-full" key={id}><Link className="category__link p-4 text-slate-700 hover:text-slate-900 block" href={`/category/${slug}`}>{category}</Link></li>
-        ))}</ul>
+        <ul className="text-black bg-white py-4">
+          {categories.map(({ category, id, slug }) => (
+            <li className="category p-4 relative w-full" key={id}>
+              <Link
+                className="category__link p-4 text-slate-700 hover:text-slate-900 block"
+                href={`/category/${slug}`}
+              >
+                {category}
+              </Link>
+            </li>
+          ))}
+        </ul>
         <hr />
         <SubPages isMobile={true} />
       </section>
@@ -78,15 +102,23 @@ export const MobileMenu = ({ handleCartClick, setIsarrowhidden }: MenuDevicesPro
       >
         <label
           className="absolute right-4 top-[200%] translate-y-[-100%] cursor-pointer"
-          htmlFor="mobile-search">
+          htmlFor="mobile-search"
+        >
           <FontAwesomeIcon icon={faSearch} />
         </label>
-        <input className="mobile-form__input w-screen absolute left-0 top-full p-4 text-black" placeholder="Szukaj produktu" type="text" value={searchInput} onChange={handleChange} id="mobile-search" />
+        <input
+          className="mobile-form__input w-screen absolute left-0 top-full p-4 text-black"
+          placeholder="Szukaj produktu"
+          type="text"
+          value={searchInput}
+          onChange={handleChange}
+          id="mobile-search"
+        />
       </form>
       <FoundedProducts
         foundProducts={foundProducts}
         clearFoundProducts={clearFoundProducts}
       />
     </div>
-  )
-}
+  );
+};
