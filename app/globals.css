@@ -57,6 +57,7 @@
   }
 }
 :root {
+  min-height: 100svh;
   min-height: 100vh;
 }
 
@@ -189,6 +190,7 @@
 
 .header {
   height: calc(100vh - 2rem);
+  height: calc(100svh - 2rem);
 }
 
 .category__link::after {

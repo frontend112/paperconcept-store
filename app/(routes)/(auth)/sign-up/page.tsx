@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
-import { schema } from "@/app/validators/sign-up"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { schema } from "@/app/validators/sign-up";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
   const router = useRouter();
@@ -25,50 +25,53 @@ const SignUp = () => {
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
-      email: '',
-      password: '',
-    }
-  })
+      email: "",
+      password: "",
+    },
+  });
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
-    const { email, password } = input
+    const { email, password } = input;
 
     try {
-      const rescheckEmail = await fetch('/api/emailExist', {
+      const rescheckEmail = await fetch("/api/emailExist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: email.toLocaleLowerCase(),
-        })
-      })
+        }),
+      });
       if (rescheckEmail.ok) {
-        toast({ description: `adres ${email} jest już zarejestrowany`, variant: "destructive" })
-        return
+        toast({
+          description: `adres ${email} jest już zarejestrowany`,
+          variant: "destructive",
+        });
+        return;
       }
 
-      const resSendUser = await fetch('/api/register', {
+      const resSendUser = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: email.toLocaleLowerCase(),
-          password
-        })
-      })
+          password,
+        }),
+      });
       if (resSendUser.ok) {
         toast({
-          description: `użytkownik ${input.email} jest teraz zarejestrowany`
-        })
-        router.push('/sign-in')
+          description: `użytkownik ${input.email} jest teraz zarejestrowany`,
+        });
+        router.push("/sign-in");
       }
     } catch (error) {
-      console.log('error')
+      console.log("error");
     }
-  }
+  };
 
   return (
     <div className="w-11/12 m-auto">
@@ -82,7 +85,11 @@ const SignUp = () => {
               <FormItem>
                 <FormLabel>Adres email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@gmail.com" type="email" {...field} />
+                  <Input
+                    placeholder="example@gmail.com"
+                    type="email"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -101,15 +108,17 @@ const SignUp = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" >Zarejestruj się</Button>
+          <Button type="submit">Zarejestruj się</Button>
         </form>
       </Form>
       <h2 className="pt-4">
         Posiadasz już konto ?
-        <Link href="/sign-in" className="underline text-blue-800 pl-2">zaloguj się</Link>
+        <Link href="/sign-in" className="underline text-blue-800 pl-2">
+          zaloguj się
+        </Link>
       </h2>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

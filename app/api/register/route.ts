@@ -10,7 +10,7 @@ export const POST = async (req: Request) => {
     await connectMongodb();
     await User.create({
       email,
-      password: await bcrypt.hash(password, 10)
+      password: await bcrypt.hash(password, 10),
     });
 
     return NextResponse.json(
@@ -23,4 +23,4 @@ export const POST = async (req: Request) => {
       { status: 501 }
     );
   }
-}
+};

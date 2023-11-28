@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import cn from "classnames";
 
@@ -8,9 +8,9 @@ import { MobileMenu } from "./MobileMenu";
 import { DesktopMenu } from "./DesktopMenu";
 
 type Props = {
-  className?: ExtraClassNames,
-  setIsarrowhidden?: Dispatch<SetStateAction<boolean>>
-}
+  className?: ExtraClassNames;
+  setIsarrowhidden: Dispatch<SetStateAction<boolean>>;
+};
 
 export const Menu = ({ className, setIsarrowhidden }: Props) => {
   const [isCartHidden, setIscarthidden] = useState(true);
@@ -18,43 +18,42 @@ export const Menu = ({ className, setIsarrowhidden }: Props) => {
 
   const handleCartClick = () => {
     if (isCartHidden) {
-      cartELement.current?.classList.add('animate-show-cart')
-      cartELement.current?.classList.remove('animate-hide-cart')
+      cartELement.current?.classList.add("animate-show-cart");
+      cartELement.current?.classList.remove("animate-hide-cart");
     } else {
-      cartELement.current?.classList.add('animate-hide-cart')
-      cartELement.current?.classList.remove('animate-show-cart')
-    };
+      cartELement.current?.classList.add("animate-hide-cart");
+      cartELement.current?.classList.remove("animate-show-cart");
+    }
 
     setTimeout(() => {
-      setIscarthidden(state => !state)
+      setIscarthidden((state) => !state);
     }, 500);
     if (setIsarrowhidden) {
-      setIsarrowhidden(state => !state)
+      setIsarrowhidden((state) => !state);
     }
   };
 
   return (
     <div
       className={cn(
-        'z-10', 'w-full', 'absolute',
-        className === ExtraClassNames.TRANSPARENT && 'text-white'
+        "z-10",
+        "w-full",
+        "absolute",
+        className === ExtraClassNames.TRANSPARENT && "text-white"
       )}
     >
-      <DesktopMenu
-        handleCartClick={handleCartClick}
-        className={className}
-      />
+      <DesktopMenu handleCartClick={handleCartClick} className={className} />
 
-      {setIsarrowhidden
-        &&
-        <MobileMenu handleCartClick={handleCartClick} setIsarrowhidden={setIsarrowhidden} />
-      }
+      <MobileMenu
+        handleCartClick={handleCartClick}
+        setIsarrowhidden={setIsarrowhidden}
+      />
 
       <Cart
         isCartHidden={isCartHidden}
         cartELement={cartELement}
         handleCartClick={handleCartClick}
       />
-    </div >
-  )
-}
+    </div>
+  );
+};

@@ -1,44 +1,48 @@
 import { getProducts as products } from "./getProducts";
 
-export const getProductsByInput = (input: string) => products.filter(({ name }) => {
-  if (input.length === 0) {
-    return false;
-  }
-  const engName = replacePolishLetter(name)
-  const engInput = replacePolishLetter(input)
+export const getProductsByInput = (input: string) =>
+  products.filter(({ name }) => {
+    if (input.length === 0) {
+      return false;
+    }
+    const engName = replacePolishLetter(name);
+    const engInput = replacePolishLetter(input);
 
-  return engInput.every(wordI => engName.some(wordName => {
-    return wordI.length === 4 ?
-      wordName.slice(0, wordI.length).toLocaleLowerCase()
-      === wordI.slice(0, wordI.length).toLocaleLowerCase()
-      :
-      wordName.slice(0, wordI.length - 1).toLocaleLowerCase()
-      === wordI.slice(0, wordI.length - 1).toLocaleLowerCase()
-  }))
-})
+    return engInput.every((wordI) =>
+      engName.some((wordName) => {
+        return wordI.length === 4
+          ? wordName.slice(0, wordI.length).toLocaleLowerCase() ===
+              wordI.slice(0, wordI.length).toLocaleLowerCase()
+          : wordName.slice(0, wordI.length - 1).toLocaleLowerCase() ===
+              wordI.slice(0, wordI.length - 1).toLocaleLowerCase();
+      })
+    );
+  });
 
-const replacePolishLetter = (polishWord: string) => (
-  polishWord.split('')
-    .map(letter => {
+const replacePolishLetter = (polishWord: string) =>
+  polishWord
+    .split("")
+    .map((letter) => {
       switch (letter) {
         case "ą":
-          return 'a'
+          return "a";
         case "ć":
-          return 'c'
+          return "c";
         case "ę":
-          return 'e'
+          return "e";
         case "ł":
-          return 'l'
+          return "l";
         case "ó":
-          return 'o'
+          return "o";
         case "ś":
-          return 's'
+          return "s";
         case "ż":
-          return 'z'
+          return "z";
         case "ź":
-          return 'z'
+          return "z";
         default:
-          return letter
+          return letter;
       }
-    }).join('').split(' ')
-)
+    })
+    .join("")
+    .split(" ");

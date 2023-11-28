@@ -28,3 +28,6 @@ app/components
 <Menu> - main inside Menu.tsx, wheather it is Desktop or mobile go to related file
 <Logo/> - force refresh on click and go to homepage
 <Recommended/> - auto changing group of products on hover stop animations
+
+helpful projects:
+https://github.com/Godsont/auth-with-credentials

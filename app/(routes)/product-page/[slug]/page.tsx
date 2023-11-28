@@ -1,7 +1,7 @@
-'use client'
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { redirect, usePathname } from "next/navigation"
+import { redirect, usePathname } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
 import { useDispatch } from "react-redux";
@@ -11,12 +11,14 @@ import { Button } from "@/components/ui/button";
 import cn from "classnames";
 
 const Page = () => {
-  const pathname = usePathname().replace('/product-page/', '');
+  const pathname = usePathname().replace("/product-page/", "");
 
-  const recentProduct = products.find(({ slug, id }) => `${id}-${slug}` === pathname)
+  const recentProduct = products.find(
+    ({ slug, id }) => `${id}-${slug}` === pathname
+  );
 
   if (!recentProduct) {
-    redirect('/')
+    redirect("/");
   }
 
   const { id, slug, name, price, src } = recentProduct;
@@ -27,8 +29,8 @@ const Page = () => {
 
   const handlequantityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setQuantity(+value)
-  }
+    setQuantity(+value);
+  };
 
   return (
     <div className="p-[5%]">
@@ -39,9 +41,7 @@ const Page = () => {
         <li>
           <Link href={`/category/${slug}`}>{slug}</Link>/
         </li>
-        <li>
-          {name}
-        </li>
+        <li>{name}</li>
       </ul>
       <div className="md:flex justify-between md:pt-8">
         <section className="md:w-1/2">
@@ -57,9 +57,11 @@ const Page = () => {
           <h3 className="text-2xl md:pt-4">{price} zł</h3>
           <div className="text-center md:pt-4">
             <button
-              className={cn(quantity === 1 && 'invisible')}
-              onClick={() => setQuantity(state => state - 1)}
-            >-</button>
+              className={cn(quantity === 1 && "invisible")}
+              onClick={() => setQuantity((state) => state - 1)}
+            >
+              -
+            </button>
             <input
               type="number"
               className="
@@ -70,22 +72,26 @@ const Page = () => {
               onChange={handlequantityChange}
               value={quantity}
             />
-            <button onClick={() => setQuantity(state => (state + 1))}>+</button>
+            <button onClick={() => setQuantity((state) => state + 1)}>+</button>
 
             <Button
               onClick={() => {
-                dispatch(addProduct({
-                  ...recentProduct,
-                  quantity
-                }))
+                dispatch(
+                  addProduct({
+                    ...recentProduct,
+                    quantity,
+                  })
+                );
               }}
               className="rounded-none w-full mt-8"
-            >Dodaj do koszyka</Button>
+            >
+              Dodaj do koszyka
+            </Button>
           </div>
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

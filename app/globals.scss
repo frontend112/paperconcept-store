@@ -76,6 +76,7 @@
 }
 
 :root {
+  min-height: 100svh;
   min-height: 100vh;
 }
 
@@ -224,6 +225,7 @@
 
 .header {
   height: calc(100vh - 2rem);
+  height: calc(100svh - 2rem);
 }
 
 .category__link::after {
@@ -244,5 +246,11 @@ input[type="number"] {
     margin: 0;
   }
 }
+
+// .checkout {
+// &__product {}
+// &__image {
+// }
+// }
 
 /*# sourceMappingURL=globals.css.map */

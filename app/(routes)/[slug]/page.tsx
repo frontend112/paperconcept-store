@@ -1,3 +1,5 @@
-const page = () => <h2 className="text-center">Nie znaleziono strony pod tym adresem</h2>
+const page = () => (
+  <h2 className="text-center">Nie znaleziono strony pod tym adresem</h2>
+);
 
-export default page
+export default page;
