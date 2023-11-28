@@ -14,6 +14,7 @@ export const POST = async (req: Request) => {
   try {
     let activeProducts = await getActiveProducts();
     const { products } = await req.json();
+
     for (const product of products) {
       const stripeProduct = activeProducts?.find(
         (activeProduct: any) => activeProduct?.name === product.name
