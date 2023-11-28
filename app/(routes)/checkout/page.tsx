@@ -1,10 +1,8 @@
 "use client";
 import cn from "classnames";
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { redirect } from "next/navigation";
 
 import { RootState } from "@/app/GlobalRedux/store";
 import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";

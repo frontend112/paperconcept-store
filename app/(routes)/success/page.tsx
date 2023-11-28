@@ -1,6 +1,11 @@
-import React from "react";
+"use client";
+import { clearCart } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { useDispatch } from "react-redux";
 
-const page = () => {
+const Page = () => {
+  localStorage.clear();
+  const dispatch = useDispatch();
+  dispatch(clearCart());
   return (
     <div className="px-[5%] text-2xl">
       Zamówienie zostało opłacone pomyślnie
@@ -8,4 +13,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -44,10 +44,16 @@ export const counterSlice = createSlice({
         }
         return product;
       }),
+    clearCart: () => [],
   },
 });
 
-export const { addProduct, removeProduct, increaseQuantity, decreaseQuantity } =
-  counterSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
