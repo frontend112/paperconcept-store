@@ -1,9 +1,10 @@
 "use client";
 import cn from "classnames";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
+import { redirect } from "next/navigation";
 
 import { RootState } from "@/app/GlobalRedux/store";
 import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
@@ -11,7 +12,6 @@ import {
   decreaseQuantity,
   increaseQuantity,
 } from "@/app/GlobalRedux/Features/counter/counterSlice";
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/app/types/types";
 
@@ -44,6 +44,24 @@ const Page = () => {
       </h2>
     );
   }
+
+  const handleCheckout = async () => {
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products: cartProducts }),
+      });
+      if (res.url) {
+        const { session } = await res.json();
+        window.location.href = session;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -145,7 +163,9 @@ const Page = () => {
             </strong>
             <span>{totalPrice} zł</span>
           </div>
-          <Button className="w-full rounded-none">Realizuj zamówienie</Button>
+          <Button onClick={handleCheckout} className="w-full rounded-none">
+            Realizuj zamówienie
+          </Button>
         </aside>
       </div>
     </>

@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { MenuDevicesProps, ProductType } from "@/app/types/types";
+import { ProductType } from "@/app/types/types";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { useRouter } from "next/navigation";
