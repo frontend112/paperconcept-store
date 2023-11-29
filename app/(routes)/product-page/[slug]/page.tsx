@@ -6,7 +6,7 @@ import { ChangeEvent, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { getProducts as products } from "@/app/getData/getProducts";
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { addProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import cn from "classnames";
 

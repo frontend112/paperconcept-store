@@ -3,6 +3,7 @@ import cn from "classnames";
 
 import { BackgroundsProps, DIRECTIONS } from "@/app/types/types";
 import { bgImages } from "./bgImages";
+import Link from "next/link";
 
 export const Backgrounds = ({
   bgCount,
@@ -52,14 +53,14 @@ export const Backgrounds = ({
           className={cn(
             "absolute",
             "bottom-10",
-            "left-[5%]",
-            !isArrowHidden && "z-10"
+            "left-[5%]"
+            // !isArrowHidden && "z-1"
           )}
         >
           <h2 className="uppercase text-white py-4 text-4xl font-light">
             {bgImages[bgCount].name}
           </h2>
-          <a
+          <Link
             href={`/category/${bgImages[bgCount].slug}`}
             className="
             w-72
@@ -75,7 +76,7 @@ export const Backgrounds = ({
           "
           >
             Zobacz produkty
-          </a>
+          </Link>
         </section>
       </div>
 

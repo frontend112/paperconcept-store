@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 
 import { ProductType } from "@/app/types/types";
-import { addProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { addProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import cn from "classnames";
 

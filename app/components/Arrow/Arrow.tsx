@@ -16,7 +16,7 @@ export const Arrow: FC<ArrowProps> = ({
       "absolute",
       "translate-y-[-50%]",
       "hover: cursor-pointer",
-      !isArrowhidden && "z-10",
+      // !isArrowhidden && "z-10",
       direction === DIRECTIONS.LEFT ? "left-0" : "right-0"
     )}
   >

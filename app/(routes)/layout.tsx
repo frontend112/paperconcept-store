@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ProductType } from "../types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/store";
-import { addProduct } from "../GlobalRedux/Features/counter/counterSlice";
+import { addProduct } from "../GlobalRedux/Features/cart/cartSlice";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const [_, setIsarrowhidden] = useState(true);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -12,7 +12,7 @@ import { Recommended } from "./components/Recommended/Recommended";
 import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
-import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
+import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
 
 const HomePage = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -26,8 +26,6 @@ const HomePage = () => {
     direction: DIRECTIONS.UNKNOWN,
     isActive: false,
   });
-
-  const mainELement = useRef<HTMLElement>(null);
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
@@ -92,7 +90,7 @@ const HomePage = () => {
           isArrowHidden={isArrowHidden}
         />
 
-        <div className="mx-5 relative h-full">
+        <div className="pt-[calc(45%-70px)] mx-5 relative">
           <Arrow
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
