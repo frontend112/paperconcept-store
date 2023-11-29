@@ -13,7 +13,7 @@ export const Recommended = ({
   isArrowhidden: boolean;
   isMouseenter: boolean;
 }) => {
-  const [productAmount, setProductAmount] = useState(4);
+  const productAmount = 4;
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount;
@@ -63,24 +63,10 @@ export const Recommended = ({
     },
     [counter, maxProductPosition, interval, productAmount]
   );
-  const setProductLength = useCallback(() => {
-    setProductAmount(() => (window.innerWidth < 1024 ? 2 : 4));
-  }, []);
-  const onResize = useCallback(
-    () => window.addEventListener("resize", () => setProductLength()),
-    [setProductLength]
-  );
 
   useEffect(() => {
     return () => clearInterval(interval);
   }, [interval]);
-  useEffect(() => {
-    if (window) {
-      setProductLength();
-      onResize();
-    }
-    return () => window.removeEventListener("resize", onResize);
-  }, [setProductLength, onResize]);
 
   useEffect(() => {
     if (isMouseenter) {
