@@ -20,7 +20,7 @@ const HomePage = () => {
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
-  const [isAnimationsstopped, setIsanimationsstopped] = useState(false);
+  const [isAnimationsstopped, setIsanimationsstopped] = useState(true);
 
   const [animationsDetails, setAnimationsDetails] = useState({
     direction: DIRECTIONS.UNKNOWN,
