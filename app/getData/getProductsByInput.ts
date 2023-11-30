@@ -9,13 +9,11 @@ export const getProductsByInput = (input: string) =>
     const engInput = replacePolishLetter(input);
 
     return engInput.every((wordI) =>
-      engName.some((wordName) => {
-        return wordI.length === 4
-          ? wordName.slice(0, wordI.length).toLocaleLowerCase() ===
-              wordI.slice(0, wordI.length).toLocaleLowerCase()
-          : wordName.slice(0, wordI.length - 1).toLocaleLowerCase() ===
-              wordI.slice(0, wordI.length - 1).toLocaleLowerCase();
-      })
+      engName.some(
+        (wordName) =>
+          wordName.slice(0, wordI.length).toLocaleLowerCase() ===
+          wordI.slice(0, wordI.length).toLocaleLowerCase()
+      )
     );
   });
 

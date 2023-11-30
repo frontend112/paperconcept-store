@@ -90,7 +90,7 @@ const HomePage = () => {
           isArrowHidden={isArrowHidden}
         />
 
-        <div className="pt-[calc(50%-40px)] mx-5 relative">
+        <div className="pt-[calc(50%-40px)] px-16">
           <Arrow
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
