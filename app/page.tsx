@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -12,7 +12,7 @@ import { Recommended } from "./components/Recommended/Recommended";
 import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
-import { addProduct } from "./GlobalRedux/Features/counter/counterSlice";
+import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
 
 const HomePage = () => {
   const [bgCount, setBgcount] = useState(0);
@@ -20,14 +20,12 @@ const HomePage = () => {
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
-  const [isMouseenter, setIsmouseenter] = useState(false);
+  const [isAnimationsstopped, setIsanimationsstopped] = useState(true);
 
   const [animationsDetails, setAnimationsDetails] = useState({
     direction: DIRECTIONS.UNKNOWN,
     isActive: false,
   });
-
-  const mainELement = useRef<HTMLElement>(null);
 
   const changeBg = (direction: DIRECTIONS) => {
     setIsLoading(true);
@@ -70,7 +68,10 @@ const HomePage = () => {
   }, [productCart]);
 
   return (
-    <main className="min-h-screen overflow-auto">
+    <main
+      className="min-h-screen overflow-auto"
+      onMouseLeave={() => setIsanimationsstopped(true)}
+    >
       <DeliveryInfo />
       <header
         className={cn(
@@ -92,7 +93,7 @@ const HomePage = () => {
           isArrowHidden={isArrowHidden}
         />
 
-        <div className="mx-5 relative h-full">
+        <div className="pt-[calc(50%-40px)] px-16">
           <Arrow
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
@@ -112,11 +113,7 @@ const HomePage = () => {
           </Arrow>
         </div>
       </header>
-      <section
-        onMouseEnter={() => setIsmouseenter(true)}
-        onMouseLeave={() => setIsmouseenter(false)}
-        className="flex flex-col mx-4 lg:mx-[5%] lg:px-10"
-      >
+      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
         <article>
           <h1 className="text-4xl font-semibold py-20">
             PaperConcept to sklep plastyczny pełen produktów
@@ -124,11 +121,14 @@ const HomePage = () => {
             najlepszych marek.
           </h1>
         </article>
-        <article>
+        <article
+          onMouseEnter={() => setIsanimationsstopped(true)}
+          onMouseLeave={() => setIsanimationsstopped(false)}
+        >
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
           <Recommended
             isArrowhidden={isArrowHidden}
-            isMouseenter={isMouseenter}
+            isAnimationsstopped={isAnimationsstopped}
           />
         </article>
       </section>

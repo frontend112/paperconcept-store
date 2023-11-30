@@ -1,5 +1,5 @@
 "use client";
-import { clearCart } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { clearCart } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 const Page = () => {

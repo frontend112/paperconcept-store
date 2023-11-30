@@ -8,12 +8,12 @@ import { Arrow } from "../Arrow/Arrow";
 
 export const Recommended = ({
   isArrowhidden,
-  isMouseenter,
+  isAnimationsstopped,
 }: {
   isArrowhidden: boolean;
-  isMouseenter: boolean;
+  isAnimationsstopped: boolean;
 }) => {
-  const [productAmount, setProductAmount] = useState(4);
+  const productAmount = 4;
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount;
@@ -63,30 +63,16 @@ export const Recommended = ({
     },
     [counter, maxProductPosition, interval, productAmount]
   );
-  const setProductLength = useCallback(() => {
-    setProductAmount(() => (window.innerWidth < 1024 ? 2 : 4));
-  }, []);
-  const onResize = useCallback(
-    () => window.addEventListener("resize", () => setProductLength()),
-    [setProductLength]
-  );
 
   useEffect(() => {
     return () => clearInterval(interval);
   }, [interval]);
-  useEffect(() => {
-    if (window) {
-      setProductLength();
-      onResize();
-    }
-    return () => window.removeEventListener("resize", onResize);
-  }, [setProductLength, onResize]);
 
   useEffect(() => {
-    if (isMouseenter) {
+    if (isAnimationsstopped) {
       clearInterval(interval);
     }
-  }, [isMouseenter, interval]);
+  }, [isAnimationsstopped, interval]);
 
   return (
     <div className="relative">

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from './Features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import productsReducer from "./Features/cart/cartSlice";
 
 export const store = configureStore({
   reducer: {
-    products: productsReducer
-  }
-})
+    products: productsReducer,
+  },
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 

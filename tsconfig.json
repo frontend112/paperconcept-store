@@ -31,7 +31,7 @@
     "app/api/register/route.ts",
     "app/api/checkdb/route.ts",
     "modules/user.js",
-    "app/api/auth/[...nextauth]/route.js"
+    "app/api/auth/[...nextauth]/route.ts"
   ],
   "exclude": ["node_modules"]
 }

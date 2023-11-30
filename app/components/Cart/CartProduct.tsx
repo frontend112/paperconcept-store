@@ -4,7 +4,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
   removeProduct,
-} from "@/app/GlobalRedux/Features/counter/counterSlice";
+} from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { RootState } from "@/app/GlobalRedux/store";
 import { AddedProduct, ProductType } from "@/app/types/types";
 import Link from "next/link";

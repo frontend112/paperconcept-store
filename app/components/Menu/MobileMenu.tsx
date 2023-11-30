@@ -27,9 +27,7 @@ export const MobileMenu = ({
 
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle("hidden");
-    if (setIsarrowhidden) {
-      setIsarrowhidden((state) => !state);
-    }
+    setIsarrowhidden((state) => !state);
   };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,7 +47,7 @@ export const MobileMenu = ({
   };
 
   return (
-    <div className="mobile-menu lg:hidden w-full min-h-screen top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 px-8">
+    <div className="mobile-menu lg:hidden w-full top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 sm:px-8">
       <section className="flex justify-between items-center">
         <div>
           <button
@@ -61,7 +59,10 @@ export const MobileMenu = ({
           <Logo />
         </div>
         <ul className="flex gap-4 pr-4">
-          <SearchIcon formElement={formElement} />
+          <SearchIcon
+            formElement={formElement}
+            setIsArrowhidden={setIsarrowhidden}
+          />
           <UserIcon />
           <CartIcon handleCartClick={handleCartClick} />
         </ul>

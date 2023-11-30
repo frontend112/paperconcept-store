@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "@/app/GlobalRedux/store";
-import { removeProduct } from "@/app/GlobalRedux/Features/counter/counterSlice";
+import { removeProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import {
   decreaseQuantity,
   increaseQuantity,
-} from "@/app/GlobalRedux/Features/counter/counterSlice";
+} from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/app/types/types";
 
