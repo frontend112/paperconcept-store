@@ -69,7 +69,9 @@ export const Recommended = ({
   }, [interval]);
 
   useEffect(() => {
-    clearInterval(interval);
+    if (isMouseenter) {
+      clearInterval(interval);
+    }
   }, [isMouseenter, interval]);
 
   return (

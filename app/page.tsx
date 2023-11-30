@@ -68,7 +68,10 @@ const HomePage = () => {
   }, [productCart]);
 
   return (
-    <main className="min-h-screen overflow-auto">
+    <main
+      className="min-h-screen overflow-auto"
+      onMouseLeave={() => setIsmouseenter(false)}
+    >
       <DeliveryInfo />
       <header
         className={cn(
