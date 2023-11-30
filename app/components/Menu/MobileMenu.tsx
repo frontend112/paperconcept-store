@@ -27,9 +27,7 @@ export const MobileMenu = ({
 
   const toggleMenu = () => {
     categoriesElement.current?.classList.toggle("hidden");
-    if (setIsarrowhidden) {
-      setIsarrowhidden((state) => !state);
-    }
+    setIsarrowhidden((state) => !state);
   };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -61,7 +59,10 @@ export const MobileMenu = ({
           <Logo />
         </div>
         <ul className="flex gap-4 pr-4">
-          <SearchIcon formElement={formElement} />
+          <SearchIcon
+            formElement={formElement}
+            setIsArrowhidden={setIsarrowhidden}
+          />
           <UserIcon />
           <CartIcon handleCartClick={handleCartClick} />
         </ul>
