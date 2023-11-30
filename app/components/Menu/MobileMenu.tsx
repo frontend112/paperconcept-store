@@ -47,7 +47,7 @@ export const MobileMenu = ({
   };
 
   return (
-    <div className="mobile-menu lg:hidden w-full top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 px-8">
+    <div className="mobile-menu lg:hidden w-full top-0 left-0 text-black capitalize font-light opacity-90 lg:p-4 sm:px-8">
       <section className="flex justify-between items-center">
         <div>
           <button

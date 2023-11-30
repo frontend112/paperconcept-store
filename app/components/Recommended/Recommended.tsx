@@ -72,6 +72,11 @@ export const Recommended = ({
     if (isMouseenter) {
       clearInterval(interval);
     }
+    () => {
+      if (interval) {
+        return clearInterval(interval);
+      }
+    };
   }, [isMouseenter, interval]);
 
   return (
