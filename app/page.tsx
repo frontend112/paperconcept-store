@@ -113,11 +113,7 @@ const HomePage = () => {
           </Arrow>
         </div>
       </header>
-      <section
-        onMouseEnter={() => setIsanimationsstopped(true)}
-        onMouseLeave={() => setIsanimationsstopped(false)}
-        className="flex flex-col mx-4 lg:mx-[5%] lg:px-10"
-      >
+      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
         <article>
           <h1 className="text-4xl font-semibold py-20">
             PaperConcept to sklep plastyczny pełen produktów
@@ -125,7 +121,10 @@ const HomePage = () => {
             najlepszych marek.
           </h1>
         </article>
-        <article>
+        <article
+          onMouseEnter={() => setIsanimationsstopped(true)}
+          onMouseLeave={() => setIsanimationsstopped(false)}
+        >
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
           <Recommended
             isArrowhidden={isArrowHidden}
