@@ -20,7 +20,7 @@ const HomePage = () => {
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
-  const [isMouseenter, setIsmouseenter] = useState(false);
+  const [isAnimationsstopped, setIsanimationsstopped] = useState(false);
 
   const [animationsDetails, setAnimationsDetails] = useState({
     direction: DIRECTIONS.UNKNOWN,
@@ -70,7 +70,7 @@ const HomePage = () => {
   return (
     <main
       className="min-h-screen overflow-auto"
-      onMouseLeave={() => setIsmouseenter(false)}
+      onMouseLeave={() => setIsanimationsstopped(true)}
     >
       <DeliveryInfo />
       <header
@@ -114,8 +114,8 @@ const HomePage = () => {
         </div>
       </header>
       <section
-        onMouseEnter={() => setIsmouseenter(true)}
-        onMouseLeave={() => setIsmouseenter(false)}
+        onMouseEnter={() => setIsanimationsstopped(true)}
+        onMouseLeave={() => setIsanimationsstopped(false)}
         className="flex flex-col mx-4 lg:mx-[5%] lg:px-10"
       >
         <article>
@@ -129,7 +129,7 @@ const HomePage = () => {
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
           <Recommended
             isArrowhidden={isArrowHidden}
-            isMouseenter={isMouseenter}
+            isAnimationsstopped={isAnimationsstopped}
           />
         </article>
       </section>

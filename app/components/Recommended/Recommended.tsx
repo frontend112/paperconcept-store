@@ -8,10 +8,10 @@ import { Arrow } from "../Arrow/Arrow";
 
 export const Recommended = ({
   isArrowhidden,
-  isMouseenter,
+  isAnimationsstopped,
 }: {
   isArrowhidden: boolean;
-  isMouseenter: boolean;
+  isAnimationsstopped: boolean;
 }) => {
   const productAmount = 4;
   const [counter, setCounter] = useState(0);
@@ -69,10 +69,10 @@ export const Recommended = ({
   }, [interval]);
 
   useEffect(() => {
-    if (isMouseenter) {
+    if (isAnimationsstopped) {
       clearInterval(interval);
     }
-  }, [isMouseenter, interval]);
+  }, [isAnimationsstopped, interval]);
 
   return (
     <div className="relative">
