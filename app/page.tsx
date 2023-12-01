@@ -71,6 +71,7 @@ const HomePage = () => {
     <main
       className="min-h-screen overflow-auto"
       onMouseLeave={() => setIsanimationsstopped(true)}
+      onMouseEnter={() => setIsanimationsstopped(false)}
     >
       <DeliveryInfo />
       <header

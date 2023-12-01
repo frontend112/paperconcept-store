@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+// import { PrismaClient } from "@prisma/client";
+// const prisma = new PrismaClient();
 
 const SignUp = () => {
   const router = useRouter();
@@ -27,32 +29,16 @@ const SignUp = () => {
     defaultValues: {
       email: "",
       password: "",
+      userName: "",
     },
   });
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
-    const { email, password } = input;
+    const { email, password, userName } = input;
 
     try {
-      const rescheckEmail = await fetch("/api/emailExist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.toLocaleLowerCase(),
-        }),
-      });
-      if (rescheckEmail.ok) {
-        toast({
-          description: `adres ${email} jest już zarejestrowany`,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      const resSendUser = await fetch("/api/register", {
+      await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,16 +46,50 @@ const SignUp = () => {
         body: JSON.stringify({
           email: email.toLocaleLowerCase(),
           password,
+          userName,
         }),
       });
-      if (resSendUser.ok) {
-        toast({
-          description: `użytkownik ${input.email} jest teraz zarejestrowany`,
-        });
-        router.push("/sign-in");
-      }
+      // const user = await prisma.user.create({
+      //   data: {
+      //     email: "sadfasd",
+      //     userName: "adfasff",
+      //     password: "asdfdas",
+      //   },
+      // });
+      // const rescheckEmail = await fetch("/api/emailExist", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: email.toLocaleLowerCase(),
+      //   }),
+      // });
+      // if (rescheckEmail.ok) {
+      //   toast({
+      //     description: `adres ${email} jest już zarejestrowany`,
+      //     variant: "destructive",
+      //   });
+      //   return;
+      // }
+      // const resSendUser = await fetch("/api/register", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: email.toLocaleLowerCase(),
+      //     password,
+      //   }),
+      // });
+      // if (resSendUser.ok) {
+      //   toast({
+      //     description: `użytkownik ${input.email} jest teraz zarejestrowany`,
+      //   });
+      //   router.push("/sign-in");
+      // }
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -90,6 +110,19 @@ const SignUp = () => {
                     type="email"
                     {...field}
                   />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="userName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Nazwa użytkownika (opcjonalne)</FormLabel>
+                <FormControl>
+                  <Input placeholder="nazwa użytkownika" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

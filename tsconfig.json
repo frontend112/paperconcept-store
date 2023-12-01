@@ -30,8 +30,7 @@
     "lib/mongodb.ts",
     "app/api/register/route.ts",
     "app/api/checkdb/route.ts",
-    "modules/user.js",
-    "app/api/auth/[...nextauth]/route.ts"
+    "modules/user.js"
   ],
   "exclude": ["node_modules"]
 }
