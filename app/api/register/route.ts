@@ -13,7 +13,6 @@ export const POST = async (req: Request) => {
         email,
       },
     });
-
     if (res1) {
       console.log(res1);
       return NextResponse.json({
@@ -21,6 +20,7 @@ export const POST = async (req: Request) => {
         status: 208,
       });
     }
+
     const res2 = await prisma.user.findFirst({
       where: {
         userName,
@@ -32,6 +32,7 @@ export const POST = async (req: Request) => {
         status: 208,
       });
     }
+
     await prisma.user.create({
       data: {
         email,
@@ -39,6 +40,7 @@ export const POST = async (req: Request) => {
         userName,
       },
     });
+
     return NextResponse.json({
       message: `email ${email} został pomyślnie zarejestrowany w bazie danych`,
       status: 201,
