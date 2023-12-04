@@ -6,16 +6,19 @@ const prisma = new PrismaClient();
 export const POST = async (req: Request) => {
   try {
     const { email, password, userName } = await req.json();
+    console.log(email, password, userName);
 
     const res1 = await prisma.user.findFirst({
       where: {
         email,
       },
     });
+
     if (res1) {
+      console.log(res1);
       return NextResponse.json({
         message: "Zarejestrowano już taki adres email",
-        status: 501,
+        status: 208,
       });
     }
     const res2 = await prisma.user.findFirst({
@@ -26,7 +29,7 @@ export const POST = async (req: Request) => {
     if (res2) {
       return NextResponse.json({
         message: "Podana nazwa użytkownika już istnieje",
-        status: 502,
+        status: 208,
       });
     }
     await prisma.user.create({
@@ -43,7 +46,7 @@ export const POST = async (req: Request) => {
   } catch (error) {
     return NextResponse.json({
       message: "unable send user to mongodb",
-      status: 503,
+      status: 500,
     });
   }
 };
