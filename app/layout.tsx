@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang="pl">
       <body className={inter.className}>
         <ReduxProvider>{children}</ReduxProvider>
       </body>
