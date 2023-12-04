@@ -17,8 +17,6 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import { PrismaClient } from "@prisma/client";
-// const prisma = new PrismaClient();
 
 const SignUp = () => {
   const router = useRouter();
@@ -35,59 +33,25 @@ const SignUp = () => {
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
-    const { email, password, userName } = input;
-
     try {
-      await fetch("/api/register", {
+      const { email, password, userName } = input;
+      const res = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email.toLocaleLowerCase(),
+          email,
           password,
           userName,
         }),
       });
-      // const user = await prisma.user.create({
-      //   data: {
-      //     email: "sadfasd",
-      //     userName: "adfasff",
-      //     password: "asdfdas",
-      //   },
-      // });
-      // const rescheckEmail = await fetch("/api/emailExist", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: email.toLocaleLowerCase(),
-      //   }),
-      // });
-      // if (rescheckEmail.ok) {
-      //   toast({
-      //     description: `adres ${email} jest już zarejestrowany`,
-      //     variant: "destructive",
-      //   });
-      //   return;
-      // }
-      // const resSendUser = await fetch("/api/register", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: email.toLocaleLowerCase(),
-      //     password,
-      //   }),
-      // });
-      // if (resSendUser.ok) {
-      //   toast({
-      //     description: `użytkownik ${input.email} jest teraz zarejestrowany`,
-      //   });
-      //   router.push("/sign-in");
-      // }
+      const { message, status } = await res.json();
+      // console.log(await res.json());
+      toast({
+        description: message,
+        variant: status === 201 ? "default" : "destructive",
+      });
     } catch (error) {
       console.log(error);
     }

@@ -1,7 +1,4 @@
-// import { connectMongodb } from "@/lib/mongodb";
-// import { NextResponse } from "next/server";
-// import User from "@/models/user";
-// import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 const prisma = new PrismaClient();
@@ -10,34 +7,43 @@ export const POST = async (req: Request) => {
   try {
     const { email, password, userName } = await req.json();
 
-    await prisma.user.create({
-      data: {
+    const res1 = await prisma.user.findFirst({
+      where: {
         email,
-        password,
+      },
+    });
+    if (res1) {
+      return NextResponse.json({
+        message: "Zarejestrowano już taki adres email",
+        status: 501,
+      });
+    }
+    const res2 = await prisma.user.findFirst({
+      where: {
         userName,
       },
     });
-    return NextResponse.json({ message: "success" }, { status: 201 });
+    if (res2) {
+      return NextResponse.json({
+        message: "Podana nazwa użytkownika już istnieje",
+        status: 502,
+      });
+    }
+    await prisma.user.create({
+      data: {
+        email,
+        password: await bcrypt.hash(password, 10),
+        userName,
+      },
+    });
+    return NextResponse.json({
+      message: `email ${email} został pomyślnie zarejestrowany w bazie danych`,
+      status: 201,
+    });
   } catch (error) {
-    console.log(error);
+    return NextResponse.json({
+      message: "unable send user to mongodb",
+      status: 503,
+    });
   }
-  // try {
-  //   const { email, password } = await req.json();
-
-  //   await connectMongodb();
-  //   await User.create({
-  //     email,
-  //     password: await bcrypt.hash(password, 10),
-  //   });
-
-  //   return NextResponse.json(
-  //     { message: "User succesfully registered" },
-  //     { status: 201 }
-  //   );
-  // } catch (error) {
-  //   return NextResponse.json(
-  //     { message: "unable to make post request" },
-  //     { status: 501 }
-  //   );
-  // }
 };
