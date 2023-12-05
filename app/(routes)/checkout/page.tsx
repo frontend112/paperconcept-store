@@ -52,10 +52,10 @@ const Page = () => {
         },
         body: JSON.stringify({ products: cartProducts }),
       });
-      // if (res.url) {
-      //   const { session } = await res.json();
-      //   window.location.href = session;
-      // }
+      if (res.url) {
+        const { session } = await res.json();
+        window.location.href = session;
+      }
     } catch (error) {
       console.log(error);
     }
