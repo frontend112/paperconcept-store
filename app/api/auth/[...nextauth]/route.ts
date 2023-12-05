@@ -40,7 +40,7 @@ const authOptions: NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: `${process.env.VERCEL_URL}/sign-in`,
+    signIn: "/sign-in",
   },
 };
 const handler = NextAuth(authOptions);
