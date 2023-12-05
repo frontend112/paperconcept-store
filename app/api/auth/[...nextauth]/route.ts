@@ -32,11 +32,16 @@ const authOptions: NextAuthOptions = {
         } catch (error) {
           console.log(error);
           return null;
+        } finally {
+          prisma.$disconnect();
         }
       },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: `${process.env.VERCEL_URL}/sign-in`,
+  },
 };
 const handler = NextAuth(authOptions);
 

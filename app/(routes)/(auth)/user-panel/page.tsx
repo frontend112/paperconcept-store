@@ -4,8 +4,6 @@ import { useSession } from "next-auth/react";
 
 const Page = () => {
   const session = useSession();
-  console.log(session);
-
   return (
     <div className="px-[5%] pt-4">
       <div className="text-right">
