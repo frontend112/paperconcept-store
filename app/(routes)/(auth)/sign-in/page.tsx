@@ -50,7 +50,7 @@ const SignIn = () => {
         return;
       }
       toast({ description: "Dane poprawne, zostałeś zalogowany" });
-      router.push("/user-panel");
+      signIn();
     } catch (error) {
       console.log("error during login");
     }

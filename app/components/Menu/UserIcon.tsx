@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 
 export const UserIcon = ({ className }: { className?: string }) => {
   const session = useSession();
-
   if (session.data?.user)
     return (
       <li>
