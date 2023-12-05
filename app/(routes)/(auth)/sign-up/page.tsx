@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const SignUp = () => {
   const router = useRouter();
@@ -27,14 +27,14 @@ const SignUp = () => {
     defaultValues: {
       email: "",
       password: "",
-      userName: "",
+      fullName: "",
     },
   });
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
     try {
-      const { email, password, userName } = input;
+      const { email, password, fullName } = input;
       const res = await fetch("/api/register", {
         method: "POST",
         headers: {
@@ -43,15 +43,17 @@ const SignUp = () => {
         body: JSON.stringify({
           email,
           password,
-          userName,
+          fullName,
         }),
       });
       const { message, status } = await res.json();
-      // console.log(await res.json());
       toast({
         description: message,
         variant: status === 201 ? "default" : "destructive",
       });
+      if (status === 201) {
+        router.push("/sign-in");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -81,12 +83,12 @@ const SignUp = () => {
           />
           <FormField
             control={form.control}
-            name="userName"
+            name="fullName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nazwa użytkownika (opcjonalne)</FormLabel>
+                <FormLabel>Imię i nazwisko</FormLabel>
                 <FormControl>
-                  <Input placeholder="nazwa użytkownika" {...field} />
+                  <Input placeholder="Imię i nazwisko" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -18,6 +18,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
+import { AuthOptions } from "next-auth";
 
 const SignIn = () => {
   const router = useRouter();
@@ -34,21 +35,21 @@ const SignIn = () => {
   const onSubmit = async (input: z.infer<typeof schema>) => {
     const { email, password } = input;
 
-    // try {
-    //   const res = await signIn("credentials", {
-    //     email: email.toLocaleLowerCase(),
-    //     password,
-    //     redirect: false,
-    //   });
-    //   if (res?.error) {
-    //     toast({ description: "niepoprawne dane", variant: "destructive" });
-    //     return;
-    //   }
-    //   toast({ description: "Dane poprawne, zostałeś zalogowany" });
-    //   router.push("/user-panel");
-    // } catch (error) {
-    //   console.log("error during login");
-    // }
+    try {
+      const res = await signIn("credentials", {
+        email: email.toLocaleLowerCase(),
+        password,
+        redirect: false,
+      });
+      if (res?.error) {
+        toast({ description: "niepoprawne dane", variant: "destructive" });
+        return;
+      }
+      toast({ description: "Dane poprawne, zostałeś zalogowany" });
+      router.push("/user-panel");
+    } catch (error) {
+      console.log("error during login");
+    }
   };
   return (
     <div className="w-11/12 m-auto">

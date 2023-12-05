@@ -14,7 +14,7 @@ export const FoundedProducts = ({
     <>
       {foundProducts.length > 0 && (
         <div
-          className="absolute top-[200%] lg:top-full
+          className="absolute top-24 lg:top-full
         lg:left-1/2 lg:translate-x-[-50%] lg:w-4/5
       bg-white text-black z-10"
         >
