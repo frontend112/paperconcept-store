@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ProductType } from "@/app/types/types";
 const stripe = require("stripe")(process.env.SECRET_KEY);
 
 const getActiveProducts = async () => {
@@ -34,7 +35,7 @@ export const POST = async (req: Request) => {
     activeProducts = await getActiveProducts();
     for (const product of products) {
       const stripeProduct = activeProducts?.find(
-        (prod: Product) =>
+        (prod: ProductType) =>
           prod.name.toLocaleLowerCase() === product.name.toLocaleLowerCase()
       );
       if (stripeProduct) {
