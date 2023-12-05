@@ -16,11 +16,16 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const SignUp = () => {
   const router = useRouter();
+  const session = useSession();
 
+  if (session?.data?.user) {
+    router.push("/user-panel");
+  }
   const { toast } = useToast();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),

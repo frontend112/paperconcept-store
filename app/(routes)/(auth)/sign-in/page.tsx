@@ -18,11 +18,15 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
-import { AuthOptions } from "next-auth";
+import { useSession } from "next-auth/react";
 
 const SignIn = () => {
   const router = useRouter();
+  const session = useSession();
 
+  if (session?.data?.user) {
+    router.push("/user-panel");
+  }
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
