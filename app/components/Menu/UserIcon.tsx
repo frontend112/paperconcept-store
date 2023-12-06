@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 
 export const UserIcon = ({ className }: { className?: string }) => {
   const session = useSession();
-
   if (session.data?.user)
     return (
       <li>
@@ -25,7 +24,7 @@ export const UserIcon = ({ className }: { className?: string }) => {
   return (
     <li>
       <Link
-        href="/sign-in"
+        href="/sign-up"
         className={cn(
           "nav__user",
           className === ExtraClassNames.TRANSPARENT && "nav__user--transparent",

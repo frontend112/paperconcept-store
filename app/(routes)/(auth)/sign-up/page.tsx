@@ -17,59 +17,50 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const SignUp = () => {
   const router = useRouter();
+  const session = useSession();
 
+  if (session?.data?.user) {
+    router.push("/user-panel");
+  }
   const { toast } = useToast();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
       email: "",
       password: "",
+      fullName: "",
     },
   });
   const { handleSubmit } = form;
 
   const onSubmit = async (input: z.infer<typeof schema>) => {
-    const { email, password } = input;
-
     try {
-      const rescheckEmail = await fetch("/api/emailExist", {
+      const { email, password, fullName } = input;
+      const res = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email.toLocaleLowerCase(),
-        }),
-      });
-      if (rescheckEmail.ok) {
-        toast({
-          description: `adres ${email} jest już zarejestrowany`,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      const resSendUser = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.toLocaleLowerCase(),
+          email,
           password,
+          fullName,
         }),
       });
-      if (resSendUser.ok) {
-        toast({
-          description: `użytkownik ${input.email} jest teraz zarejestrowany`,
-        });
+      const { message, status } = await res.json();
+      toast({
+        description: message,
+        variant: status === 201 ? "default" : "destructive",
+      });
+      if (status === 201) {
         router.push("/sign-in");
       }
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -90,6 +81,19 @@ const SignUp = () => {
                     type="email"
                     {...field}
                   />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Imię i nazwisko</FormLabel>
+                <FormControl>
+                  <Input placeholder="Imię i nazwisko" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

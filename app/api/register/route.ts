@@ -1,26 +1,42 @@
-import { connectMongodb } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import User from "@/models/user";
 import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
+import prisma from "@/prisma";
 
 export const POST = async (req: Request) => {
   try {
-    const { email, password } = await req.json();
+    const { email, password, fullName } = await req.json();
 
-    await connectMongodb();
-    await User.create({
-      email,
-      password: await bcrypt.hash(password, 10),
+    const res1 = await prisma.user.findFirst({
+      where: {
+        email,
+      },
+    });
+    if (res1) {
+      return NextResponse.json({
+        message: "Zarejestrowano już taki adres email",
+        status: 208,
+      });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await prisma.user.create({
+      data: {
+        email,
+        hashedPassword,
+        fullName,
+      },
     });
 
-    return NextResponse.json(
-      { message: "User succesfully registered" },
-      { status: 201 }
-    );
+    return NextResponse.json({
+      message: `email ${email} został pomyślnie zarejestrowany w bazie danych`,
+      status: 201,
+    });
   } catch (error) {
-    return NextResponse.json(
-      { message: "unable to make post request" },
-      { status: 501 }
-    );
+    return NextResponse.json({
+      message: "unable send user to mongodb",
+      status: 500,
+    });
+  } finally {
+    await prisma.$disconnect();
   }
 };

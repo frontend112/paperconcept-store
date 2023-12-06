@@ -45,14 +45,7 @@ export const Backgrounds = ({
             "animate-sliding-left-second-image"
         )}
       />
-      <section
-        className={cn(
-          "absolute",
-          "bottom-10",
-          "left-[5%]"
-          // !isArrowHidden && "z-1"
-        )}
-      >
+      <section className={cn("absolute", "bottom-10", "left-[5%]")}>
         <h2 className="uppercase text-white py-4 text-4xl font-light">
           {bgImages[bgCount].name}
         </h2>
