@@ -5,7 +5,6 @@
   <li><a href="#tech">technologies</a></li>
   <li><a href="#useful">useful commands</a></li>
   <li><a href="#description">description</a></li>
-  <li><a href=""></a></li>
 </ul>
 
 <h2 id="tech">Used technologies:</h2>
