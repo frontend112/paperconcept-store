@@ -38,7 +38,7 @@
 
 
 <h2 id="description">app description:</h2>
-<h3>Page inspired by: https://paperconcept.pl/pl/</h3>
+<h3>Page inspired by: https://paperconcept.pl</h3>
 
 <ul>
   <li><Backgrounds/> - home backgrounds on click smooth animation</li>
