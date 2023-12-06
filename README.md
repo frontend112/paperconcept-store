@@ -52,4 +52,7 @@
   <li><SearchForm/> - find products related to searched input, on submit show these products on `/submit-search/${searchInput}`</li>
   <li><Cart/> - after click on cart located at top right corner we can see added cart component </CartProduct> contains single product</li>
   <li>other routes located in folder app/(routes)</li>
+  <li>handle fake checkout: app/api/checkout/</li>
+  <li>handle login: app/api/auth/[...nextauth]</li>
+  <li>check if email already existed if no register: app/api/register</li>
 </ul>
