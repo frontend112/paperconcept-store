@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 
 const Page = () => {
   const dispatch = useDispatch();
-  dispatch(clearCart());
+  if (typeof window !== "undefined") {
+    dispatch(clearCart());
+  }
   return (
     <div className="px-[5%] text-2xl">
       Zamówienie zostało opłacone pomyślnie
