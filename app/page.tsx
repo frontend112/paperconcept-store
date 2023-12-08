@@ -63,10 +63,6 @@ const HomePage = () => {
     }
   }, [dispatch, productCart]);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(productCart));
-  }, [productCart]);
-
   return (
     <main
       className="min-h-screen overflow-auto"

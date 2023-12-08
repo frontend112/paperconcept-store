@@ -24,10 +24,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
     }
   }, [dispatch, productCart]);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(productCart));
-  }, [productCart]);
-
   return (
     <div className="relative">
       <DeliveryInfo />

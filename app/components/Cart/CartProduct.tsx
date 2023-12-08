@@ -6,7 +6,7 @@ import {
   removeProduct,
 } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { RootState } from "@/app/GlobalRedux/store";
-import { AddedProduct, ProductType } from "@/app/types/types";
+import { AddedProduct } from "@/app/types/types";
 import Link from "next/link";
 import cn from "classnames";
 
@@ -24,17 +24,7 @@ export const CartProduct = ({
   const productQuantity =
     cartProducts.find((product) => product.id === id)?.quantity || 0;
 
-  const handleRemoveproduct = (id: string) => {
-    const storedCart: ProductType[] = JSON.parse(
-      localStorage.getItem("cart") || "{}"
-    );
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(storedCart.filter((el) => el.id !== id))
-    );
-
-    dispatch(removeProduct({ id }));
-  };
+  const handleRemoveproduct = (id: string) => dispatch(removeProduct({ id }));
   return (
     <li key={id} className="cart__product-wrapper">
       <section className="cart__product">
