@@ -8,10 +8,10 @@ import { Arrow } from "../Arrow/Arrow";
 
 export const Recommended = ({
   isArrowhidden,
-  isAnimationsstopped,
+  isRanimationStop,
 }: {
   isArrowhidden: boolean;
-  isAnimationsstopped: boolean;
+  isRanimationStop: boolean;
 }) => {
   const productAmount = 4;
   const [counter, setCounter] = useState(0);
@@ -69,10 +69,10 @@ export const Recommended = ({
   }, [interval]);
 
   useEffect(() => {
-    if (isAnimationsstopped) {
+    if (isRanimationStop) {
       clearInterval(interval);
     }
-  }, [isAnimationsstopped, interval]);
+  }, [isRanimationStop, interval]);
 
   return (
     <div className="relative">

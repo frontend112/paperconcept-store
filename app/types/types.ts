@@ -25,7 +25,7 @@ export interface BackgroundType {
 export interface BackgroundsProps {
   bgCount: number;
   isArrowHidden: boolean;
-  animationsDetails: {
+  bgAnimationDetails: {
     direction: DIRECTIONS;
     isActive: Boolean;
   };
