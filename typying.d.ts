@@ -11,3 +11,10 @@ declare module "next-auth" {
     fullName: string;
   }
 }
+interface Order {
+  name: string;
+  price: float;
+  slug: string;
+  src: string;
+  quantity: number;
+}

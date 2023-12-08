@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -13,8 +13,11 @@ import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
+import { useSession } from "next-auth/react";
+import { toast } from "@/components/ui/use-toast";
 
 const HomePage = () => {
+  const session = useSession();
   const [bgCount, setBgcount] = useState(0);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
@@ -49,6 +52,21 @@ const HomePage = () => {
     }, 500);
   };
 
+  const updateOrder = useCallback(async () => {
+    try {
+      const userId: any = session?.data;
+      const res = await fetch("/api/updateOrder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ req: { productCart, userId } }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [productCart, session]);
+
   useEffect(() => {
     const savedCart: ProductType[] = JSON.parse(
       localStorage.getItem("cart") || "{}"
@@ -58,7 +76,13 @@ const HomePage = () => {
         dispatch(addProduct(key));
       }
     }
-  }, [dispatch, productCart]);
+  }, [dispatch, productCart, session]);
+
+  useEffect(() => {
+    if (session?.data?.user) {
+      updateOrder();
+    }
+  }, [session, updateOrder]);
 
   return (
     <main

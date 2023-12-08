@@ -14,11 +14,13 @@ model User {
   email String
   hashedPassword String
   fullName    String
-  orders Order[]
 }
 
 model Order {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
-  person User @relation(fields: [orderId], references: [id])
-  orderId String @db.ObjectId
+  name String
+  price Float
+  slug String
+  src String
+  quantity Float
 }

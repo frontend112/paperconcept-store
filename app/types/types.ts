@@ -35,8 +35,8 @@ export interface ProductType {
   name: string;
   price: number;
   src: string;
-  id: string;
   slug: string;
+  id: string;
 }
 
 export interface AddedProduct extends ProductType {
