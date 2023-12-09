@@ -5,7 +5,7 @@ import { getCategories as categories } from "@/app/getData/getCategories";
 import { redirect, usePathname } from "next/navigation";
 import { Product } from "@/app/components/Product/Product";
 import { useContext } from "react";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 
 const Category = () => {
   const products = useContext(ProductContext);

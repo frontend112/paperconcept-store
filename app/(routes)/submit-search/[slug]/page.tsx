@@ -1,7 +1,7 @@
 "use client";
 import { Product } from "@/app/components/Product/Product";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 

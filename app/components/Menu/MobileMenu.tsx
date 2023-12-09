@@ -14,7 +14,7 @@ import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { useRouter } from "next/navigation";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 
 export const MobileMenu = ({
   handleCartClick,

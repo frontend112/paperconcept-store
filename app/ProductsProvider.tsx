@@ -1,13 +1,8 @@
 "use client";
-import { SessionProvider } from "next-auth/react";
 import { ReactNode, useEffect, useState } from "react";
 import { createContext } from "react";
 import { ProductType } from "./types/types";
 export const ProductContext = createContext<ProductType[]>([]);
-
-export const AuthProvider = ({ children }: { children: ReactNode }) => (
-  <SessionProvider>{children}</SessionProvider>
-);
 
 export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState([]);

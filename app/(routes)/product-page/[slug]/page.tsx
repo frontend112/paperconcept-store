@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import cn from "classnames";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 
 const Page = () => {
   const products = useContext(ProductContext);

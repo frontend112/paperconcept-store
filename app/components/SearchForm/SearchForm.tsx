@@ -8,7 +8,7 @@ import { ProductType } from "@/app/types/types";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { useRouter } from "next/navigation";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 export const SearchForm = () => {
   const products = useContext(ProductContext);
   const [searchInput, setSearchinput] = useState("");

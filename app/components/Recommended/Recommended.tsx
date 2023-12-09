@@ -5,7 +5,7 @@ import { DIRECTIONS } from "@/app/types/types";
 
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
-import { ProductContext } from "@/app/Providers";
+import { ProductContext } from "@/app/ProductsProvider";
 
 export const Recommended = ({
   isArrowhidden,
