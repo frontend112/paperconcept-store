@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
 import { useSession } from "next-auth/react";
+import { toast } from "@/components/ui/use-toast";
 
 const HomePage = () => {
   const session = useSession();
@@ -64,6 +65,13 @@ const HomePage = () => {
           data: { cart, userId: user.id },
         }),
       });
+      console.log(res);
+      if (!res.ok) {
+        toast({
+          description: "cannot upload cart on db",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       console.log(error);
     }

@@ -24,7 +24,6 @@ model Order {
 
 model Product {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
-  productId String? @db.ObjectId
   name String
   price Float
   slug String

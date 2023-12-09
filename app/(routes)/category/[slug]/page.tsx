@@ -1,6 +1,5 @@
 "use client";
 
-// import { getProducts as products } from "@/app/getData/getProducts";
 import { getCategories as categories } from "@/app/getData/getCategories";
 import { redirect, usePathname } from "next/navigation";
 import { Product } from "@/app/components/Product/Product";

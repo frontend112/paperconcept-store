@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prisma from "@/prisma";
-import { Prisma } from "@prisma/client";
 export const POST = async (req: Request) => {
   try {
     const {
@@ -13,11 +12,33 @@ export const POST = async (req: Request) => {
       },
     });
 
-    const res = await prisma.order.upsert({
+    if (!prevOrders) {
+      const currentOrder = await prisma.order.create({
+        data: {
+          cart,
+          userId,
+        },
+      });
+      if (currentOrder) {
+        return NextResponse.json({
+          message: "added new order",
+          status: 201,
+        });
+      }
+    }
+
+    const currentOrder = await prisma.order.upsert({
       where: { userId, id: prevOrders?.id },
       update: { cart },
-      create: { userId, cart },
+      create: { userId, cart, id: userId },
     });
+
+    if (!currentOrder) {
+      return NextResponse.json({
+        message: "cannot add new order",
+        status: 500,
+      });
+    }
 
     return NextResponse.json({
       message: "added new order",
