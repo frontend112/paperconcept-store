@@ -2,15 +2,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { redirect, usePathname } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { getProducts as products } from "@/app/getData/getProducts";
+// import { getProducts as products } from "@/app/getData/getProducts";
 import { addProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import cn from "classnames";
+import { ProductContext } from "@/app/Providers";
 
 const Page = () => {
+  const products = useContext(ProductContext);
+  console.log(products, "productpage");
   const pathname = usePathname().replace("/product-page/", "");
 
   const recentProduct = products.find(

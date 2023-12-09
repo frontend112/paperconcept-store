@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReduxProvider } from "./GlobalRedux/provider";
-import { AuthProvider } from "./Providers";
+import { AuthProvider, ProductsProvider } from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="pl">
       <body className={inter.className}>
         <AuthProvider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <ReduxProvider>
+            <ProductsProvider>{children}</ProductsProvider>
+          </ReduxProvider>
         </AuthProvider>
       </body>
     </html>

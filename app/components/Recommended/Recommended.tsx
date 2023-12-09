@@ -5,7 +5,7 @@ import { DIRECTIONS } from "@/app/types/types";
 
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
-import { ProductContext } from "@/app/page";
+import { ProductContext } from "@/app/Providers";
 
 export const Recommended = ({
   isArrowhidden,
@@ -15,7 +15,6 @@ export const Recommended = ({
   isRanimationStop: boolean;
 }) => {
   const products = useContext(ProductContext);
-  console.log(products);
   const productAmount = 4;
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
