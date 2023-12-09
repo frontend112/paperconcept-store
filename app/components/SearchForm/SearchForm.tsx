@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -8,8 +8,9 @@ import { ProductType } from "@/app/types/types";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { useRouter } from "next/navigation";
-
+import { ProductContext } from "@/app/page";
 export const SearchForm = () => {
+  const products = useContext(ProductContext);
   const [searchInput, setSearchinput] = useState("");
   const [foundProducts, setFoundproducts] = useState<ProductType[]>([]);
   const router = useRouter();
@@ -23,7 +24,7 @@ export const SearchForm = () => {
     const { value } = e.target;
     setSearchinput(value);
     value.trim().length > 0
-      ? setFoundproducts(getProductsByInput(e.target.value))
+      ? setFoundproducts(getProductsByInput(e.target.value, products))
       : setFoundproducts([]);
   };
   const clearFoundProducts = () => {

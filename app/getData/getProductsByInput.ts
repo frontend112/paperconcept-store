@@ -1,6 +1,6 @@
-import { getProducts as products } from "./getProducts";
+import { ProductType } from "../types/types";
 
-export const getProductsByInput = (input: string) =>
+export const getProductsByInput = (input: string, products: ProductType[]) =>
   products.filter(({ name }) => {
     if (input.length === 0) {
       return false;

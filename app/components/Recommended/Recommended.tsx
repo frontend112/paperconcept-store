@@ -1,10 +1,11 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 
 import { DIRECTIONS } from "@/app/types/types";
-import { getProducts as products } from "@/app/getData/getProducts";
+
 import { Product } from "../Product/Product";
 import { Arrow } from "../Arrow/Arrow";
+import { ProductContext } from "@/app/page";
 
 export const Recommended = ({
   isArrowhidden,
@@ -13,11 +14,18 @@ export const Recommended = ({
   isArrowhidden: boolean;
   isRanimationStop: boolean;
 }) => {
+  const products = useContext(ProductContext);
+  console.log(products);
   const productAmount = 4;
   const [counter, setCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const maxProductPosition = products.length - 2 * productAmount;
   const productsEl = useRef<HTMLDivElement>(null);
+  const visibleProducts = products.filter((_, index) => {
+    if (index >= counter && index < counter + productAmount) {
+      return true;
+    }
+  });
 
   const interval = setInterval(() => {
     changeCounter(DIRECTIONS.RIGHT);
@@ -85,15 +93,9 @@ export const Recommended = ({
         &lt;
       </Arrow>
       <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
-        {Array.from({ length: productAmount }, (_, i) => i).map((el) => (
-          <div key={counter + el}>
-            <Product
-              id={(counter + el).toString()}
-              name={products[counter + el].name}
-              price={products[counter + el].price}
-              src={products[counter + el].src}
-              slug={products[counter + el].slug}
-            />
+        {visibleProducts.map(({ id, name, price, slug, src }) => (
+          <div key={id}>
+            <Product id={id} name={name} price={price} src={src} slug={slug} />
           </div>
         ))}
       </div>

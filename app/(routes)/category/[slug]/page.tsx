@@ -1,6 +1,6 @@
 "use client";
 
-import { getProducts as products } from "@/app/getData/getProducts";
+// import { getProducts as products } from "@/app/getData/getProducts";
 import { getCategories as categories } from "@/app/getData/getCategories";
 import { redirect, usePathname } from "next/navigation";
 import { Product } from "@/app/components/Product/Product";
@@ -17,15 +17,15 @@ const Category = () => {
     redirect("/");
   }
 
-  const currentProducts = products?.filter(
-    (product) => product.slug === currentCategory
-  );
+  // const currentProducts = products?.filter(
+  //   (product) => product.slug === currentCategory
+  // );
 
   return (
     <>
-      {currentProducts?.map((product) => (
+      {/* {currentProducts?.map((product) => (
         <Product key={product.id} {...product} />
-      ))}
+      ))} */}
     </>
   );
 };

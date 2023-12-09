@@ -14,7 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
 import { useSession } from "next-auth/react";
-import { toast } from "@/components/ui/use-toast";
+import { createContext } from "react";
+export const ProductContext = createContext<ProductType[]>([]);
 
 const HomePage = () => {
   const session = useSession();
@@ -28,6 +29,8 @@ const HomePage = () => {
   });
 
   const [isRanimationStop, setIsRanimationStop] = useState(true);
+
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   const changeBg = (direction: DIRECTIONS) => {
     setBganimationDetails({ direction, isActive: true });
@@ -67,6 +70,23 @@ const HomePage = () => {
     }
   }, [productCart, session]);
 
+  const importProducts = async () => {
+    const res = await fetch("api/getProducts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.ok) {
+      const { data } = await res.json();
+      setProducts(data);
+    }
+  };
+
+  useEffect(() => {
+    importProducts();
+  }, []);
+
   useEffect(() => {
     const savedCart: ProductType[] = JSON.parse(
       localStorage.getItem("cart") || "{}"
@@ -91,65 +111,67 @@ const HomePage = () => {
       onMouseEnter={() => setIsRanimationStop(false)}
     >
       <DeliveryInfo />
-      <header
-        className={cn(
-          "header",
-          "relative",
-          "w-full",
-          "bg-cover",
-          "bg-center",
-          "overflow-x-hidden"
-        )}
-      >
-        <Menu
-          className={ExtraClassNames.TRANSPARENT}
-          setIsarrowhidden={setIsarrowhidden}
-        />
-        <Backgrounds
-          bgCount={bgCount}
-          bgAnimationDetails={bgAnimationDetails}
-          isArrowHidden={isArrowHidden}
-        />
-
-        <div className="pt-[calc(50%-40px)] px-16">
-          <Arrow
-            direction={DIRECTIONS.LEFT}
-            handleArrowClick={changeBg}
-            isLoading={bgAnimationDetails.isActive}
-            isArrowhidden={isArrowHidden}
-          >
-            &lt;
-          </Arrow>
-
-          <Arrow
-            direction={DIRECTIONS.RIGHT}
-            handleArrowClick={changeBg}
-            isLoading={bgAnimationDetails.isActive}
-            isArrowhidden={isArrowHidden}
-          >
-            &gt;
-          </Arrow>
-        </div>
-      </header>
-      <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
-        <article>
-          <h1 className="text-4xl font-semibold py-20">
-            PaperConcept to sklep plastyczny pełen produktów
-            <br />
-            najlepszych marek.
-          </h1>
-        </article>
-        <article
-          onMouseEnter={() => setIsRanimationStop(true)}
-          onMouseLeave={() => setIsRanimationStop(false)}
+      <ProductContext.Provider value={products}>
+        <header
+          className={cn(
+            "header",
+            "relative",
+            "w-full",
+            "bg-cover",
+            "bg-center",
+            "overflow-x-hidden"
+          )}
         >
-          <h3 className="font-semibold py-10">Polecane produkty:</h3>
-          <Recommended
-            isArrowhidden={isArrowHidden}
-            isRanimationStop={isRanimationStop}
+          <Menu
+            className={ExtraClassNames.TRANSPARENT}
+            setIsarrowhidden={setIsarrowhidden}
           />
-        </article>
-      </section>
+          <Backgrounds
+            bgCount={bgCount}
+            bgAnimationDetails={bgAnimationDetails}
+            isArrowHidden={isArrowHidden}
+          />
+
+          <div className="pt-[calc(50%-40px)] px-16">
+            <Arrow
+              direction={DIRECTIONS.LEFT}
+              handleArrowClick={changeBg}
+              isLoading={bgAnimationDetails.isActive}
+              isArrowhidden={isArrowHidden}
+            >
+              &lt;
+            </Arrow>
+
+            <Arrow
+              direction={DIRECTIONS.RIGHT}
+              handleArrowClick={changeBg}
+              isLoading={bgAnimationDetails.isActive}
+              isArrowhidden={isArrowHidden}
+            >
+              &gt;
+            </Arrow>
+          </div>
+        </header>
+        <section className="flex flex-col mx-4 lg:mx-[5%] lg:px-10">
+          <article>
+            <h1 className="text-4xl font-semibold py-20">
+              PaperConcept to sklep plastyczny pełen produktów
+              <br />
+              najlepszych marek.
+            </h1>
+          </article>
+          <article
+            onMouseEnter={() => setIsRanimationStop(true)}
+            onMouseLeave={() => setIsRanimationStop(false)}
+          >
+            <h3 className="font-semibold py-10">Polecane produkty:</h3>
+            <Recommended
+              isArrowhidden={isArrowHidden}
+              isRanimationStop={isRanimationStop}
+            />
+          </article>
+        </section>
+      </ProductContext.Provider>
     </main>
   );
 };
