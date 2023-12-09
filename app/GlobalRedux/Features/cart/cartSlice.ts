@@ -19,12 +19,13 @@ export const cartSlice = createSlice({
         const withoutDuplicated = state.filter(
           (product) => product.id !== duplicated.id
         );
-        return [
+        const newProducts = [
           ...withoutDuplicated,
           { ...action.payload, quantity: totalQuantity },
         ];
+        localStorage.setItem("cart", JSON.stringify(newProducts));
+        return newProducts;
       }
-
       const newProducts = [...state, action.payload];
       localStorage.setItem("cart", JSON.stringify(newProducts));
       return newProducts;

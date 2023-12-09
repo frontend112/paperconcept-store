@@ -92,9 +92,9 @@ export const Recommended = ({
         &lt;
       </Arrow>
       <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4`} ref={productsEl}>
-        {visibleProducts.map(({ id, name, price, slug, src }) => (
-          <div key={id}>
-            <Product id={id} name={name} price={price} src={src} slug={slug} />
+        {visibleProducts.map((product) => (
+          <div key={product.id}>
+            <Product {...product} />
           </div>
         ))}
       </div>
