@@ -53,18 +53,21 @@ const HomePage = () => {
 
   const updateOrder = useCallback(async () => {
     try {
-      const userId: any = session?.data;
+      const user: any = session?.data;
+      const cart = localStorage.getItem("cart");
       const res = await fetch("/api/updateOrder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ data: { productCart, userId } }),
+        body: JSON.stringify({
+          data: { cart, userId: user.id },
+        }),
       });
     } catch (error) {
       console.log(error);
     }
-  }, [productCart, session]);
+  }, [session]);
 
   useEffect(() => {
     const savedCart: ProductType[] = JSON.parse(

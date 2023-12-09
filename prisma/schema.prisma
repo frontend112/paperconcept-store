@@ -18,16 +18,13 @@ model User {
 
 model Order {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  price Float
-  slug String
-  src String
-  quantity Int
-  category String
+  userId String
+  cart String
 }
 
 model Product {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
+  productId String? @db.ObjectId
   name String
   price Float
   slug String

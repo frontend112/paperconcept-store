@@ -1,22 +1,26 @@
 import { NextResponse } from "next/server";
 import prisma from "@/prisma";
+import { Prisma } from "@prisma/client";
 export const POST = async (req: Request) => {
   try {
     const {
-      data: { productCart },
+      data: { userId, cart },
     } = await req.json();
 
-    console.log(productCart);
-
-    // console.log(productCart);
-    await prisma.order.create({
-      data: {
-        ...productCart[0],
+    const prevOrders = await prisma.order.findFirst({
+      where: {
+        userId,
       },
     });
 
+    const res = await prisma.order.upsert({
+      where: { userId, id: prevOrders?.id },
+      update: { cart },
+      create: { userId, cart },
+    });
+
     return NextResponse.json({
-      message: "updated",
+      message: "added new order",
       status: 201,
     });
   } catch (error) {

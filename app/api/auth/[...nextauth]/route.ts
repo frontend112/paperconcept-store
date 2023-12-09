@@ -52,8 +52,8 @@ const authOptions: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      const fullName = token.fullName;
-      return { ...session, fullName };
+      const { fullName, id } = token;
+      return { ...session, fullName, id };
     },
   },
 };
