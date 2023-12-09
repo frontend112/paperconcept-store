@@ -22,7 +22,8 @@ model Order {
   price Float
   slug String
   src String
-  quantity Float
+  quantity Int
+  category String
 }
 
 model Product {

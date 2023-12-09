@@ -59,7 +59,7 @@ const HomePage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ req: { productCart, userId } }),
+        body: JSON.stringify({ data: { productCart, userId } }),
       });
     } catch (error) {
       console.log(error);
