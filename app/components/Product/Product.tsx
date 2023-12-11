@@ -8,7 +8,8 @@ import { addProduct } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
 import cn from "classnames";
 
-export const Product = ({ name, price, src, id, slug }: ProductType) => {
+export const Product = (product: ProductType) => {
+  const { id, name, price, slug, src } = product;
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
 
@@ -38,11 +39,7 @@ export const Product = ({ name, price, src, id, slug }: ProductType) => {
             onClick={() => {
               dispatch(
                 addProduct({
-                  name,
-                  price,
-                  src,
-                  id,
-                  slug,
+                  ...product,
                   quantity,
                 })
               );

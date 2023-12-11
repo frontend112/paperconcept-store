@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const Backgrounds = ({
   bgCount,
-  animationsDetails: { direction, isActive },
+  bgAnimationDetails: { direction, isActive },
 }: BackgroundsProps) => {
   const prevImage = bgCount <= 0 ? bgImages.length - 1 : bgCount - 1;
   const nextImage = bgCount >= bgImages.length - 1 ? 0 : bgCount + 1;

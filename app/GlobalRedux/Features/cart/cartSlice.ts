@@ -19,32 +19,51 @@ export const cartSlice = createSlice({
         const withoutDuplicated = state.filter(
           (product) => product.id !== duplicated.id
         );
-
-        return [
+        const newProducts = [
           ...withoutDuplicated,
           { ...action.payload, quantity: totalQuantity },
         ];
+        localStorage.setItem("cart", JSON.stringify(newProducts));
+        return newProducts;
       }
-
-      return [...state, action.payload];
+      const newProducts = [...state, action.payload];
+      localStorage.setItem("cart", JSON.stringify(newProducts));
+      return newProducts;
     },
-    removeProduct: (state, action) =>
-      state.filter((product) => action.payload.id !== product.id),
-    increaseQuantity: (state, action) =>
-      [...state].map((product) => {
+
+    removeProduct: (state, action) => {
+      const newProducts = state.filter(
+        (product) => action.payload.id !== product.id
+      );
+      localStorage.setItem("cart", JSON.stringify(newProducts));
+      return newProducts;
+    },
+
+    increaseQuantity: (state, action) => {
+      const newProducts = [...state].map((product) => {
         if (product.id === action.payload.id) {
           return { ...product, quantity: product.quantity + 1 };
         }
         return product;
-      }),
-    decreaseQuantity: (state, action) =>
-      [...state].map((product) => {
+      });
+      localStorage.setItem("cart", JSON.stringify(newProducts));
+      return newProducts;
+    },
+
+    decreaseQuantity: (state, action) => {
+      const newProducts = [...state].map((product) => {
         if (product.id === action.payload.id) {
           return { ...product, quantity: product.quantity - 1 };
         }
         return product;
-      }),
-    clearCart: () => [],
+      });
+      localStorage.setItem("cart", JSON.stringify(newProducts));
+      return newProducts;
+    },
+    clearCart: () => {
+      localStorage.clear();
+      return [];
+    },
   },
 });
 

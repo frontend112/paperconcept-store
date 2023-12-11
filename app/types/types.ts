@@ -25,7 +25,7 @@ export interface BackgroundType {
 export interface BackgroundsProps {
   bgCount: number;
   isArrowHidden: boolean;
-  animationsDetails: {
+  bgAnimationDetails: {
     direction: DIRECTIONS;
     isActive: Boolean;
   };
@@ -35,8 +35,8 @@ export interface ProductType {
   name: string;
   price: number;
   src: string;
-  id: string;
   slug: string;
+  id: string;
 }
 
 export interface AddedProduct extends ProductType {

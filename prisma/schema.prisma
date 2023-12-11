@@ -15,3 +15,18 @@ model User {
   hashedPassword String
   fullName    String
 }
+
+model Order {
+  id String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+  cart String
+}
+
+model Product {
+  id String  @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  price Float
+  slug String
+  src String
+  category String
+}

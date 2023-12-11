@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import cn from "classnames";
 
 import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
@@ -13,27 +13,27 @@ import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
+import { useSession } from "next-auth/react";
+import { UpdateOrder } from "@/app/components/UpdateOrder/UpdateOrder";
 
 const HomePage = () => {
+  const session = useSession();
   const [bgCount, setBgcount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
   const productCart = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
   const [isArrowHidden, setIsarrowhidden] = useState(false);
-  const [isAnimationsstopped, setIsanimationsstopped] = useState(true);
-
-  const [animationsDetails, setAnimationsDetails] = useState({
+  const [bgAnimationDetails, setBganimationDetails] = useState({
     direction: DIRECTIONS.UNKNOWN,
     isActive: false,
   });
 
+  const [isRanimationStop, setIsRanimationStop] = useState(true);
+
   const changeBg = (direction: DIRECTIONS) => {
-    setIsLoading(true);
-    setAnimationsDetails({ direction, isActive: true });
+    setBganimationDetails({ direction, isActive: true });
 
     setTimeout(() => {
-      setIsLoading(false);
-      setAnimationsDetails({ direction, isActive: false });
+      setBganimationDetails({ direction, isActive: false });
 
       if (direction === DIRECTIONS.LEFT && bgCount <= 0) {
         setBgcount(bgImages.length - 1);
@@ -52,6 +52,31 @@ const HomePage = () => {
     }, 500);
   };
 
+  // const updateOrder = useCallback(async () => {
+  //   try {
+  //     const user: any = session?.data;
+  //     const cart = localStorage.getItem("cart");
+  //     const res = await fetch("/api/updateOrder", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         data: { cart, userId: user.id },
+  //       }),
+  //     });
+  //     console.log(res);
+  //     if (!res.ok) {
+  //       toast({
+  //         description: "cannot upload cart on db",
+  //         variant: "destructive",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [session]);
+
   useEffect(() => {
     const savedCart: ProductType[] = JSON.parse(
       localStorage.getItem("cart") || "{}"
@@ -61,18 +86,21 @@ const HomePage = () => {
         dispatch(addProduct(key));
       }
     }
-  }, [dispatch, productCart]);
+  }, [dispatch, productCart, session]);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(productCart));
-  }, [productCart]);
+  // useEffect(() => {
+  //   if (session?.data?.user) {
+  //     updateOrder();
+  //   }
+  // }, [session, updateOrder, productCart]);
 
   return (
     <main
       className="min-h-screen overflow-auto"
-      onMouseLeave={() => setIsanimationsstopped(true)}
-      onMouseEnter={() => setIsanimationsstopped(false)}
+      onMouseLeave={() => setIsRanimationStop(true)}
+      onMouseEnter={() => setIsRanimationStop(false)}
     >
+      <UpdateOrder />
       <DeliveryInfo />
       <header
         className={cn(
@@ -90,7 +118,7 @@ const HomePage = () => {
         />
         <Backgrounds
           bgCount={bgCount}
-          animationsDetails={animationsDetails}
+          bgAnimationDetails={bgAnimationDetails}
           isArrowHidden={isArrowHidden}
         />
 
@@ -98,7 +126,7 @@ const HomePage = () => {
           <Arrow
             direction={DIRECTIONS.LEFT}
             handleArrowClick={changeBg}
-            isLoading={isLoading}
+            isLoading={bgAnimationDetails.isActive}
             isArrowhidden={isArrowHidden}
           >
             &lt;
@@ -107,7 +135,7 @@ const HomePage = () => {
           <Arrow
             direction={DIRECTIONS.RIGHT}
             handleArrowClick={changeBg}
-            isLoading={isLoading}
+            isLoading={bgAnimationDetails.isActive}
             isArrowhidden={isArrowHidden}
           >
             &gt;
@@ -123,13 +151,13 @@ const HomePage = () => {
           </h1>
         </article>
         <article
-          onMouseEnter={() => setIsanimationsstopped(true)}
-          onMouseLeave={() => setIsanimationsstopped(false)}
+          onMouseEnter={() => setIsRanimationStop(true)}
+          onMouseLeave={() => setIsRanimationStop(false)}
         >
           <h3 className="font-semibold py-10">Polecane produkty:</h3>
           <Recommended
             isArrowhidden={isArrowHidden}
-            isAnimationsstopped={isAnimationsstopped}
+            isRanimationStop={isRanimationStop}
           />
         </article>
       </section>

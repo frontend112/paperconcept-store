@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useRef, useState } from "react";
 import Link from "next/link";
 
 import { MenuDevicesProps, ProductType } from "@/app/types/types";
@@ -14,11 +14,13 @@ import { FoundedProducts } from "../FoundedProducts/FoundedProducts";
 import { SearchIcon } from "../SearchIcon/SearchIcon";
 import { getProductsByInput } from "@/app/getData/getProductsByInput";
 import { useRouter } from "next/navigation";
+import { ProductContext } from "@/app/ProductsProvider";
 
 export const MobileMenu = ({
   handleCartClick,
   setIsarrowhidden,
 }: MenuDevicesProps) => {
+  const products = useContext(ProductContext);
   const categoriesElement = useRef<HTMLElement>(null);
   const formElement = useRef<HTMLFormElement>(null);
   const [searchInput, setSearchinput] = useState("");
@@ -38,7 +40,7 @@ export const MobileMenu = ({
     const { value } = e.target;
     setSearchinput(value);
     value
-      ? setFoundproducts(getProductsByInput(e.target.value))
+      ? setFoundproducts(getProductsByInput(e.target.value, products))
       : setFoundproducts([]);
   };
   const clearFoundProducts = () => {

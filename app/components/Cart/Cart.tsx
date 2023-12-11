@@ -56,16 +56,8 @@ export const Cart = ({ isCartHidden, cartELement, handleCartClick }: Props) => {
         <hr />
         {cartProducts.length > 0 ? (
           <ul className="p-4">
-            {cartProducts.map(({ id, name, price, src, quantity, slug }) => (
-              <CartProduct
-                id={id}
-                name={name}
-                price={price}
-                src={src}
-                quantity={quantity}
-                key={id}
-                slug={slug}
-              />
+            {cartProducts.map((product) => (
+              <CartProduct {...product} key={product.id} />
             ))}
           </ul>
         ) : (

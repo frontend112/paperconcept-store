@@ -11,20 +11,11 @@ import {
   increaseQuantity,
 } from "@/app/GlobalRedux/Features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
-import { ProductType } from "@/app/types/types";
 
 const Page = () => {
   const dispatch = useDispatch();
 
   const handleRemoveproduct = (id: string) => {
-    const storedCart: ProductType[] = JSON.parse(
-      localStorage.getItem("cart") || "{}"
-    );
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(storedCart.filter((el) => el.id !== id))
-    );
-
     dispatch(removeProduct({ id }));
   };
 
