@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
 import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
 import { useSession } from "next-auth/react";
-import { toast } from "@/components/ui/use-toast";
+import { UpdateOrder } from "@/app/components/UpdateOrder/UpdateOrder";
 
 const HomePage = () => {
   const session = useSession();
@@ -52,30 +52,30 @@ const HomePage = () => {
     }, 500);
   };
 
-  const updateOrder = useCallback(async () => {
-    try {
-      const user: any = session?.data;
-      const cart = localStorage.getItem("cart");
-      const res = await fetch("/api/updateOrder", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: { cart, userId: user.id },
-        }),
-      });
-      console.log(res);
-      if (!res.ok) {
-        toast({
-          description: "cannot upload cart on db",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [session]);
+  // const updateOrder = useCallback(async () => {
+  //   try {
+  //     const user: any = session?.data;
+  //     const cart = localStorage.getItem("cart");
+  //     const res = await fetch("/api/updateOrder", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         data: { cart, userId: user.id },
+  //       }),
+  //     });
+  //     console.log(res);
+  //     if (!res.ok) {
+  //       toast({
+  //         description: "cannot upload cart on db",
+  //         variant: "destructive",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [session]);
 
   useEffect(() => {
     const savedCart: ProductType[] = JSON.parse(
@@ -88,11 +88,11 @@ const HomePage = () => {
     }
   }, [dispatch, productCart, session]);
 
-  useEffect(() => {
-    if (session?.data?.user) {
-      updateOrder();
-    }
-  }, [session, updateOrder]);
+  // useEffect(() => {
+  //   if (session?.data?.user) {
+  //     updateOrder();
+  //   }
+  // }, [session, updateOrder, productCart]);
 
   return (
     <main
@@ -100,6 +100,7 @@ const HomePage = () => {
       onMouseLeave={() => setIsRanimationStop(true)}
       onMouseEnter={() => setIsRanimationStop(false)}
     >
+      <UpdateOrder />
       <DeliveryInfo />
       <header
         className={cn(

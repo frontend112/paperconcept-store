@@ -1,31 +1,16 @@
 "use client";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { Menu } from "../components/Menu/Menu";
 import { DeliveryInfo } from "../components/DeliveryInfo/DeliveryInfo";
 import { Toaster } from "@/components/ui/toaster";
-import { ProductType } from "../types/types";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../GlobalRedux/store";
-import { addProduct } from "../GlobalRedux/Features/cart/cartSlice";
+import { UpdateOrder } from "@/app/components/UpdateOrder/UpdateOrder";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const [_, setIsarrowhidden] = useState(true);
-  const productCart = useSelector((state: RootState) => state.products);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(
-      localStorage.getItem("cart") || "{}"
-    );
-    if (savedCart.length > 0 && productCart.length === 0) {
-      for (const key of savedCart) {
-        dispatch(addProduct(key));
-      }
-    }
-  }, [dispatch, productCart]);
 
   return (
     <div className="relative">
+      <UpdateOrder />
       <DeliveryInfo />
       <Menu setIsarrowhidden={setIsarrowhidden} />
       <Toaster />

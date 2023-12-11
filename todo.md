@@ -11,3 +11,5 @@ https://www.youtube.com/watch?v=57099pou7iE&list=PLlR2O33QQkfVz-OnrzNTujZD7a-bdo
 add profile that will contain address
 
 add other provider for main layout and pass there products
+
+cart should be correctly updated on every page
