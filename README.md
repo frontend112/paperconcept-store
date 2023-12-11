@@ -49,7 +49,7 @@
   <li><b>Logo</b> - force refresh on click and go to homepage</li>
   <li><b>Recommended</b> - auto changing group of products on hover stop animations</li>
   <li><b>SearchForm</b> - find products related to searched input, on submit show these products on `/submit-search/${searchInput}`</li>
-  <li><b>Cart</b> - after click on cart located at top right corner we can see added cart component CartProduct contains single product, if user is signed in add this products to database so products would be added after login from different device</li>
+  <li><b>Cart</b> - after click on cart located at top right corner we can see added cart component <b>CartProduct</b> if user is signed in add these products to database so products would be added after login from different device</li>
 </ul>
 
 <h2 id="routes">routes</h2>
@@ -58,9 +58,9 @@
   <li>other routes located in folder app/(routes)</li>
   <li>handle fake checkout: app/api/checkout/</li>
   <li>handle login: app/api/auth/[...nextauth]</li>
-  <li>check if email already existed if no register: app/api/register</li>
+  <li>check if email already existed if no then register that user: app/api/register then redirect to login page</li> 
   <li>product-page/[slug] every product has following directory
-   /{id}-{slug}
+   /{id}-{slug} 
    slug is category name but without special characters and polish letters
   </li>
   <li>sign-up - registration page</li>
