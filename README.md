@@ -41,10 +41,10 @@
 <ul>
   <li><b>AuthProvider</b> gives info about logged user</li>
   <li><b>ProductsProvider</b> get products from mongodb and pass down to components</li>
-  <li><b>Backgrounds</b> - home backgrounds on click smooth animation</li>
-  <li><b>Arrow</b> - component for white and left arrow - changing backgrounds on click for homepage and Recommended products</li>
   <li><b>DeliveryInfo</b> - black stripe on top page</li>
-  <li><b>GlobalRedux</b> - add products to cart / increase quantity / remove product</li>
+  <li><b>Backgrounds</b> - home categories with full screen background</li>
+  <li><b>Arrow</b> - component for white and left arrow - changing backgrounds / recommended products</li>
+  <li><b>GlobalRedux</b> - add products to cart / change quantity / remove product / clear products</li>
   <li><b>Menu</b> - main inside Menu.tsx, wheather it is Desktop or mobile go to related file</li>
   <li><b>Logo</b> - force refresh on click and go to homepage</li>
   <li><b>Recommended</b> - auto changing group of products on hover stop animations</li>
@@ -63,6 +63,6 @@
    /{id}-{slug}
    slug is category name but without special characters and polish letters
   </li>
-  <li>sign-up - login page</li>
-  <li>sign-in - registration page</li>
+  <li>sign-up - registration page</li>
+  <li>sign-in - login page</li>
 </ul>
