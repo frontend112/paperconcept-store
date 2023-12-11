@@ -39,17 +39,17 @@
 
 <h2 id="components">components:</h2>
 <ul>
-  <li><AuthProvider/> gives info about logged user</li>
-  <li><ProductsProvider/> get products from mongodb and pass down to components</li>
-  <li><Backgrounds/> - home backgrounds on click smooth animation</li>
-  <li><Arrow/> - component for white and left arrow - changing backgrounds on click for homepage and Recommended products</li>
-  <li><DeliveryInfo/> - black stripe on top page</li>
-  <li><GlobalRedux/> - add products to cart / increase quantity / remove product</li>
-  <li><Menu> - main inside Menu.tsx, wheather it is Desktop or mobile go to related file</li>
-  <li><Logo/> - force refresh on click and go to homepage</li>
-  <li><Recommended/> - auto changing group of products on hover stop animations</li>
-  <li><SearchForm/> - find products related to searched input, on submit show these products on `/submit-search/${searchInput}`</li>
-  <li><Cart/> - after click on cart located at top right corner we can see added cart component </CartProduct> contains single product, if user is signed in add this products to database so products would be added after login from different device</li>
+  <li><b>AuthProvider</b> gives info about logged user</li>
+  <li><b>ProductsProvider</b> get products from mongodb and pass down to components</li>
+  <li><b>Backgrounds</b> - home backgrounds on click smooth animation</li>
+  <li><b>Arrow</b> - component for white and left arrow - changing backgrounds on click for homepage and Recommended products</li>
+  <li><b>DeliveryInfo</b> - black stripe on top page</li>
+  <li><b>GlobalRedux</b> - add products to cart / increase quantity / remove product</li>
+  <li><b>Menu</b> - main inside Menu.tsx, wheather it is Desktop or mobile go to related file</li>
+  <li><b>Logo</b> - force refresh on click and go to homepage</li>
+  <li><b>Recommended</b> - auto changing group of products on hover stop animations</li>
+  <li><b>SearchForm</b> - find products related to searched input, on submit show these products on `/submit-search/${searchInput}`</li>
+  <li><b>Cart</b> - after click on cart located at top right corner we can see added cart component CartProduct contains single product, if user is signed in add this products to database so products would be added after login from different device</li>
 </ul>
 
 <h2 id="routes">routes</h2>
