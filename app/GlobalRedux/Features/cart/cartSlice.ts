@@ -1,6 +1,6 @@
 "use client";
 
-import { AddedProduct } from "@/app/types/types";
+import { AddedProduct, ProductType } from "@/app/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: AddedProduct[] = [];
@@ -64,6 +64,7 @@ export const cartSlice = createSlice({
       localStorage.clear();
       return [];
     },
+    getCart: () => JSON.parse(localStorage.getItem("cart") || "{}"),
   },
 });
 
@@ -73,6 +74,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   clearCart,
+  getCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
