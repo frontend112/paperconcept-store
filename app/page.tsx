@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import cn from "classnames";
 
-import { DIRECTIONS, ExtraClassNames, ProductType } from "./types/types";
+import { DIRECTIONS, ExtraClassNames } from "./types/types";
 import { bgImages } from "./components/Backgrounds/bgImages";
 import { Menu } from "./components/Menu/Menu";
 import { Backgrounds } from "./components/Backgrounds/Backgrounds";
@@ -12,7 +12,7 @@ import { Recommended } from "./components/Recommended/Recommended";
 import { DeliveryInfo } from "./components/DeliveryInfo/DeliveryInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./GlobalRedux/store";
-import { addProduct } from "./GlobalRedux/Features/cart/cartSlice";
+import { addProduct, getCart } from "./GlobalRedux/Features/cart/cartSlice";
 import { useSession } from "next-auth/react";
 import { UpdateOrder } from "@/app/components/UpdateOrder/UpdateOrder";
 
@@ -52,47 +52,9 @@ const HomePage = () => {
     }, 500);
   };
 
-  // const updateOrder = useCallback(async () => {
-  //   try {
-  //     const user: any = session?.data;
-  //     const cart = localStorage.getItem("cart");
-  //     const res = await fetch("/api/updateOrder", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         data: { cart, userId: user.id },
-  //       }),
-  //     });
-  //     console.log(res);
-  //     if (!res.ok) {
-  //       toast({
-  //         description: "cannot upload cart on db",
-  //         variant: "destructive",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [session]);
-
   useEffect(() => {
-    const savedCart: ProductType[] = JSON.parse(
-      localStorage.getItem("cart") || "{}"
-    );
-    if (savedCart.length > 0 && productCart.length === 0) {
-      for (const key of savedCart) {
-        dispatch(addProduct(key));
-      }
-    }
-  }, [dispatch, productCart, session]);
-
-  // useEffect(() => {
-  //   if (session?.data?.user) {
-  //     updateOrder();
-  //   }
-  // }, [session, updateOrder, productCart]);
+    getCart();
+  }, []);
 
   return (
     <main
