@@ -32,6 +32,7 @@
 <h4>npm i</h4>
 
 <h3>run project:</h3>
+<h3>prisma generate</h3>
 <h4>npm run dev</h4>
 
 <h3>compile sass to css:</h3>
