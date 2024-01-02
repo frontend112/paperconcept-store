@@ -23,7 +23,7 @@
 </ul>
 
 <h2>live:</h2>
-<h3>https://paperconcept-store.vercel.app/</h3>
+<h3>https://paperconcept-store.vercel.app</h3>
 <h3>Page inspired by: https://paperconcept.pl</h3>
 
 <h2 id="useful">useful lines:</h2>
