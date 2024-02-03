@@ -26,17 +26,7 @@
 <h3>https://paperconcept-store.vercel.app</h3>
 <h3>Page inspired by: https://paperconcept.pl</h3>
 
-<h2 id="useful">useful lines:</h2>
-
-<h3>install packages:</h3>
-<h4>npm i</h4>
-
-<h3>run project:</h3>
-<h3>prisma generate</h3>
-<h4>npm run dev</h4>
-
-<h3>compile sass to css:</h3>
-<h4>sass --watch ./app/globals.scss:./app/globals.css</h4>
+<h2>To run this project locally You need environment variables for mongodb, nextAuth</h2>
 
 <h2 id="components">components:</h2>
 <ul>
